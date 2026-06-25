@@ -2,24 +2,28 @@
 import BrandLayout from "../layouts/BrandLayout.astro";
 import site from "../../data/site.json";
 
-const title = `${site.mainKey} Cookies - Cookie-Hinweise`;
-const description = `${site.mainKey} Cookie-Hinweise fur das Brand-Template, inklusive Platzhaltern fur spatere Analytics- oder Consent-Konfiguration.`;
+const title = "Revolut Slots Cookie Policy - Cookie-Hinweise";
+const description = "Revolut Slots Cookie Policy fur das Brand-Template mit Hinweisen zu technischen Cookies, Consent, Analytics-Platzhaltern und externen Links.";
 ---
 
 <BrandLayout title={title} description={description} path="/cookies/" commercial={false}>
   <section class="hero" slot="hero">
-    <div class="hero-inner">
+    <div class="hero-in">
       <div>
-        <p class="eyebrow">Cookies</p>
-        <h1>Cookies</h1>
-        <p class="lead">Diese statische Vorlage setzt keine projektbezogenen Tracking-Cookies, bis sie explizit konfiguriert werden.</p>
+        <p class="eyebrow">Cookie Policy</p>
+        <h1>Cookie Policy</h1>
+        <p class="lead">Diese statische Vorlage setzt keine projektbezogenen Tracking-Cookies, bis ein Consent- oder Analytics-Setup bewusst konfiguriert wird.</p>
       </div>
     </div>
+    <div class="terms">Keine offizielle Revolut Website. 18+ Hinweis und Datenschutzkontext bleiben sichtbar.</div>
   </section>
   <section class="content">
+    <div class="disclosure">{site.independentDisclosure}</div>
     <h2>Technische Cookies</h2>
-    <p>Wenn spater Consent, Analytics oder A/B-Tests aktiviert werden, muss diese Seite angepasst werden.</p>
-    <h2>Externe Anbieter</h2>
-    <p>Externe Zielseiten konnen eigene Cookies setzen. Darauf hat diese Informationsseite keinen Einfluss.</p>
+    <p>Die <a href="/">Revolut Slots Hauptseite</a> ist als statische Informationsseite aufgebaut. Wenn später Session-, Consent-, Security- oder Performance-Cookies genutzt werden, muss diese Cookie Policy konkret erweitert werden.</p>
+    <h2>Analytics und Tests</h2>
+    <p>Analytics, Heatmaps, A/B-Tests oder Affiliate-Tracking dürfen erst nach Freigabe beschrieben und aktiviert werden. Bis dahin bleiben alle Angaben bewusst allgemein.</p>
+    <h2>Externe Zielseiten</h2>
+    <p>Externe Anbieter-, Affiliate- oder Zahlungsseiten können eigene Cookies setzen. Für diese Cookies gelten die Hinweise und Einstellungen des jeweiligen Betreibers.</p>
   </section>
 </BrandLayout>

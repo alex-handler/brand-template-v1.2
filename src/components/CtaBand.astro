@@ -1,14 +1,12 @@
 ---
 import site from "../../data/site.json";
-
-const { compact = false } = Astro.props;
+const { text = "Zur Registrierung", note = site.copy.sourceNote } = Astro.props;
 ---
 
-<aside class:list={["cta-band", compact && "compact"]}>
+<aside class="cta-band">
   <div>
-    <strong>{site.mainKey} sicher einordnen</strong>
-    <p>{site.copy.sourceNote}</p>
+    <b>{site.mainKey}: {text}</b>
+    <p>{note}</p>
   </div>
-  <a href={site.playPath} rel="nofollow">{site.copy.primaryCta}</a>
+  <a class="btn btn-primary" href={site.playPath} rel="nofollow">Registrieren</a>
 </aside>
-

@@ -1,0 +1,23 @@
+{
+  "sourceFolder": "https://drive.google.com/drive/folders/19v8gC41vWzMYOU7jawgIaog1hOzt9e5o",
+  "notes": [
+    "Payment, provider and footer icon files were found in the Drive folder.",
+    "Direct raw download returned Google login HTML, so the production template documents the source IDs and does not generate replacement icons.",
+    "Slot icons used on the site were extracted from the user-provided DrückGlück source URLs under gameRes/sq/200."
+  ],
+  "payments": [
+    { "name": "PayPal", "driveId": "19-zqwyHHkCXGPLpyBDf2gAUgX76w5Cuy" },
+    { "name": "Visa", "driveId": "14qNp6QDEBXjeJP590lf-Robkk1m1gjib" },
+    { "name": "Mastercard", "driveId": "1PBwOjrcl1wevJu6H8gv4DxjNcjM9YqsM" },
+    { "name": "Online Überweisen", "driveId": "1xrX-RQT0sk2GT6wgYeIMD2NVmh2Qku1k" },
+    { "name": "Trustly", "driveId": "1EUtQklbF_iu86b0u1Ko9dnwNarPQbjK3" },
+    { "name": "Paysafecard", "driveId": "1RbYo6lmsdhJlYK2NIyX4_3Vd_kRIORQb" },
+    { "name": "Skrill", "driveId": "1EzfLIEsS3ipFdf7wxqSZFAVUefaRvvQQ" },
+    { "name": "Neteller", "driveId": "1TE9Fc2-_GUZXADEw7-nceG2ndO0CqsZp" }
+  ],
+  "footer": [
+    { "name": "EGBA", "driveId": "19Klnffqd83rl9uhzUOzAANQfRX65klV_" },
+    { "name": "GambleAware", "driveId": "1pKqbllYEnVLsRl5a25mYJEgWaAMFVqfX" },
+    { "name": "GamStop", "driveId": "1aqteKuvXiUIhwAN1O4J5zpn8UiefL294" }
+  ]
+}

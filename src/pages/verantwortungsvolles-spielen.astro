@@ -2,32 +2,34 @@
 import BrandLayout from "../layouts/BrandLayout.astro";
 import site from "../../data/site.json";
 
-const title = `${site.mainKey} verantwortungsvolles Spielen - Risiken und Schutz`;
-const description = `${site.mainKey} Hinweise zu verantwortungsvollem Spielen, Risiken, Limits, Pausen und Hilfeangeboten fur Nutzer in Deutschland.`;
+const title = "Revolut Slots verantwortungsvolles Spielen - Risiken und Schutz";
+const description = "Revolut Slots Responsible-Gambling-Seite mit 18+ Hinweis, Limits, Pausen, Selbstschutz und vorsichtigem Umgang mit Casino- und Sportwetten-Intent.";
 ---
 
 <BrandLayout title={title} description={description} path="/verantwortungsvolles-spielen/" commercial={false}>
   <section class="hero" slot="hero">
-    <div class="hero-inner">
+    <div class="hero-in">
       <div>
-        <p class="eyebrow">Safety</p>
+        <p class="eyebrow">Responsible Gambling</p>
         <h1>Verantwortungsvolles Spielen</h1>
-        <p class="lead">{site.copy.riskNote}</p>
-      </div>
-      <div class="hero-visual">
-        <img src="/shared/brand-visual.svg" alt={`${site.mainKey} verantwortungsvolle Nutzung`} title={`${site.mainKey} Verantwortung`} width="960" height="640" />
+        <p class="lead">{site.copy.riskNote} Diese Seite ist Pflichtbestandteil jeder Brand-Version, auch wenn Bonus-, App- oder Zahlungsangaben noch Platzhalter sind.</p>
       </div>
     </div>
+    <div class="terms">18+ · Spielen Sie nur legal, freiwillig und mit festen Limits.</div>
   </section>
   <section class="content">
+    <div class="disclosure">{site.independentDisclosure}</div>
     <h2>Grundregeln</h2>
+    <p>Die <a href="/">Revolut Slots Hauptseite</a> und alle kommerziellen Unterseiten müssen auf Risiko, Altersgrenze und Quellenpflicht hinweisen. Das gilt besonders bei Revolut casino, Bonus, App und Sportwetten-Intent.</p>
     <ul>
-      <li>Spielen Sie nicht mit Geld, das Sie fur Miete, Rechnungen oder Alltag brauchen.</li>
-      <li>Setzen Sie Limits, bevor Sie ein Konto nutzen.</li>
-      <li>Machen Sie Pausen, wenn Spielen emotional oder finanziell Druck erzeugt.</li>
-      <li>Suchen Sie Hilfe, wenn Kontrolle verloren geht.</li>
+      <li>Spielen Sie nicht mit Geld, das für Miete, Rechnungen oder Alltag gebraucht wird.</li>
+      <li>Setzen Sie Einzahlungs-, Einsatz- und Zeitlimits, bevor Sie ein Konto nutzen.</li>
+      <li>Machen Sie Pausen, wenn Spielen Druck, Ärger oder Kontrollverlust auslöst.</li>
+      <li>Verfolgen Sie Verluste nicht mit höheren Einsätzen.</li>
     </ul>
     <h2>Template-Regel</h2>
-    <p>Jede kommerzielle Brand-Seite muss auf diese Seite verlinken und einen sichtbaren Risiko- oder Alterskontext enthalten.</p>
+    <p>Jede neue Brand-Generierung übernimmt diese Seite unverändert als Sicherheitsanker und ergänzt nur geprüfte lokale Hilfsangebote, sobald sie für das Ziel-GEO freigegeben sind.</p>
+    <h2>Sportwetten und schnelle Entscheidungen</h2>
+    <p>Livewetten, Bonusdruck und mobile Push-Situationen können Entscheidungen beschleunigen. Die Seitenstruktur trennt deshalb App, Bonus, Zahlungen und Sportwetten, damit Nutzer einzelne Risiken klarer sehen.</p>
   </section>
 </BrandLayout>

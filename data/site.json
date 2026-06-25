@@ -1,8 +1,9 @@
 {
   "domain": "brand-template-v1-2.pages.dev",
   "siteUrl": "https://brand-template-v1-2.pages.dev",
-  "brandName": "Revolut Slots",
-  "mainKey": "Revoluts",
+  "brandName": "Revolut",
+  "mainKey": "Revolut Slots",
+  "secondaryKey": "Revolut casino",
   "siteType": "brand",
   "locale": "de-DE",
   "language": "de",
@@ -10,36 +11,38 @@
   "currency": "EUR",
   "affiliateUrl": "https://example.com/affiliate-placeholder",
   "playPath": "/go/",
-  "independentDisclosure": "Diese Website ist ein unabhangiger Informationsleitfaden und keine offizielle Website der genannten Marke.",
+  "independentDisclosure": "Diese Website ist ein unabhängiger Informationsratgeber und keine offizielle Revolut Website.",
   "verifiedFacts": {
     "brandStatus": "unverified-template-placeholder",
     "license": "unresolved",
     "bonus": "unresolved",
     "payments": "unresolved",
     "app": "unresolved",
-    "support": "unresolved"
+    "support": "unresolved",
+    "sportsbook": "unresolved"
   },
   "copy": {
-    "primaryCta": "Zum Anbieter",
+    "primaryCta": "Registrieren",
     "secondaryCta": "Ratgeber lesen",
-    "riskNote": "Glucksspiel kann riskant sein. Spielen Sie nur, wenn dies in Ihrem Land erlaubt ist, und nur ab 18 Jahren.",
-    "sourceNote": "Bonus-, Zahlungs- und Lizenzangaben mussen beim jeweiligen Anbieter gepruft werden."
+    "riskNote": "Glücksspiel kann riskant sein. Spielen Sie nur, wenn dies in Ihrem Land erlaubt ist, und nur ab 18 Jahren.",
+    "sourceNote": "Bonus-, Zahlungs-, Lizenz-, App- und Sportwettenangaben müssen beim jeweiligen Anbieter geprüft werden."
   },
   "navigation": [
-    { "label": "Test", "href": "/" },
-    { "label": "Bonus", "href": "/bonus/" },
+    { "label": "Slots", "href": "/" },
     { "label": "App", "href": "/app/" },
-    { "label": "Zahlungen", "href": "/zahlungen/" },
-    { "label": "Registrierung", "href": "/registrierung/" }
+    { "label": "Bonus", "href": "/bonus/" },
+    { "label": "Registrierung", "href": "/registrierung/" },
+    { "label": "Einzahlung", "href": "/zahlungen/" },
+    { "label": "Sportwetten", "href": "/sportwetten/" }
   ],
   "pages": [
     "/",
-    "/bonus/",
     "/app/",
-    "/zahlungen/",
+    "/bonus/",
     "/registrierung/",
+    "/zahlungen/",
+    "/sportwetten/",
     "/verantwortungsvolles-spielen/",
-    "/ueber-uns/",
     "/datenschutz/",
     "/cookies/"
   ]

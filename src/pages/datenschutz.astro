@@ -2,24 +2,28 @@
 import BrandLayout from "../layouts/BrandLayout.astro";
 import site from "../../data/site.json";
 
-const title = `${site.mainKey} Datenschutz - Informationsseite`;
-const description = `${site.mainKey} Datenschutz-Hinweise fur das Brand-Template mit allgemeiner Information zu Daten, Logs, Cookies und externen Links.`;
+const title = "Revolut Slots Privacy Policy - Datenschutz";
+const description = "Revolut Slots Privacy Policy mit allgemeinen Hinweisen zu Hosting, Logs, Cookies, externen Links und späterer Projektkonfiguration.";
 ---
 
 <BrandLayout title={title} description={description} path="/datenschutz/" commercial={false}>
   <section class="hero" slot="hero">
-    <div class="hero-inner">
+    <div class="hero-in">
       <div>
-        <p class="eyebrow">Privacy</p>
-        <h1>Datenschutz</h1>
-        <p class="lead">Diese Vorlage enthalt allgemeine Datenschutz-Hinweise. Projektbezogene Tracking-, Kontakt- oder Analytics-Daten mussen vor Production erganzt werden.</p>
+        <p class="eyebrow">Privacy Policy</p>
+        <h1>Privacy Policy</h1>
+        <p class="lead">Diese Seite beschreibt die Datenschutzlogik des Templates. Projektbezogene Tracking-, Kontakt- oder Analytics-Daten müssen vor Production ergänzt werden.</p>
       </div>
     </div>
+    <div class="terms">Datenschutzangaben sind Platzhalter, bis die echte Production-Konfiguration feststeht.</div>
   </section>
   <section class="content">
+    <div class="disclosure">{site.independentDisclosure}</div>
     <h2>Allgemeine Daten</h2>
-    <p>Beim Besuch statischer Seiten konnen Server- oder CDN-Logs entstehen. Welche Daten konkret verarbeitet werden, hangt vom Hosting-Setup ab.</p>
-    <h2>Externe Links</h2>
-    <p>Affiliate- oder Anbieterlinks fuhren zu externen Seiten. Dort gelten die Datenschutzregeln des jeweiligen Betreibers.</p>
+    <p>Die <a href="/">Revolut Slots Hauptseite</a> wird als statische Seite für Cloudflare Pages vorbereitet. Beim Besuch können Hosting- oder CDN-Logs entstehen, abhängig von der finalen Konfiguration.</p>
+    <h2>Cookies und externe Links</h2>
+    <p>Cookie- und Trackingdetails werden in der <a href="/cookies/">Cookie Policy</a> gepflegt. Externe Zielseiten, Zahlungsanbieter oder Affiliate-Ziele verarbeiten Daten nach ihren eigenen Regeln.</p>
+    <h2>Keine Konto- oder Zahlungsdaten</h2>
+    <p>Dieses Template sammelt keine Casino-Konto-, Login- oder Zahlungsdaten. Wenn später Formulare, Newsletter oder Tracking eingebaut werden, müssen Zweck, Speicherfrist und Kontaktweg ergänzt werden.</p>
   </section>
 </BrandLayout>

@@ -1,94 +1,173 @@
 {
-  "generatedAt": "2026-06-25T19:02:05.578Z",
+  "generatedAt": "2026-06-25T19:25:50.568Z",
+  "slotCount": 42,
   "results": [
     {
       "path": "/",
-      "words": 652,
-      "title": "Revoluts Test Deutschland - Brand Slots, Bonus, App und Zahlungen",
-      "h1": 1,
-      "h2": 9,
-      "tables": 1,
-      "lists": 1,
-      "failures": []
-    },
-    {
-      "path": "/bonus/",
-      "words": 349,
-      "title": "Revoluts Bonus Deutschland - Promo Code und Freispiele sicher prufen",
+      "words": 624,
+      "title": "Revolut Slots Deutschland - Casino, App, Bonus und Sportwetten",
       "h1": 1,
       "h2": 5,
-      "tables": 1,
-      "lists": 1,
+      "tables": 2,
+      "lists": 0,
+      "slotImages": 42,
+      "schemaTypes": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "Article",
+        "BreadcrumbList",
+        "ItemList"
+      ],
       "failures": []
     },
     {
       "path": "/app/",
-      "words": 332,
-      "title": "Revoluts App Deutschland - Mobile Slots, APK und Sicherheit",
+      "words": 335,
+      "title": "Revolut Slots App Deutschland - Mobile Casino und APK Check",
       "h1": 1,
-      "h2": 6,
-      "tables": 1,
-      "lists": 2,
+      "h2": 3,
+      "tables": 2,
+      "lists": 1,
+      "slotImages": 18,
+      "schemaTypes": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "MobileApplication",
+        "BreadcrumbList",
+        "ItemList"
+      ],
       "failures": []
     },
     {
-      "path": "/zahlungen/",
-      "words": 323,
-      "title": "Revoluts Zahlungen Deutschland - Einzahlung, Auszahlung und KYC",
+      "path": "/bonus/",
+      "words": 345,
+      "title": "Revolut Slots Bonus Deutschland - Promo Code und Freispiele",
       "h1": 1,
-      "h2": 6,
-      "tables": 1,
-      "lists": 2,
+      "h2": 3,
+      "tables": 2,
+      "lists": 1,
+      "slotImages": 24,
+      "schemaTypes": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "Article",
+        "BreadcrumbList",
+        "ItemList"
+      ],
       "failures": []
     },
     {
       "path": "/registrierung/",
-      "words": 322,
-      "title": "Revoluts Registrierung Deutschland - Konto, Login und Verifizierung",
+      "words": 438,
+      "title": "Revolut Slots Registrierung Deutschland - Konto und Login",
       "h1": 1,
-      "h2": 6,
-      "tables": 1,
-      "lists": 2,
+      "h2": 5,
+      "tables": 2,
+      "lists": 1,
+      "slotImages": 18,
+      "schemaTypes": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "Article",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/zahlungen/",
+      "words": 448,
+      "title": "Revolut Slots Zahlungen Deutschland - Einzahlung und Auszahlung",
+      "h1": 1,
+      "h2": 5,
+      "tables": 2,
+      "lists": 1,
+      "slotImages": 18,
+      "schemaTypes": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "Article",
+        "BreadcrumbList",
+        "ItemList"
+      ],
+      "failures": []
+    },
+    {
+      "path": "/sportwetten/",
+      "words": 394,
+      "title": "Revolut Slots Sportwetten Deutschland - Casino und Betting Check",
+      "h1": 1,
+      "h2": 4,
+      "tables": 2,
+      "lists": 1,
+      "slotImages": 15,
+      "schemaTypes": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "Article",
+        "BreadcrumbList",
+        "ItemList"
+      ],
       "failures": []
     },
     {
       "path": "/verantwortungsvolles-spielen/",
-      "words": 139,
-      "title": "Revoluts verantwortungsvolles Spielen - Risiken und Schutz",
+      "words": 267,
+      "title": "Revolut Slots verantwortungsvolles Spielen - Risiken und Schutz",
       "h1": 1,
-      "h2": 2,
+      "h2": 3,
       "tables": 0,
       "lists": 1,
-      "failures": []
-    },
-    {
-      "path": "/ueber-uns/",
-      "words": 128,
-      "title": "Revoluts Ueber uns - unabhangiger Brand-Ratgeber",
-      "h1": 1,
-      "h2": 2,
-      "tables": 0,
-      "lists": 0,
+      "slotImages": 0,
+      "schemaTypes": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "Article",
+        "BreadcrumbList"
+      ],
       "failures": []
     },
     {
       "path": "/datenschutz/",
-      "words": 112,
-      "title": "Revoluts Datenschutz - Informationsseite",
+      "words": 205,
+      "title": "Revolut Slots Privacy Policy - Datenschutz",
       "h1": 1,
-      "h2": 2,
+      "h2": 3,
       "tables": 0,
       "lists": 0,
+      "slotImages": 0,
+      "schemaTypes": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "Article",
+        "BreadcrumbList"
+      ],
       "failures": []
     },
     {
       "path": "/cookies/",
-      "words": 102,
-      "title": "Revoluts Cookies - Cookie-Hinweise",
+      "words": 200,
+      "title": "Revolut Slots Cookie Policy - Cookie-Hinweise",
       "h1": 1,
-      "h2": 2,
+      "h2": 3,
       "tables": 0,
       "lists": 0,
+      "slotImages": 0,
+      "schemaTypes": [
+        "WebSite",
+        "Organization",
+        "WebPage",
+        "Article",
+        "BreadcrumbList"
+      ],
       "failures": []
     }
   ],

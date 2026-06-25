@@ -1,10 +1,10 @@
 {
-  "main": ["revoluts", "revolut slots"],
-  "review": ["test", "erfahrungen", "bewertung", "serios"],
-  "bonus": ["bonus", "promo code", "freispiele", "willkommensbonus"],
-  "payments": ["einzahlung", "auszahlung", "zahlungsmethoden", "karte", "bank"],
-  "app": ["app", "apk", "mobile", "android", "ios"],
-  "registration": ["registrierung", "konto", "login", "verifizierung"],
-  "safety": ["lizenz", "sicherheit", "betrug", "verantwortungsvoll", "18+"],
-  "slots": ["slots", "spielautomaten", "casino spiele", "rtp"]
+  "main": ["revolut slots", "revolut casino"],
+  "app": ["revolut app", "revolut casino app", "revolut slots app", "apk", "mobile"],
+  "registration": ["revolut registration", "revolut casino login", "registrieren", "anmelden"],
+  "bonus": ["revolut casino bonus", "revolut slots bonus", "promo code", "free spins", "no deposit bonus"],
+  "payments": ["revolut casino deposit", "revolut einzahlung", "revolut zahlungsmethoden", "auszahlung"],
+  "sports": ["revolut sportwetten", "revolut bets", "live wetten", "wettbonus"],
+  "safety": ["revolut casino erfahrungen", "lizenz", "sicherheit", "18+", "verantwortungsvolles spielen"],
+  "slots": ["slots", "casino spiele", "spielautomaten", "video slots", "poker slots"]
 }

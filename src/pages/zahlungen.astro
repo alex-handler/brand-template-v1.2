@@ -1,68 +1,44 @@
 ---
 import BrandLayout from "../layouts/BrandLayout.astro";
+import Hero from "../components/Hero.astro";
 import CtaBand from "../components/CtaBand.astro";
 import FactTable from "../components/FactTable.astro";
-import site from "../../data/site.json";
+import PaymentTiles from "../components/PaymentTiles.astro";
+import SlotGrid from "../components/SlotGrid.astro";
 
-const title = `${site.mainKey} Zahlungen Deutschland - Einzahlung, Auszahlung und KYC`;
-const description = `${site.mainKey} Zahlungsratgeber: Einzahlung, Auszahlung, KYC, Karten, Bankmethoden und operator-abhangige Limits fur Deutschland sicher einordnen.`;
+const title = "Revolut Slots Zahlungen Deutschland - Einzahlung und Auszahlung";
+const description = "Revolut Slots Zahlungsratgeber: Einzahlung, Auszahlung, KYC, Karten, Wallets und Revolut casino Payment-Claims fur Deutschland vorsichtig prüfen.";
 ---
 
 <BrandLayout title={title} description={description} path="/zahlungen/">
-  <section class="hero" slot="hero">
-    <div class="hero-inner">
-      <div>
-        <p class="eyebrow">Payment intent</p>
-        <h1>{site.mainKey} Zahlungen</h1>
-        <p class="lead">Zahlungsseiten brauchen besonders strenge Quellen. Dieses Template nennt Kategorien und Pruflogik, aber keine garantierte Verfugbarkeit, Gebuhren oder Auszahlungsgeschwindigkeit.</p>
-        <div class="hero-actions">
-          <a class="button" href={site.playPath} rel="nofollow">{site.copy.primaryCta}</a>
-          <a class="button secondary" href="/bonus/">Bonusbedingungen prufen</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <img src="/shared/brand-visual.svg" alt={`${site.mainKey} Zahlungen Einzahlung und Auszahlung`} title={`${site.mainKey} Zahlungsratgeber`} width="960" height="640" />
-      </div>
-    </div>
-  </section>
-
+  <Hero slot="hero" eyebrow="Einzahlungen" title="Revolut Slots Zahlungen" lead="Payment-Seiten sind besonders sensibel. Diese Seite nennt Kategorien und Prüflogik, aber keine garantierte Verfügbarkeit, Gebühr oder Auszahlungsgeschwindigkeit." />
   <section class="content">
-    <h2>Einzahlung und Auszahlung bei {site.mainKey}</h2>
-    <p>Eine Brand-Template-Seite darf Zahlungsarten nicht aus dem Markennamen ableiten. Selbst wenn Nutzer nach Karten, Bankmethoden oder schnellen Auszahlungen suchen, muss die echte Verfugbarkeit beim Zielanbieter gepruft werden.</p>
+    <h2>Einzahlung und Auszahlung bei Revolut Slots</h2>
+    <p>Die <a href="/">Revolut Slots Hauptseite</a> verlinkt Zahlungen bewusst als eigene Unterseite. Aus einem Brandnamen darf keine bestätigte Zahlungsmethode abgeleitet werden, auch wenn Nutzer nach Revolut casino Einzahlung suchen.</p>
+    <p>Zahlungsarten hängen vom Betreiber, vom Land, von KYC und von Bonusregeln ab. Deshalb bleiben Karten, Bankmethoden, Wallets und schnelle Auszahlung hier als zu prüfende Kategorien formuliert.</p>
 
-    <FactTable caption="Zahlungsdaten: erlaubte Darstellung" rows={[
-      ["Karten", "Nur als mogliche Kategorie, nicht als Zusage"],
-      ["Banktransfer", "Geo- und operator-abhangig"],
-      ["E-Wallets", "Nur bei Quelle nennen"],
-      ["Krypto", "Nicht ohne explizite Anbieterangabe"],
-      ["KYC", "Als ublicher Sicherheits- und Compliance-Schritt erklaren"]
+    <FactTable caption="Payment-Entity-Regeln" rows={[
+      ["Karten", "Nur als mögliche Kategorie, nicht als Zusage"],
+      ["Banktransfer", "Geo- und operator-abhängig"],
+      ["E-Wallets", "Nur mit Anbieterquelle nennen"],
+      ["Krypto", "Nicht ohne explizite Betreiberangabe"],
+      ["KYC", "Als üblicher Sicherheits- und Compliance-Schritt erklären"],
+      ["Bonus", "Zahlungsmethoden können von Promotions ausgeschlossen sein"]
     ]} />
 
-    <h2>Lokaler DE-Kontext</h2>
-    <p>Fur Deutschland sollten Zahlungen nicht generisch beschrieben werden. Je nach Quelle konnen Karten, Bankmethoden, Wallets, Verifizierung und Limits unterschiedlich relevant sein. Ohne Betreiberquelle bleibt die Seite bei Kategorien und Prufhinweisen.</p>
-
-    <h2>Was Nutzer vor einer Einzahlung lesen sollten</h2>
+    <h2>Was vor einer Einzahlung klar sein muss</h2>
     <ul>
-      <li>Ob das Konto in Deutschland genutzt werden darf.</li>
-      <li>Welche Dokumente fur KYC verlangt werden konnen.</li>
-      <li>Ob Bonusbedingungen bestimmte Zahlungsmethoden ausschliessen.</li>
-      <li>Welche Limits, Gebuhren und Wartezeiten beim Anbieter stehen.</li>
+      <li>Ob die Zielseite in Deutschland genutzt werden darf.</li>
+      <li>Welche Dokumente vor Auszahlung verlangt werden können.</li>
+      <li>Ob Bonusbedingungen bestimmte Zahlungsmethoden ausschließen.</li>
+      <li>Welche Limits, Gebühren und Wartezeiten beim Anbieter stehen.</li>
     </ul>
 
     <h2>Bonus und Zahlungen verbinden</h2>
-    <p>Zahlungsarten konnen Bonusbedingungen beeinflussen. Eine Methode kann fur Einzahlungen sichtbar sein und trotzdem von einer Promotion ausgeschlossen werden. Deshalb verlinkt diese Seite naturlich zur Bonusseite und verlangt operator-spezifische Prufung.</p>
+    <p>Die <a href="/bonus/">Bonus-Seite</a> ist mit Zahlungen verknüpft, weil eine Methode für Einzahlungen sichtbar sein kann und trotzdem nicht für eine Promotion zählt. Das Template vermeidet deshalb pauschale Aussagen.</p>
 
-    <h2>Warum Zahlungsseiten sensibel sind</h2>
-    <p>Ein falscher Zahlungsclaim kann unmittelbar zu falschen Nutzererwartungen fuhren. Deshalb bevorzugt das Template neutrale Prufhinweise, bis die Zielseite echte Konditionen liefert.</p>
-
-    <h2>Auszahlungsrisiken</h2>
-    <ul>
-      <li>KYC kann vor einer Auszahlung notwendig werden.</li>
-      <li>Limits und Bearbeitungszeiten konnen je Anbieter variieren.</li>
-      <li>Bonusumsatz kann eine Auszahlung verzogern.</li>
-      <li>Unklare Gebuhren sollten vor der Einzahlung gepruft werden.</li>
-    </ul>
-
-    <CtaBand />
+    <CtaBand text="Zahlungsbedingungen prüfen" />
   </section>
+  <PaymentTiles />
+  <SlotGrid limit={18} heading="Revolut casino Slots und Zahlungen" intro="Die Icons bleiben 200x200 und werden aus dem lokalen Repository ausgeliefert." />
 </BrandLayout>

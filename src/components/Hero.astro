@@ -1,0 +1,31 @@
+---
+import site from "../../data/site.json";
+
+const { eyebrow = "Casino & Slots Deutschland", title = site.mainKey, lead, cta = "Jetzt registrieren" } = Astro.props;
+---
+
+<section class="hero">
+  <div class="hero-in">
+    <div>
+      <p class="eyebrow">{eyebrow}</p>
+      <h1>{title}</h1>
+      <p class="lead">{lead}</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href={site.playPath} rel="nofollow">{cta}</a>
+        <a class="btn btn-secondary" href="/">Zur Hauptseite</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <strong>Revolut Slots Check</strong>
+      <table class="hero-table">
+        <tbody>
+          <tr><th scope="row">Geo</th><td>DE</td></tr>
+          <tr><th scope="row">Main Key</th><td>Revolut Slots</td></tr>
+          <tr><th scope="row">2. Key</th><td>Revolut casino</td></tr>
+          <tr><th scope="row">Status</th><td>Info-Seite</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="terms">Allgemeine Geschäftsbedingungen prüfen. Keine offizielle Revolut Website.</div>
+</section>

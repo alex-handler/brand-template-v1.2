@@ -1,71 +1,34 @@
 ---
 import BrandLayout from "../layouts/BrandLayout.astro";
-import CtaBand from "../components/CtaBand.astro";
+import Hero from "../components/Hero.astro";
 import FactTable from "../components/FactTable.astro";
-import site from "../../data/site.json";
+import CtaBand from "../components/CtaBand.astro";
+import SlotGrid from "../components/SlotGrid.astro";
 
-const title = `${site.mainKey} App Deutschland - Mobile Slots, APK und Sicherheit`;
-const description = `${site.mainKey} App-Ratgeber fur Deutschland: mobile Nutzung, APK-Risiken, Browser-Alternative, Installation und Sicherheitscheck ohne erfundene App-Store-Claims.`;
+const title = "Revolut Slots App Deutschland - Mobile Casino und APK Check";
+const description = "Revolut Slots App Ratgeber: mobile Revolut casino Nutzung, APK-Sicherheit, Browser-Alternative, Login, Registrierung und Slot-Menü für Deutschland.";
 ---
 
-<BrandLayout title={title} description={description} path="/app/">
-  <section class="hero" slot="hero">
-    <div class="hero-inner">
-      <div>
-        <p class="eyebrow">Mobile intent</p>
-        <h1>{site.mainKey} App</h1>
-        <p class="lead">Die App-Seite behandelt mobile Suchintentionen. Sie behauptet keine offizielle App, solange kein geprufter App-Store- oder Betreiberlink vorliegt.</p>
-        <div class="hero-actions">
-          <a class="button" href={site.playPath} rel="nofollow">{site.copy.primaryCta}</a>
-          <a class="button secondary" href="/registrierung/">Konto-Check lesen</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <img src="/shared/brand-visual.svg" alt={`${site.mainKey} App und mobile Slots Ansicht`} title={`${site.mainKey} App und Mobile`} width="960" height="640" />
-      </div>
-    </div>
-  </section>
-
+<BrandLayout title={title} description={description} path="/app/" pageKind="MobileApplication">
+  <Hero slot="hero" eyebrow="Mobile App" title="Revolut Slots App" lead="Die App-Seite bündelt mobile Suchintentionen: Revolut casino App, APK, Login, mobile Slots und sichere Registrierung. Ohne Quelle wird keine offizielle App behauptet." />
   <section class="content">
-    <h2>{site.mainKey} App oder mobile Website?</h2>
-    <p>Viele Brand-Keywords enthalten App-, APK- und Mobile-Intentionen. Das Template trennt diese Begriffe sauber: Eine mobile Website ist nicht automatisch eine native App, und eine APK ist nicht automatisch sicher oder offiziell.</p>
-
-    <FactTable caption="Mobile Prufpunkte" rows={[
-      ["Native App", "Nur mit offizieller Quelle behaupten"],
-      ["APK", "Nur mit Quelle, Versionshinweis und Sicherheitswarnung"],
-      ["Browser", "Als vorsichtige Alternative beschreiben"],
-      ["Zahlungen", "Nicht aus der App ableiten; Anbieterbedingungen prufen"]
+    <h2>Revolut Slots App oder mobile Website?</h2>
+    <p>Die <a href="/">Revolut Slots Hauptseite</a> bleibt der Einstieg; diese Unterseite trennt mobile Website, native App und APK. Eine mobile Casino-Seite ist nicht automatisch eine offizielle App.</p>
+    <FactTable caption="Mobile-App-Entity" rows={[
+      ["applicationCategory", "Game / Casino information"],
+      ["operatingSystem", "Android und iOS nur bei Quelle konkret nennen"],
+      ["downloadUrl", "Unresolved bis freigegeben"],
+      ["permissions", "Vor Installation prüfen"],
+      ["countriesSupported", "DE nur mit Anbieterbestätigung"]
     ]} />
-
-    <h2>APK-Sicherheitscheck</h2>
-    <ol>
-      <li>Quelle und Domain kontrollieren.</li>
-      <li>Berechtigungen vor der Installation lesen.</li>
-      <li>Keine APK aus unbekannten Mirrors installieren.</li>
-      <li>Bei Zahlungs- oder Identitatsdaten besonders vorsichtig sein.</li>
-    </ol>
-
-    <h2>App-Content fur echte Keyword-Exports</h2>
-    <p>Wenn der Keyword-Export viele App-Begriffe enthalt, kann die Seite Android, iOS, APK, Mobile-Browser, Login-Probleme und Updates getrennt behandeln. Der Prompt muss dann priorisieren, welche Cluster in H2/H3 gehoren und welche nur im Body erscheinen.</p>
-
-    <div class="note warning">
-      App-Store-Verfugbarkeit, Android-Kompatibilitat und iOS-Support sind keine Template-Fakten. Sie brauchen Quellen.
-    </div>
-
-    <h2>Mobile UX und Quellenstatus</h2>
-    <p>Bei echten Brand-Seiten sollte der mobile Abschnitt nicht nur Downloads beschreiben. Er sollte Ladezeit, responsive Darstellung, Login-Komfort, Zahlungswege und Sicherheitswarnungen trennen. Jede konkrete App-Aussage bleibt an eine Quelle gebunden.</p>
-
-    <h2>Preview-Ziel der App-Seite</h2>
-    <p>Im ersten Deploy soll diese Seite vor allem beweisen, dass mobile Intentionen ohne falsche App-Behauptungen abgedeckt werden konnen. Danach lassen sich echte Store-Links oder Screenshots erganzen.</p>
-
-    <h2>Haufige mobile Fehler</h2>
+    <h2>APK-Risiken</h2>
     <ul>
-      <li>Eine Browserseite als native App bezeichnen.</li>
-      <li>Eine APK ohne Herkunft und Versionshinweis empfehlen.</li>
-      <li>Mobile Zahlungen als automatisch verfugbar darstellen.</li>
-      <li>Support- oder Wiederherstellungswege ohne Anbieterquelle behaupten.</li>
+      <li>Keine APK aus unbekannten Mirrors laden.</li>
+      <li>App-Berechtigungen vor Installation prüfen.</li>
+      <li>Login- und Zahlungsdaten nicht in unklaren Apps speichern.</li>
+      <li>Bei Revolut casino Claims immer Zielanbieter und Quelle prüfen.</li>
     </ul>
-
-    <CtaBand />
+    <CtaBand text="mobile Registrierung prüfen" />
   </section>
+  <SlotGrid limit={18} heading="Mobile Slots im Revolut Slots Menü" intro="Quadratische 200x200 Icons bleiben auch mobil im Raster, ohne horizontales Seiten-Overflow." />
 </BrandLayout>

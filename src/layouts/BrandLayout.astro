@@ -1,176 +1,143 @@
 ---
 import site from "../../data/site.json";
+import slots from "../../data/drueckglueck-slots.json";
 
 const {
   title,
   description,
   path = "/",
-  pageType = "Article",
-  commercial = true
+  commercial = true,
+  pageKind = "Article"
 } = Astro.props;
 
 const canonical = new URL(path, site.siteUrl).toString();
-const schema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": `${site.siteUrl}/#website`,
-      "name": site.brandName,
-      "url": site.siteUrl,
-      "inLanguage": site.locale
-    },
-    {
-      "@type": "WebPage",
-      "@id": `${canonical}#webpage`,
-      "url": canonical,
-      "name": title,
-      "description": description,
-      "isPartOf": { "@id": `${site.siteUrl}/#website` },
-      "inLanguage": site.locale
-    },
-    {
-      "@type": pageType,
-      "@id": `${canonical}#article`,
-      "headline": title,
-      "description": description,
-      "mainEntityOfPage": { "@id": `${canonical}#webpage` },
-      "inLanguage": site.locale,
-      "publisher": {
-        "@type": "Organization",
-        "name": `${site.brandName} informational guide`
-      }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": `${canonical}#breadcrumb`,
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": site.mainKey,
-          "item": site.siteUrl
-        }
-      ]
-    }
-  ]
-};
+const nav = site.navigation;
+const graph = [
+  {
+    "@type": "WebSite",
+    "@id": `${site.siteUrl}/#website`,
+    "name": site.mainKey,
+    "url": site.siteUrl,
+    "inLanguage": site.locale
+  },
+  {
+    "@type": "Organization",
+    "@id": `${site.siteUrl}/#organization`,
+    "name": `${site.mainKey} unabhängiger Ratgeber`,
+    "url": site.siteUrl,
+    "address": { "@type": "PostalAddress", "addressCountry": site.geo },
+    "areaServed": site.geo,
+    "knowsAbout": ["Online Casino", "Slots", "Casino App", "Sportwetten", "Zahlungsmethoden"]
+  },
+  {
+    "@type": "WebPage",
+    "@id": `${canonical}#webpage`,
+    "url": canonical,
+    "name": title,
+    "description": description,
+    "isPartOf": { "@id": `${site.siteUrl}/#website` },
+    "inLanguage": site.locale,
+    "audience": { "@type": "Audience", "audienceType": "Erwachsene Nutzer in Deutschland" }
+  },
+  {
+    "@type": pageKind,
+    "@id": `${canonical}#article`,
+    "headline": title,
+    "description": description,
+    "mainEntityOfPage": { "@id": `${canonical}#webpage` },
+    "publisher": { "@id": `${site.siteUrl}/#organization` },
+    "inLanguage": site.locale
+  },
+  {
+    "@type": "BreadcrumbList",
+    "@id": `${canonical}#breadcrumb`,
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": site.mainKey, "item": site.siteUrl },
+      { "@type": "ListItem", "position": 2, "name": title, "item": canonical }
+    ]
+  }
+];
+
+if (commercial) {
+  graph.push({
+    "@type": "ItemList",
+    "@id": `${canonical}#slots`,
+    "name": `${site.mainKey} Slot-Auswahl`,
+    "numberOfItems": slots.length,
+    "itemListElement": slots.slice(0, 24).map((slot, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": slot.title,
+      "url": new URL(slot.src, site.siteUrl).toString()
+    }))
+  });
+}
+
+const schema = { "@context": "https://schema.org", "@graph": graph };
 ---
 
 <!doctype html>
-<html lang={site.locale}>
+<html amp lang={site.locale}>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1" />
     <meta name="robots" content="index, follow" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang={site.locale} href={canonical} />
     <link rel="alternate" hreflang="x-default" href={canonical} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonical} />
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-    <style is:global>
-      :root{
-        --ink:#112021;
-        --muted:#526462;
-        --line:#d9e8e3;
-        --soft:#eff8f4;
-        --brand:#0f6f60;
-        --accent:#f2b43f;
-        --alert:#d95040;
-        --paper:#ffffff;
-        --dark:#0f2e2d;
-        --max:1120px;
-      }
-      *{box-sizing:border-box}
-      body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);background:#fbfefd;line-height:1.6}
-      a{color:inherit;text-decoration:none}
-      img{max-width:100%;height:auto}
-      .topbar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
-      .nav{max-width:var(--max);margin:0 auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-      .brandmark{display:flex;align-items:center;gap:10px;font-weight:900}
-      .brandmark span:first-child{display:grid;place-items:center;width:38px;height:38px;border-radius:8px;background:var(--dark);color:#fff}
-      .navlinks{display:flex;align-items:center;gap:12px;font-size:14px;color:var(--muted)}
-      .navlinks a{padding:8px 4px}
-      .top-cta,.button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border-radius:8px;background:var(--brand);color:#fff;font-weight:800;border:1px solid var(--brand)}
-      .hero{background:linear-gradient(130deg,#eff8f4 0%,#fff7dc 56%,#ffffff 100%);border-bottom:1px solid var(--line)}
-      .hero-inner{max-width:var(--max);margin:0 auto;padding:62px 18px 44px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.82fr);gap:32px;align-items:center}
-      .eyebrow{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;color:#0a5c50;font-weight:900;text-transform:uppercase;font-size:12px;letter-spacing:0}
-      h1{margin:0;font-size:clamp(38px,6vw,66px);line-height:1.02;letter-spacing:0}
-      h2{margin:42px 0 12px;font-size:clamp(26px,4vw,38px);line-height:1.12;letter-spacing:0}
-      h3{margin:24px 0 8px;font-size:21px;line-height:1.25;letter-spacing:0}
-      p{margin:0 0 16px}
-      .lead{font-size:19px;color:#2f4744;max-width:720px}
-      .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
-      .button.secondary{background:#fff;color:var(--dark);border-color:var(--line)}
-      .hero-visual{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 18px 45px rgba(15,46,45,.12)}
-      .disclosure{max-width:var(--max);margin:0 auto;padding:12px 18px;color:#51625f;font-size:13px}
-      .content{max-width:var(--max);margin:0 auto;padding:38px 18px}
-      .band{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-      .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-      .tile{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px}
-      .tile strong{display:block;margin-bottom:8px}
-      .fact-table{width:100%;border-collapse:collapse;margin:22px 0;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden}
-      .fact-table caption{text-align:left;font-weight:900;padding:12px 14px;background:#123633;color:#fff}
-      .fact-table th,.fact-table td{padding:13px 14px;border-top:1px solid var(--line);vertical-align:top;text-align:left}
-      .fact-table th{width:34%;color:#173d3a;background:#f7fbf9}
-      .note{border-left:5px solid var(--accent);background:#fff9e7;padding:16px 18px;border-radius:8px;margin:22px 0}
-      .warning{border-left-color:var(--alert);background:#fff1ee}
-      .cta-band{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:28px 0;padding:20px;border-radius:8px;background:#102f2d;color:#fff}
-      .cta-band p{margin:4px 0 0;color:#d6e9e3}
-      .cta-band a{flex:0 0 auto;background:var(--accent);color:#13201d;padding:11px 16px;border-radius:8px;font-weight:900}
-      .cta-band.compact{margin:16px 0}
-      ul,ol{padding-left:22px}
-      li{margin:7px 0}
-      footer{border-top:1px solid var(--line);background:#0f2e2d;color:#d6e9e3}
-      .footer-inner{max-width:var(--max);margin:0 auto;padding:28px 18px;display:grid;grid-template-columns:1fr auto;gap:22px}
-      .footer-links{display:flex;flex-wrap:wrap;gap:12px}
-      @media (max-width:780px){
-        .hero-inner{grid-template-columns:1fr;padding-top:38px}
-        .nav{align-items:flex-start}
-        .navlinks{display:none}
-        .grid{grid-template-columns:1fr}
-        .cta-band{display:block}
-        .cta-band a{margin-top:12px;width:100%}
-        .footer-inner{grid-template-columns:1fr}
-      }
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
+    <style is:inline amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style is:inline amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    <style is:inline amp-custom>
+      :root{--navy:#071d38;--navy2:#0b3157;--blue:#1467c9;--yellow:#ffd425;--cyan:#27f6ec;--paper:#fff;--ink:#081b2e;--muted:#657487;--line:#dbe7f2;--soft:#eef6ff;--max:1180px}
+      *{box-sizing:border-box}html,body{margin:0;max-width:100%;overflow-x:hidden}body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.55;padding-bottom:74px}a{text-decoration:none;color:inherit}button{font:inherit}
+      .agebar{background:var(--navy2);color:#fff;text-align:center;font-weight:800;padding:7px 12px;font-size:14px}.agebar b{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border:3px solid #e10b28;border-radius:50%;background:#fff;color:#111;margin-left:8px}
+      .top{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}.nav{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:22px;padding:14px 18px}.logo{display:flex;align-items:center;gap:10px;font-weight:950;color:var(--navy);font-size:26px}.logo-bolt{display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--yellow),#fff06d);color:var(--navy);font-size:28px}.links{display:flex;gap:24px;justify-content:center;font-weight:850}.links a{padding:8px 2px}.actions{display:flex;gap:10px}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:12px 20px;font-weight:950;border:0;min-height:44px}.btn-primary{background:var(--yellow);color:var(--navy)}.btn-secondary{background:#dceefa;color:var(--navy)}.burger{display:none;border:0;background:transparent;font-size:34px;line-height:1;color:var(--navy)}
+      amp-sidebar{background:#fff;width:285px;padding:18px}.side-close{border:0;background:var(--navy);color:#fff;border-radius:8px;padding:9px 12px;font-weight:900}.side-nav{display:grid;gap:10px;margin-top:18px}.side-nav a{padding:13px;border-radius:8px;background:var(--soft);font-weight:900}.side-note{margin-top:18px;color:var(--muted);font-size:13px}
+      .hero{position:relative;min-height:520px;background:linear-gradient(90deg,rgba(6,20,48,.94),rgba(8,25,58,.76),rgba(8,25,58,.25)),url('/assets/hero/revolut-slots-hero.png') center/cover no-repeat;color:#fff}.hero-in{max-width:var(--max);margin:0 auto;padding:54px 18px 38px;display:grid;grid-template-columns:minmax(0,.96fr) minmax(310px,.52fr);gap:24px;align-items:end}.eyebrow{display:inline-flex;align-items:center;color:var(--yellow);font-weight:950;text-transform:uppercase;font-size:13px;letter-spacing:0;margin:0 0 12px}h1{font-size:clamp(42px,7vw,82px);line-height:.98;letter-spacing:0;margin:0 0 16px}h2{font-size:clamp(26px,4vw,40px);line-height:1.1;margin:42px 0 14px;letter-spacing:0}h3{font-size:22px;line-height:1.2;margin:22px 0 9px;letter-spacing:0}.lead{font-size:20px;max-width:720px;margin:0 0 22px}.hero-card{background:rgba(7,29,56,.9);border:3px solid rgba(39,246,236,.8);border-radius:18px;padding:18px;box-shadow:0 18px 55px rgba(0,0,0,.28)}.hero-card strong{display:block;color:var(--yellow);font-size:24px;line-height:1.1;margin-bottom:8px}.hero-table{width:100%;border-collapse:collapse;color:#fff;font-size:14px}.hero-table th,.hero-table td{border-top:1px solid rgba(255,255,255,.18);padding:9px 0;text-align:left}.hero-table td{text-align:right;font-weight:850}.cta-row{display:flex;flex-wrap:wrap;gap:12px}.terms{background:var(--navy2);color:#fff;text-align:center;font-weight:850;padding:10px 14px}
+      .content{max-width:var(--max);margin:0 auto;padding:34px 18px}.band{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.disclosure{background:#fff8d7;border:1px solid #f3dc88;border-radius:8px;padding:14px 16px;margin:20px 0;color:#4b3a04}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.tile{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px;box-shadow:0 12px 28px rgba(9,49,87,.07)}.tile b{display:block;margin-bottom:8px;color:var(--navy)}.fact-table{width:100%;border-collapse:collapse;margin:22px 0;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden}.fact-table caption{text-align:left;background:var(--navy);color:#fff;font-weight:950;padding:12px 14px}.fact-table th,.fact-table td{padding:12px 14px;border-top:1px solid var(--line);text-align:left;vertical-align:top}.fact-table th{width:32%;background:#f7fbff;color:var(--navy)}
+      .slot-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:18px}.slot-head p{margin:0;color:var(--muted)}.slot-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}.slot-card{min-width:0}.slot-img{display:block;border-radius:12px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 12px 30px rgba(7,29,56,.12);aspect-ratio:1/1}.slot-card b{display:block;margin-top:8px;font-size:14px;line-height:1.2;color:var(--navy);word-break:normal}.category-row{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 22px}.chip{border-radius:999px;background:#e1effa;color:var(--navy);padding:9px 14px;font-weight:900}
+      .pay-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.pay-tile{background:#fff;border:1px solid var(--line);border-radius:8px;padding:16px;text-align:center;font-weight:950;min-height:70px;display:grid;place-items:center;color:var(--navy)}
+      .cta-band{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;background:var(--navy);color:#fff;border-radius:10px;padding:20px;margin:26px 0}.cta-band p{margin:0;color:#d7e8fb}.cta-band .btn{white-space:nowrap}.service-list{display:flex;gap:12px;flex-wrap:wrap}.service-list a{background:#eef6ff;border-radius:8px;padding:10px 12px;font-weight:850}footer{background:var(--navy);color:#dceafa}.foot{max-width:var(--max);margin:0 auto;padding:28px 18px;display:grid;grid-template-columns:1fr auto;gap:20px}.foot p{margin:6px 0 0;color:#bcd1e8}
+      .sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:30;background:var(--navy);display:none;padding:10px 12px;gap:10px;align-items:center;box-shadow:0 -12px 30px rgba(0,0,0,.18)}.sticky-cta .btn{flex:1;padding:10px 12px}.sticky-menu{width:48px;height:48px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff;font-size:28px}
+      @media(max-width:900px){.links,.actions{display:none}.burger{display:block}.nav{grid-template-columns:auto 1fr auto}.logo{font-size:21px}.logo-bolt{width:42px;height:42px}.hero{min-height:auto;background-position:58% center}.hero-in{grid-template-columns:1fr;padding:28px 14px 22px}.lead{font-size:17px}.hero-card{padding:14px;border-radius:14px}.hero-card strong{font-size:20px}.content{padding:28px 14px}.grid{grid-template-columns:1fr}.slot-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.pay-row{grid-template-columns:repeat(2,minmax(0,1fr))}.cta-band{grid-template-columns:1fr}.foot{grid-template-columns:1fr}.sticky-cta{display:flex}.slot-head{display:block}.agebar{font-size:13px}body{padding-bottom:78px}}
+      @media(min-width:901px) and (max-width:1120px){.slot-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
     </style>
   </head>
   <body>
-    <header class="topbar">
+    <amp-sidebar id="menu" layout="nodisplay" side="left">
+      <button class="side-close" on="tap:menu.close">Schließen</button>
+      <nav class="side-nav" aria-label="Mobile navigation">
+        {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+      <p class="side-note">{site.copy.riskNote}</p>
+    </amp-sidebar>
+    <div class="agebar">Deutschland · 18+ · unabhängiger Informationsratgeber <b>18+</b></div>
+    <header class="top">
       <nav class="nav" aria-label="Main navigation">
-        <a class="brandmark" href="/">
-          <span>R</span>
-          <span>{site.mainKey}</span>
-        </a>
-        <div class="navlinks">
-          {site.navigation.map((item) => <a href={item.href}>{item.label}</a>)}
-        </div>
-        {commercial && <a class="top-cta" href={site.playPath} rel="nofollow">{site.copy.primaryCta}</a>}
+        <a class="logo" href="/"><span class="logo-bolt">R</span><span>Revolut<br />Slots</span></a>
+        <div class="links">{nav.map((item) => <a href={item.href}>{item.label}</a>)}</div>
+        <div class="actions"><a class="btn btn-secondary" href="/registrierung/">Anmelden</a><a class="btn btn-primary" href={site.playPath} rel="nofollow">Registrieren</a></div>
+        <button class="burger" on="tap:menu.open" aria-label="Menü öffnen">☰</button>
       </nav>
     </header>
     <slot name="hero" />
-    <p class="disclosure">{site.independentDisclosure}</p>
     <main>
       <slot />
     </main>
     <footer>
-      <div class="footer-inner">
-        <div>
-          <strong>{site.mainKey}</strong>
-          <p>{site.copy.riskNote} {site.copy.sourceNote}</p>
-        </div>
-        <div class="footer-links">
+      <div class="foot">
+        <div><b>{site.mainKey}</b><p>{site.independentDisclosure} {site.copy.riskNote}</p></div>
+        <div class="service-list">
           <a href="/verantwortungsvolles-spielen/">Verantwortung</a>
-          <a href="/ueber-uns/">Ueber uns</a>
-          <a href="/datenschutz/">Datenschutz</a>
-          <a href="/cookies/">Cookies</a>
+          <a href="/datenschutz/">Privacy Policy</a>
+          <a href="/cookies/">Cookie Policy</a>
         </div>
       </div>
     </footer>
+    {commercial && <div class="sticky-cta"><button class="sticky-menu" on="tap:menu.open" aria-label="Menü öffnen">☰</button><a class="btn btn-secondary" href="/registrierung/">Anmelden</a><a class="btn btn-primary" href={site.playPath} rel="nofollow">Registrieren</a></div>}
   </body>
 </html>

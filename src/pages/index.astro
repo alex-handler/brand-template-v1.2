@@ -1,94 +1,50 @@
 ---
 import BrandLayout from "../layouts/BrandLayout.astro";
-import CtaBand from "../components/CtaBand.astro";
+import Hero from "../components/Hero.astro";
 import FactTable from "../components/FactTable.astro";
+import CtaBand from "../components/CtaBand.astro";
+import SlotGrid from "../components/SlotGrid.astro";
+import PaymentTiles from "../components/PaymentTiles.astro";
 import site from "../../data/site.json";
 
-const title = `${site.mainKey} Test Deutschland - Brand Slots, Bonus, App und Zahlungen`;
-const description = `${site.mainKey} Ratgeber fur Deutschland: Brand-Slots, Bonus-Hinweise, App, Zahlungen, Registrierung und Sicherheitscheck ohne offizielle Markenbehauptung.`;
+const title = "Revolut Slots Deutschland - Casino, App, Bonus und Sportwetten";
+const description = "Revolut Slots Ratgeber für Deutschland: Revolut casino, App, Bonus, Registrierung, Einzahlungen, Sportwetten und 42 Slot-Icons im sicheren Überblick.";
 ---
 
 <BrandLayout title={title} description={description} path="/">
-  <section class="hero" slot="hero">
-    <div class="hero-inner">
-      <div>
-        <p class="eyebrow">Brand-template v1.2 · DE preview</p>
-        <h1>{site.mainKey}</h1>
-        <p class="lead">{site.mainKey} ist hier als SEO- und Compliance-Testfall fur einen deutschen Brand-Slots-Ratgeber angelegt. Der Aufbau zeigt, wie ein Brand-Template Suchintentionen abdeckt, ohne offizielle Markenrechte, Bonusdaten oder Zahlungsversprechen zu erfinden.</p>
-        <div class="hero-actions">
-          <a class="button" href={site.playPath} rel="nofollow">{site.copy.primaryCta}</a>
-          <a class="button secondary" href="/bonus/">{site.copy.secondaryCta}</a>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <img src="/shared/brand-visual.svg" alt={`${site.mainKey} abstrakter Brand-Slots-Ratgeber`} title={`${site.mainKey} Brand-Slots-Ratgeber`} width="960" height="640" />
-      </div>
+  <Hero slot="hero" title="Revolut Slots" lead="Revolut Slots ist hier als deutscher Brand-Ratgeber aufgebaut: kompakter Hero, klickbare Registrierung, Slot-Menü mit 200x200 Icons, App-, Bonus-, Einzahlungs- und Sportwetten-Unterseiten." />
+
+  <section class="content">
+    <div class="disclosure">{site.independentDisclosure} Revolut casino, Bonus, App, Lizenz, Zahlungen und Sportwetten bleiben quellenpflichtige Themen.</div>
+    <h2>Revolut Slots als Brand-Template</h2>
+    <p>Diese <a href="/">Revolut Slots Hauptseite</a> ist der zentrale Hub für alle kommerziellen Suchintentionen. Der Aufbau folgt GOAT: Ziel definieren, Quellen beobachten, Seiten erzeugen und erst nach Build, AMP- und Brand-Audit freigeben.</p>
+    <p>Der zweite Fokus liegt auf Revolut casino. Dieser Begriff wird nicht als offizielles Produkt behauptet, sondern als Suchintention behandelt. Deshalb trennen alle Texte zwischen Ratgeber, möglichem Anbieterziel und ungeprüften Claims.</p>
+    <p>Für spätere Markenwechsel bleiben Struktur, Prüfregeln und Komponenten gleich, aber Reihenfolge, Slot-Auswahl, Hero-Bild, Tabellenwerte und Textwinkel können aus den Daten neu gemischt werden. So entsteht nicht jedes Mal dieselbe Seite mit ausgetauschtem Namen.</p>
+
+    <FactTable caption="Revolut Slots Schnellcheck" rows={[
+      ["Main Key", "Revolut Slots"],
+      ["Zweiter Key", "Revolut casino"],
+      ["Geo", "Deutschland / de-DE"],
+      ["Pflichtseiten", "App, Bonus, Registrierung, Einzahlungen, Sportwetten, Cookie, Privacy, Verantwortung"],
+      ["Schema-Basis", "Organization, WebPage, Article, BreadcrumbList, ItemList"],
+      ["Status", "Preview-fähige Informationsseite, keine offizielle Revolut Website"]
+    ]} />
+
+    <div class="grid">
+      <div class="tile"><b>App</b><p>Mobile Nutzung, APK-Sicherheit, Browser-Alternative und Login-Fragen werden auf der <a href="/app/">App-Seite</a> getrennt erklärt.</p></div>
+      <div class="tile"><b>Bonus</b><p>Promo Code, Freispiele und No-Deposit-Intent werden auf der <a href="/bonus/">Bonus-Seite</a> ohne erfundene Beträge behandelt.</p></div>
+      <div class="tile"><b>Einzahlungen</b><p>Die <a href="/zahlungen/">Einzahlungsseite</a> nutzt die Payment-Entity-Regeln aus der Tabelle und bleibt bei operator-abhängigen Angaben vorsichtig.</p></div>
     </div>
   </section>
 
+  <SlotGrid limit={42} heading="Revolut Slots Spielemenü" intro="Alle 42 aus dem DrückGlück-Quelltext extrahierten 200x200 Slot-Icons werden als quadratische Karten eingebunden." />
+  <PaymentTiles />
+
   <section class="content">
-    <h2>{site.mainKey} auf einen Blick</h2>
-    <p>Diese Startseite ist die zentrale Brand-Review-Seite. Sie verbindet den Hauptkey mit den wichtigsten Unterintentionen: Test, Bonus, App, Zahlungen, Registrierung, Sicherheit und verantwortungsvolles Spielen. Das Template erzwingt dabei eine vorsichtige Trennung zwischen Suchnachfrage und verifizierten Aussagen.</p>
-    <p>Fur echte Launches werden die Platzhalter durch Keyword-Export, Quellen, erlaubte Assets und Affiliate-Konfiguration ersetzt. Ohne Quelle bleibt ein Punkt offen und wird nicht als Fakt publiziert.</p>
-
-    <FactTable caption={`${site.mainKey} Template-Fakten`} rows={[
-      ["Seitentyp", "Brand-Slots Informationsseite"],
-      ["Geo", "Deutschland / de-DE"],
-      ["Offizieller Status", "Nicht behauptet; unabhangige Informationsseite"],
-      ["Bonusdaten", "Unresolved, bis eine Anbieterquelle vorliegt"],
-      ["Zahlungen", "Operator-abhangig und quellenpflichtig"],
-      ["Alters- und Risikohinweis", "Pflicht auf kommerziellen Seiten"]
-    ]} />
-
-    <div class="note warning">
-      <strong>Brand-Safety-Regel:</strong> Dieses Template darf nicht behaupten, eine offizielle Revolut-, Casino-, Zahlungs- oder Regulatoren-Seite zu sein. Logos, Lizenzen, App-Store-Links, Bonuswerte und Auszahlungszeiten brauchen belegbare Quellen.
-    </div>
-
-    <h2>Welche Suchintentionen deckt die Startseite ab?</h2>
-    <div class="grid">
-      <div class="tile">
-        <strong>Brand Review</strong>
-        <p>Die Seite ordnet die Marke, Slots-Intentionen und Sicherheitsfragen ein, ohne einen echten Erfahrungsbericht zu faken.</p>
-      </div>
-      <div class="tile">
-        <strong>Bonus und Promo</strong>
-        <p>Bonus-Anfragen werden beantwortet, aber konkrete Werte bleiben offen, solange keine Quelle vorliegt.</p>
-      </div>
-      <div class="tile">
-        <strong>App und Mobile</strong>
-        <p>Mobile Nutzung wird als Checkliste behandelt. App-Store-Verfugbarkeit wird nicht erfunden.</p>
-      </div>
-    </div>
-
-    <CtaBand />
-
-    <h2>{site.mainKey} Test: was wird wirklich gepruft?</h2>
-    <p>Ein guter Brand-Test muss mehr leisten als eine lange Werbeseite. Er braucht eine Quellenmatrix, klare Risikoabschnitte, interne Routen zu Detailseiten und eine saubere Unterscheidung zwischen Casino-Angebot, Zahlungsmarke, Affiliate-Ziel und Informationsseite.</p>
-    <p>Das Template ist deshalb so aufgebaut, dass jede kommerzielle Seite mindestens eine strukturierte Tabelle oder Liste enthalt. Dadurch werden lange Texte besser kontrollierbar und der Audit kann automatisch erkennen, ob die Seite nur Textmasse produziert oder echte Entscheidungshilfe bietet.</p>
-
-    <h2>GOAT Ablauf fur neue Brand-Domains</h2>
-    <ol>
-      <li><strong>Goal:</strong> Brand, Geo, Main Key, Seitenliste und verbotene Claims festlegen.</li>
-      <li><strong>Observe:</strong> Keywords, Quellen, Wettbewerbermuster und Assets laden.</li>
-      <li><strong>Act:</strong> Jede Seite einzeln generieren und Source-Grenzen sichtbar halten.</li>
-      <li><strong>Test:</strong> Build, Brand-Audit, Footprint-Audit und Cloudflare Preview prufen.</li>
-    </ol>
-
-    <h2>Interne Wege</h2>
-    <p>Die Startseite verteilt den Nutzer auf die wichtigsten Folgefragen. Fur Bonusdetails geht es zur <a href="/bonus/">Bonus-Seite</a>, fur mobile Nutzung zur <a href="/app/">App-Seite</a>, fur Zahlungsfragen zu <a href="/zahlungen/">Zahlungen</a> und fur Konto-Intentionen zur <a href="/registrierung/">Registrierung</a>.</p>
-  
-    <h2>Wie das Template Footprints reduziert</h2>
-    <p>Die Seite ist bewusst nicht als starre Landingpage gebaut. Bei echten Domains konnen Reihenfolge, Tabellenzweck, CTA-Begleittext, visuelle Akzente und FAQ-Fragen pro Brand variiert werden. Gleichzeitig bleiben Compliance, Quellenlogik, Canonicals und Redirects stabil.</p>
-    <p>Dadurch entsteht weniger wiederholbarer Abdruck zwischen Sites, ohne dass die Qualitat auseinanderfallt. Der Audit pruft spater nicht nur HTML-Metriken, sondern auch wiederkehrende Phrasen, identische Meta-Texte und zu ahnliche Abschnittsfolgen.</p>
-
-    <h2>Wie der Testdeploy bewertet wird</h2>
-    <p>Ein GOAT-Testdeploy gilt erst dann als brauchbar, wenn er technisch baut, keine offenen Sicherheitswarnungen in den Dependencies hat, die wichtigsten Brand-Seiten ausliefert und der Audit die Main-Key-Regel bestatigt. Danach kann Cloudflare Pages den Preview-Link liefern, ohne dass die Production-Domain verbunden werden muss.</p>
-    <p>Fur spatere Domains wird dieser Zustand als Baseline genutzt. Neue Inhalte mussen mindestens denselben technischen Standard erreichen und zusatzlich bessere Quellen, echte Keyword-Cluster und passendere Visuals erhalten.</p>
-
-    <h2>Approval-Kriterien</h2>
-    <p>Approval heisst hier nicht nur, dass HTML generiert wurde. Der Preview muss zeigen, dass die Domain-Struktur, interne Links, Source-Grenzen, Main-Key-Verteilung und Brand-Safety zusammen funktionieren. Erst danach lohnt es sich, echte Assets und weitere Keyword-Cluster zu investieren.</p>
-
-    <h2>Welche Daten vor Production fehlen</h2>
-    <p>Fur einen echten Revolut- oder Revoluts-Launch fehlen noch Keyword-Export, freigegebene Quellen, Affiliate-Ziel, erlaubte Assets und eine Claim-Matrix. Bis diese Daten vorliegen, bleibt dieser Deploy ein Preview-Template und kein finaler Produktivstand.</p>
+    <h2>Warum die Slot-Icons lokal im Repository liegen</h2>
+    <p>Die Icons wurden aus öffentlich erreichbaren `gameRes/sq/200`-URLs extrahiert und in `public/assets/slots/` gespeichert. So kann Cloudflare Pages sie direkt ausliefern, ohne dass die Seite auf fremde Bild-Hosts angewiesen ist.</p>
+    <h2>Revolut casino und Brand-Safety</h2>
+    <p>Brand-Seiten sind riskanter als reine Slot-Seiten. Diese Version vermeidet offizielle Markenbehauptungen, fake Auszahlungsversprechen und erfundene Lizenztexte. Mehr Details stehen in der <a href="/verantwortungsvolles-spielen/">Responsible-Gambling-Seite</a>.</p>
+    <CtaBand text="kompakte Registrierung testen" />
   </section>
 </BrandLayout>
