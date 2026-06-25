@@ -1,0 +1,16 @@
+---
+const { caption, rows } = Astro.props;
+---
+
+<table class="fact-table">
+  <caption>{caption}</caption>
+  <tbody>
+    {rows.map((row) => (
+      <tr>
+        <th scope="row">{row[0]}</th>
+        <td>{row[1]}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+

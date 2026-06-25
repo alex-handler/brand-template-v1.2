@@ -1,0 +1,61 @@
+---
+import BrandLayout from "../layouts/BrandLayout.astro";
+import CtaBand from "../components/CtaBand.astro";
+import FactTable from "../components/FactTable.astro";
+import site from "../../data/site.json";
+
+const title = `${site.mainKey} Bonus Deutschland - Promo Code und Freispiele sicher prufen`;
+const description = `${site.mainKey} Bonus-Ratgeber: Promo Code, Freispiele, Umsatzbedingungen, Quellencheck und Risiken fur deutsche Spieler ohne erfundene Bonusversprechen.`;
+---
+
+<BrandLayout title={title} description={description} path="/bonus/">
+  <section class="hero" slot="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Bonus intent</p>
+        <h1>{site.mainKey} Bonus</h1>
+        <p class="lead">Die Bonus-Seite sammelt Promo-Code-, Freispiele- und Willkommensbonus-Intentionen. Konkrete Werte werden erst publiziert, wenn sie aus einer erlaubten Anbieterquelle stammen.</p>
+        <div class="hero-actions">
+          <a class="button" href={site.playPath} rel="nofollow">{site.copy.primaryCta}</a>
+          <a class="button secondary" href="/zahlungen/">Zahlungen prufen</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="/shared/brand-visual.svg" alt={`${site.mainKey} Bonus und Promo Code Prufung`} title={`${site.mainKey} Bonus Prufung`} width="960" height="640" />
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <h2>{site.mainKey} Bonus: was darf ohne Quelle stehen?</h2>
+    <p>Ohne verifizierte Quelle darf diese Seite nur erklaren, wie ein Bonus gepruft wird. Sie darf keinen festen Willkommensbonus, keine garantierten Freispiele und keinen funktionierenden Promo Code behaupten.</p>
+    <p>Fur echte Brand-Launches wird der Bonusbereich aus dem Keyword-Export und den Anbieterbedingungen aufgebaut. Der Text bleibt so lang genug fur SEO, aber kontrolliert genug fur Compliance.</p>
+
+    <FactTable caption="Bonus-Claim Matrix" rows={[
+      ["Promo Code", "Nur nennen, wenn Quelle vorhanden ist"],
+      ["Freispiele", "Betrag, Spielbindung und Ablaufdatum prufen"],
+      ["Umsatzbedingungen", "Immer mit Wagering, Mindestquote und Zeitlimit verbinden"],
+      ["Auszahlung", "Nicht versprechen; operator-abhangig"],
+      ["Deutschland", "Lokale Verfugbarkeit separat belegen"]
+    ]} />
+
+    <h2>Checkliste vor der Nutzung</h2>
+    <ul>
+      <li>Prufen, ob der Bonus fur Deutschland sichtbar angeboten wird.</li>
+      <li>Lesen, ob Slots wirklich qualifizieren oder ausgeschlossen sind.</li>
+      <li>Umsatzbedingungen, maximale Auszahlung und Fristen vergleichen.</li>
+      <li>Keine Einzahlung nur wegen eines hohen Bonuswerts starten.</li>
+    </ul>
+
+    <h2>Bonusabschnitte fur echte Launches</h2>
+    <p>Wenn ein Keyword-Export viele Bonusbegriffe enthalt, kann die Seite zusatzliche Abschnitte fur Promo Code, Freispiele, No-Deposit-Anfragen und Bonus ohne Einzahlung erhalten. Jeder Abschnitt braucht eine klare Quelle oder bleibt als Prufhinweis formuliert.</p>
+
+    <CtaBand />
+
+    <h2>Bonus-Varianten ohne Footprint</h2>
+    <p>Der Aufbau erlaubt pro Brand unterschiedliche Bonuslogik: einmal steht der Promo-Code im Fokus, bei einer anderen Domain Freispiele, Cashback oder ein reiner Bedingungenvergleich. So bleibt die Seite suchnah, ohne dieselben Abschnitte immer gleich zu wiederholen.</p>
+
+    <h2>Warum dieses Template Bonuswerte nicht erfindet</h2>
+    <p>Brand-Seiten sind riskanter als reine Slot-Seiten. Ein erfundener Bonus kann nicht nur Nutzer enttauschen, sondern auch falsche kommerzielle Erwartungen erzeugen. Deshalb bleibt der Bonuswert unresolved, bis die Quelle im Launch-Datensatz freigegeben ist.</p>
+  </section>
+</BrandLayout>

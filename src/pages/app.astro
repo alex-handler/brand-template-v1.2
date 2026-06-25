@@ -1,0 +1,71 @@
+---
+import BrandLayout from "../layouts/BrandLayout.astro";
+import CtaBand from "../components/CtaBand.astro";
+import FactTable from "../components/FactTable.astro";
+import site from "../../data/site.json";
+
+const title = `${site.mainKey} App Deutschland - Mobile Slots, APK und Sicherheit`;
+const description = `${site.mainKey} App-Ratgeber fur Deutschland: mobile Nutzung, APK-Risiken, Browser-Alternative, Installation und Sicherheitscheck ohne erfundene App-Store-Claims.`;
+---
+
+<BrandLayout title={title} description={description} path="/app/">
+  <section class="hero" slot="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Mobile intent</p>
+        <h1>{site.mainKey} App</h1>
+        <p class="lead">Die App-Seite behandelt mobile Suchintentionen. Sie behauptet keine offizielle App, solange kein geprufter App-Store- oder Betreiberlink vorliegt.</p>
+        <div class="hero-actions">
+          <a class="button" href={site.playPath} rel="nofollow">{site.copy.primaryCta}</a>
+          <a class="button secondary" href="/registrierung/">Konto-Check lesen</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="/shared/brand-visual.svg" alt={`${site.mainKey} App und mobile Slots Ansicht`} title={`${site.mainKey} App und Mobile`} width="960" height="640" />
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <h2>{site.mainKey} App oder mobile Website?</h2>
+    <p>Viele Brand-Keywords enthalten App-, APK- und Mobile-Intentionen. Das Template trennt diese Begriffe sauber: Eine mobile Website ist nicht automatisch eine native App, und eine APK ist nicht automatisch sicher oder offiziell.</p>
+
+    <FactTable caption="Mobile Prufpunkte" rows={[
+      ["Native App", "Nur mit offizieller Quelle behaupten"],
+      ["APK", "Nur mit Quelle, Versionshinweis und Sicherheitswarnung"],
+      ["Browser", "Als vorsichtige Alternative beschreiben"],
+      ["Zahlungen", "Nicht aus der App ableiten; Anbieterbedingungen prufen"]
+    ]} />
+
+    <h2>APK-Sicherheitscheck</h2>
+    <ol>
+      <li>Quelle und Domain kontrollieren.</li>
+      <li>Berechtigungen vor der Installation lesen.</li>
+      <li>Keine APK aus unbekannten Mirrors installieren.</li>
+      <li>Bei Zahlungs- oder Identitatsdaten besonders vorsichtig sein.</li>
+    </ol>
+
+    <h2>App-Content fur echte Keyword-Exports</h2>
+    <p>Wenn der Keyword-Export viele App-Begriffe enthalt, kann die Seite Android, iOS, APK, Mobile-Browser, Login-Probleme und Updates getrennt behandeln. Der Prompt muss dann priorisieren, welche Cluster in H2/H3 gehoren und welche nur im Body erscheinen.</p>
+
+    <div class="note warning">
+      App-Store-Verfugbarkeit, Android-Kompatibilitat und iOS-Support sind keine Template-Fakten. Sie brauchen Quellen.
+    </div>
+
+    <h2>Mobile UX und Quellenstatus</h2>
+    <p>Bei echten Brand-Seiten sollte der mobile Abschnitt nicht nur Downloads beschreiben. Er sollte Ladezeit, responsive Darstellung, Login-Komfort, Zahlungswege und Sicherheitswarnungen trennen. Jede konkrete App-Aussage bleibt an eine Quelle gebunden.</p>
+
+    <h2>Preview-Ziel der App-Seite</h2>
+    <p>Im ersten Deploy soll diese Seite vor allem beweisen, dass mobile Intentionen ohne falsche App-Behauptungen abgedeckt werden konnen. Danach lassen sich echte Store-Links oder Screenshots erganzen.</p>
+
+    <h2>Haufige mobile Fehler</h2>
+    <ul>
+      <li>Eine Browserseite als native App bezeichnen.</li>
+      <li>Eine APK ohne Herkunft und Versionshinweis empfehlen.</li>
+      <li>Mobile Zahlungen als automatisch verfugbar darstellen.</li>
+      <li>Support- oder Wiederherstellungswege ohne Anbieterquelle behaupten.</li>
+    </ul>
+
+    <CtaBand />
+  </section>
+</BrandLayout>

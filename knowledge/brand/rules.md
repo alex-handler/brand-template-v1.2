@@ -1,0 +1,34 @@
+# Brand Template Rules
+
+Use these rules when `siteType` is `brand`.
+
+## Required Positioning
+
+- The site is an independent informational guide.
+- It must not imply official ownership, endorsement, support, or partnership.
+- It must not reuse protected brand identity unless assets are explicitly approved.
+- It must not claim license, bonus size, payout speed, app-store availability, payment availability, ownership, or customer support quality without source data.
+
+## Page Strategy
+
+- homepage / brand review
+- bonus
+- app or mobile
+- payments
+- registration
+- responsible gambling
+- about
+- privacy
+- cookie policy
+
+## Copy Rules
+
+- Start title tags with the main key when the page is commercial.
+- Use local language for the target geo.
+- Separate verified facts from operator-dependent items.
+- Avoid fake testing, fake experts, fake author profiles, and invented screenshots.
+- Add responsible gambling context on every commercial page.
+
+## Source Handling
+
+Unknown facts stay unresolved. Do not turn assumptions into production claims.

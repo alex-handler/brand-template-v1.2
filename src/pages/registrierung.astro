@@ -1,0 +1,71 @@
+---
+import BrandLayout from "../layouts/BrandLayout.astro";
+import CtaBand from "../components/CtaBand.astro";
+import FactTable from "../components/FactTable.astro";
+import site from "../../data/site.json";
+
+const title = `${site.mainKey} Registrierung Deutschland - Konto, Login und Verifizierung`;
+const description = `${site.mainKey} Registrierung: Kontoeroffnung, Login, KYC, Bonusauswahl und Sicherheitscheck fur Deutschland ohne erfundene Anbieterclaims.`;
+---
+
+<BrandLayout title={title} description={description} path="/registrierung/">
+  <section class="hero" slot="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Account intent</p>
+        <h1>{site.mainKey} Registrierung</h1>
+        <p class="lead">Diese Seite zeigt, wie Konto- und Login-Intentionen sicher abgedeckt werden. Sie ersetzt keine Anbieterbedingungen und behauptet keine erfolgreiche Registrierung.</p>
+        <div class="hero-actions">
+          <a class="button" href={site.playPath} rel="nofollow">{site.copy.primaryCta}</a>
+          <a class="button secondary" href="/app/">App-Hinweise lesen</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="/shared/brand-visual.svg" alt={`${site.mainKey} Registrierung Konto und Verifizierung`} title={`${site.mainKey} Registrierung`} width="960" height="640" />
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <h2>Vor der {site.mainKey} Registrierung</h2>
+    <p>Die Registrierung ist eine starke kommerzielle Intention. Deshalb muss das Template klare Prufpunkte liefern: Quellen, Altersgrenze, KYC, Bonus-Opt-in, Zahlungsweg und verantwortungsvolles Spielen.</p>
+
+    <FactTable caption="Registrierungs-Check" rows={[
+      ["Mindestalter", "18+ Hinweis sichtbar halten"],
+      ["KYC", "Dokumentenprufung als moglichen Schritt nennen"],
+      ["Bonus Opt-in", "Nicht automatisch als Vorteil darstellen"],
+      ["Login", "Keine Support- oder Recovery-Claims ohne Quelle"]
+    ]} />
+
+    <h2>Registrierung als Suchintention</h2>
+    <p>Registrierungskeywords sind oft transaktional. Das Template nutzt sie nicht nur fur CTA-Druck, sondern fur eine kontrollierte Entscheidungshilfe: Was muss vor dem Konto klar sein, welche Daten konnen abgefragt werden und welche Bonusentscheidung ist riskant.</p>
+
+    <h2>Schritte im sicheren Konto-Flow</h2>
+    <ol>
+      <li>Anbieter und Domain prufen.</li>
+      <li>Bedingungen lesen, bevor Daten eingetragen werden.</li>
+      <li>Bonus-Opt-in bewusst entscheiden.</li>
+      <li>Zahlungsmethode und KYC-Anforderungen vergleichen.</li>
+    </ol>
+
+    <h2>Login und Kontosicherheit</h2>
+    <p>Eine Registrierungsseite sollte nicht nur den Start erklaren. Sie muss auch Login-Sicherheit, Passwortschutz, Verifizierung, Bonusentscheidung und Zahlungsabgleich behandeln. Das senkt das Risiko, dass Nutzer eine reine CTA-Seite ohne Entscheidungshilfe sehen.</p>
+
+    <h2>Source-Gate fur Kontoangaben</h2>
+    <p>Login, Support, Verifizierung und Kontowiederherstellung durfen erst konkret beschrieben werden, wenn eine Anbieterquelle vorhanden ist. Bis dahin bleibt die Seite bei sicheren Checklisten.</p>
+
+    <h2>Nach der Kontoeroffnung</h2>
+    <ul>
+      <li>Profilangaben und E-Mail-Adresse kontrollieren.</li>
+      <li>Bonusregeln lesen, bevor Guthaben eingesetzt wird.</li>
+      <li>Zahlungsmethode und KYC-Anforderungen vergleichen.</li>
+      <li>Limits setzen, bevor echtes Geld verwendet wird.</li>
+    </ul>
+
+    <p>So bleibt die Registrierungsseite transaktional nutzlich, aber nicht aggressiv. Sie fuhrt zur Entscheidung, ohne eine erfolgreiche Kontoeroffnung, Bonusannahme oder Auszahlung zu versprechen.</p>
+
+    <p>Fur echte Projekte kann dieser Abschnitt zusatzlich Support-Links, Dokumentenarten, Login-Probleme und Bonus-Opt-in Hinweise aufnehmen, sobald diese Informationen aus freigegebenen Quellen stammen.</p>
+
+    <CtaBand />
+  </section>
+</BrandLayout>

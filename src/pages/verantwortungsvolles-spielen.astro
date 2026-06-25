@@ -1,0 +1,33 @@
+---
+import BrandLayout from "../layouts/BrandLayout.astro";
+import site from "../../data/site.json";
+
+const title = `${site.mainKey} verantwortungsvolles Spielen - Risiken und Schutz`;
+const description = `${site.mainKey} Hinweise zu verantwortungsvollem Spielen, Risiken, Limits, Pausen und Hilfeangeboten fur Nutzer in Deutschland.`;
+---
+
+<BrandLayout title={title} description={description} path="/verantwortungsvolles-spielen/" commercial={false}>
+  <section class="hero" slot="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Safety</p>
+        <h1>Verantwortungsvolles Spielen</h1>
+        <p class="lead">{site.copy.riskNote}</p>
+      </div>
+      <div class="hero-visual">
+        <img src="/shared/brand-visual.svg" alt={`${site.mainKey} verantwortungsvolle Nutzung`} title={`${site.mainKey} Verantwortung`} width="960" height="640" />
+      </div>
+    </div>
+  </section>
+  <section class="content">
+    <h2>Grundregeln</h2>
+    <ul>
+      <li>Spielen Sie nicht mit Geld, das Sie fur Miete, Rechnungen oder Alltag brauchen.</li>
+      <li>Setzen Sie Limits, bevor Sie ein Konto nutzen.</li>
+      <li>Machen Sie Pausen, wenn Spielen emotional oder finanziell Druck erzeugt.</li>
+      <li>Suchen Sie Hilfe, wenn Kontrolle verloren geht.</li>
+    </ul>
+    <h2>Template-Regel</h2>
+    <p>Jede kommerzielle Brand-Seite muss auf diese Seite verlinken und einen sichtbaren Risiko- oder Alterskontext enthalten.</p>
+  </section>
+</BrandLayout>

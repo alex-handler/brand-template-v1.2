@@ -1,0 +1,17 @@
+{
+  "name": "brand-template-v1-2",
+  "version": "1.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "audit:brand": "node scripts/audit-brand.mjs",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
+    "astro": "ASTRO_TELEMETRY_DISABLED=1 astro"
+  },
+  "dependencies": {
+    "astro": "^7.0.3",
+    "typescript": "^5.8.3"
+  }
+}

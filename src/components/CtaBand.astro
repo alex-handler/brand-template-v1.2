@@ -1,0 +1,14 @@
+---
+import site from "../../data/site.json";
+
+const { compact = false } = Astro.props;
+---
+
+<aside class:list={["cta-band", compact && "compact"]}>
+  <div>
+    <strong>{site.mainKey} sicher einordnen</strong>
+    <p>{site.copy.sourceNote}</p>
+  </div>
+  <a href={site.playPath} rel="nofollow">{site.copy.primaryCta}</a>
+</aside>
+

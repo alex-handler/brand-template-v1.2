@@ -1,0 +1,25 @@
+---
+import BrandLayout from "../layouts/BrandLayout.astro";
+import site from "../../data/site.json";
+
+const title = `${site.mainKey} Datenschutz - Informationsseite`;
+const description = `${site.mainKey} Datenschutz-Hinweise fur das Brand-Template mit allgemeiner Information zu Daten, Logs, Cookies und externen Links.`;
+---
+
+<BrandLayout title={title} description={description} path="/datenschutz/" commercial={false}>
+  <section class="hero" slot="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Privacy</p>
+        <h1>Datenschutz</h1>
+        <p class="lead">Diese Vorlage enthalt allgemeine Datenschutz-Hinweise. Projektbezogene Tracking-, Kontakt- oder Analytics-Daten mussen vor Production erganzt werden.</p>
+      </div>
+    </div>
+  </section>
+  <section class="content">
+    <h2>Allgemeine Daten</h2>
+    <p>Beim Besuch statischer Seiten konnen Server- oder CDN-Logs entstehen. Welche Daten konkret verarbeitet werden, hangt vom Hosting-Setup ab.</p>
+    <h2>Externe Links</h2>
+    <p>Affiliate- oder Anbieterlinks fuhren zu externen Seiten. Dort gelten die Datenschutzregeln des jeweiligen Betreibers.</p>
+  </section>
+</BrandLayout>

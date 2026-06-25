@@ -1,0 +1,96 @@
+{
+  "generatedAt": "2026-06-25T19:02:05.578Z",
+  "results": [
+    {
+      "path": "/",
+      "words": 652,
+      "title": "Revoluts Test Deutschland - Brand Slots, Bonus, App und Zahlungen",
+      "h1": 1,
+      "h2": 9,
+      "tables": 1,
+      "lists": 1,
+      "failures": []
+    },
+    {
+      "path": "/bonus/",
+      "words": 349,
+      "title": "Revoluts Bonus Deutschland - Promo Code und Freispiele sicher prufen",
+      "h1": 1,
+      "h2": 5,
+      "tables": 1,
+      "lists": 1,
+      "failures": []
+    },
+    {
+      "path": "/app/",
+      "words": 332,
+      "title": "Revoluts App Deutschland - Mobile Slots, APK und Sicherheit",
+      "h1": 1,
+      "h2": 6,
+      "tables": 1,
+      "lists": 2,
+      "failures": []
+    },
+    {
+      "path": "/zahlungen/",
+      "words": 323,
+      "title": "Revoluts Zahlungen Deutschland - Einzahlung, Auszahlung und KYC",
+      "h1": 1,
+      "h2": 6,
+      "tables": 1,
+      "lists": 2,
+      "failures": []
+    },
+    {
+      "path": "/registrierung/",
+      "words": 322,
+      "title": "Revoluts Registrierung Deutschland - Konto, Login und Verifizierung",
+      "h1": 1,
+      "h2": 6,
+      "tables": 1,
+      "lists": 2,
+      "failures": []
+    },
+    {
+      "path": "/verantwortungsvolles-spielen/",
+      "words": 139,
+      "title": "Revoluts verantwortungsvolles Spielen - Risiken und Schutz",
+      "h1": 1,
+      "h2": 2,
+      "tables": 0,
+      "lists": 1,
+      "failures": []
+    },
+    {
+      "path": "/ueber-uns/",
+      "words": 128,
+      "title": "Revoluts Ueber uns - unabhangiger Brand-Ratgeber",
+      "h1": 1,
+      "h2": 2,
+      "tables": 0,
+      "lists": 0,
+      "failures": []
+    },
+    {
+      "path": "/datenschutz/",
+      "words": 112,
+      "title": "Revoluts Datenschutz - Informationsseite",
+      "h1": 1,
+      "h2": 2,
+      "tables": 0,
+      "lists": 0,
+      "failures": []
+    },
+    {
+      "path": "/cookies/",
+      "words": 102,
+      "title": "Revoluts Cookies - Cookie-Hinweise",
+      "h1": 1,
+      "h2": 2,
+      "tables": 0,
+      "lists": 0,
+      "failures": []
+    }
+  ],
+  "globalFailures": []
+}

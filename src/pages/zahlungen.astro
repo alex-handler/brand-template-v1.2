@@ -1,0 +1,68 @@
+---
+import BrandLayout from "../layouts/BrandLayout.astro";
+import CtaBand from "../components/CtaBand.astro";
+import FactTable from "../components/FactTable.astro";
+import site from "../../data/site.json";
+
+const title = `${site.mainKey} Zahlungen Deutschland - Einzahlung, Auszahlung und KYC`;
+const description = `${site.mainKey} Zahlungsratgeber: Einzahlung, Auszahlung, KYC, Karten, Bankmethoden und operator-abhangige Limits fur Deutschland sicher einordnen.`;
+---
+
+<BrandLayout title={title} description={description} path="/zahlungen/">
+  <section class="hero" slot="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Payment intent</p>
+        <h1>{site.mainKey} Zahlungen</h1>
+        <p class="lead">Zahlungsseiten brauchen besonders strenge Quellen. Dieses Template nennt Kategorien und Pruflogik, aber keine garantierte Verfugbarkeit, Gebuhren oder Auszahlungsgeschwindigkeit.</p>
+        <div class="hero-actions">
+          <a class="button" href={site.playPath} rel="nofollow">{site.copy.primaryCta}</a>
+          <a class="button secondary" href="/bonus/">Bonusbedingungen prufen</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="/shared/brand-visual.svg" alt={`${site.mainKey} Zahlungen Einzahlung und Auszahlung`} title={`${site.mainKey} Zahlungsratgeber`} width="960" height="640" />
+      </div>
+    </div>
+  </section>
+
+  <section class="content">
+    <h2>Einzahlung und Auszahlung bei {site.mainKey}</h2>
+    <p>Eine Brand-Template-Seite darf Zahlungsarten nicht aus dem Markennamen ableiten. Selbst wenn Nutzer nach Karten, Bankmethoden oder schnellen Auszahlungen suchen, muss die echte Verfugbarkeit beim Zielanbieter gepruft werden.</p>
+
+    <FactTable caption="Zahlungsdaten: erlaubte Darstellung" rows={[
+      ["Karten", "Nur als mogliche Kategorie, nicht als Zusage"],
+      ["Banktransfer", "Geo- und operator-abhangig"],
+      ["E-Wallets", "Nur bei Quelle nennen"],
+      ["Krypto", "Nicht ohne explizite Anbieterangabe"],
+      ["KYC", "Als ublicher Sicherheits- und Compliance-Schritt erklaren"]
+    ]} />
+
+    <h2>Lokaler DE-Kontext</h2>
+    <p>Fur Deutschland sollten Zahlungen nicht generisch beschrieben werden. Je nach Quelle konnen Karten, Bankmethoden, Wallets, Verifizierung und Limits unterschiedlich relevant sein. Ohne Betreiberquelle bleibt die Seite bei Kategorien und Prufhinweisen.</p>
+
+    <h2>Was Nutzer vor einer Einzahlung lesen sollten</h2>
+    <ul>
+      <li>Ob das Konto in Deutschland genutzt werden darf.</li>
+      <li>Welche Dokumente fur KYC verlangt werden konnen.</li>
+      <li>Ob Bonusbedingungen bestimmte Zahlungsmethoden ausschliessen.</li>
+      <li>Welche Limits, Gebuhren und Wartezeiten beim Anbieter stehen.</li>
+    </ul>
+
+    <h2>Bonus und Zahlungen verbinden</h2>
+    <p>Zahlungsarten konnen Bonusbedingungen beeinflussen. Eine Methode kann fur Einzahlungen sichtbar sein und trotzdem von einer Promotion ausgeschlossen werden. Deshalb verlinkt diese Seite naturlich zur Bonusseite und verlangt operator-spezifische Prufung.</p>
+
+    <h2>Warum Zahlungsseiten sensibel sind</h2>
+    <p>Ein falscher Zahlungsclaim kann unmittelbar zu falschen Nutzererwartungen fuhren. Deshalb bevorzugt das Template neutrale Prufhinweise, bis die Zielseite echte Konditionen liefert.</p>
+
+    <h2>Auszahlungsrisiken</h2>
+    <ul>
+      <li>KYC kann vor einer Auszahlung notwendig werden.</li>
+      <li>Limits und Bearbeitungszeiten konnen je Anbieter variieren.</li>
+      <li>Bonusumsatz kann eine Auszahlung verzogern.</li>
+      <li>Unklare Gebuhren sollten vor der Einzahlung gepruft werden.</li>
+    </ul>
+
+    <CtaBand />
+  </section>
+</BrandLayout>

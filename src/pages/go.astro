@@ -1,0 +1,23 @@
+---
+import BrandLayout from "../layouts/BrandLayout.astro";
+import site from "../../data/site.json";
+
+const title = `${site.mainKey} Weiterleitung`;
+const description = `${site.mainKey} Weiterleitungsseite fur den konfigurierten Anbieterlink.`;
+---
+
+<BrandLayout title={title} description={description} path="/go/" commercial={false}>
+  <section class="hero" slot="hero">
+    <div class="hero-inner">
+      <div>
+        <p class="eyebrow">Redirect placeholder</p>
+        <h1>Weiterleitung</h1>
+        <p class="lead">Im Template bleibt diese Seite ein sicherer Platzhalter. In Production kann Cloudflare `_redirects` den Pfad auf den freigegebenen Affiliate-Link leiten.</p>
+      </div>
+    </div>
+  </section>
+  <section class="content">
+    <h2>Aktueller Status</h2>
+    <p>Affiliate-Ziel: Platzhalter. Vor Production muss der echte Ziel-Link freigegeben werden.</p>
+  </section>
+</BrandLayout>

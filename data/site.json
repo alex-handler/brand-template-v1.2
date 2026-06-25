@@ -1,0 +1,46 @@
+{
+  "domain": "brand-template-v1-2.pages.dev",
+  "siteUrl": "https://brand-template-v1-2.pages.dev",
+  "brandName": "Revolut Slots",
+  "mainKey": "Revoluts",
+  "siteType": "brand",
+  "locale": "de-DE",
+  "language": "de",
+  "geo": "DE",
+  "currency": "EUR",
+  "affiliateUrl": "https://example.com/affiliate-placeholder",
+  "playPath": "/go/",
+  "independentDisclosure": "Diese Website ist ein unabhangiger Informationsleitfaden und keine offizielle Website der genannten Marke.",
+  "verifiedFacts": {
+    "brandStatus": "unverified-template-placeholder",
+    "license": "unresolved",
+    "bonus": "unresolved",
+    "payments": "unresolved",
+    "app": "unresolved",
+    "support": "unresolved"
+  },
+  "copy": {
+    "primaryCta": "Zum Anbieter",
+    "secondaryCta": "Ratgeber lesen",
+    "riskNote": "Glucksspiel kann riskant sein. Spielen Sie nur, wenn dies in Ihrem Land erlaubt ist, und nur ab 18 Jahren.",
+    "sourceNote": "Bonus-, Zahlungs- und Lizenzangaben mussen beim jeweiligen Anbieter gepruft werden."
+  },
+  "navigation": [
+    { "label": "Test", "href": "/" },
+    { "label": "Bonus", "href": "/bonus/" },
+    { "label": "App", "href": "/app/" },
+    { "label": "Zahlungen", "href": "/zahlungen/" },
+    { "label": "Registrierung", "href": "/registrierung/" }
+  ],
+  "pages": [
+    "/",
+    "/bonus/",
+    "/app/",
+    "/zahlungen/",
+    "/registrierung/",
+    "/verantwortungsvolles-spielen/",
+    "/ueber-uns/",
+    "/datenschutz/",
+    "/cookies/"
+  ]
+}
