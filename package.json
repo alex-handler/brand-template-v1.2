@@ -4,9 +4,14 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "icon:brand": "node scripts/generate-brand-icon.mjs",
+    "predev": "node scripts/generate-brand-icon.mjs",
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "prebuild": "node scripts/generate-brand-icon.mjs",
     "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preaudit:brand": "node scripts/generate-brand-icon.mjs",
     "audit:brand": "node scripts/audit-brand.mjs",
+    "prepreview": "node scripts/generate-brand-icon.mjs",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
     "astro": "ASTRO_TELEMETRY_DISABLED=1 astro"
   },

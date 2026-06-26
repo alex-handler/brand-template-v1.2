@@ -36,3 +36,13 @@ notes on forbidden claims
 ```
 
 Production copy must distinguish verified facts, user-provided assumptions, and unresolved items.
+
+## Auto Brand Icon
+
+`npm run build`, `npm run dev`, `npm run preview` and `npm run audit:brand` run `scripts/generate-brand-icon.mjs` first. The script derives the site icon from `data/site.json`:
+
+- first visible letter or number from `brandName`
+- `visualStyle.primaryColor`, `secondaryColor`, `accentColor`, `surfaceColor`
+- `visualStyle.iconSafeArea` for the maskable app icon
+
+Generated files live in `public/`: `favicon.svg`, `apple-touch-icon.svg`, `maskable-icon.svg`, `safari-pinned-tab.svg` and `site.webmanifest`. Do not copy favicons from prior brands or protected official brand assets unless explicitly approved.

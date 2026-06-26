@@ -211,6 +211,24 @@ const paymentDir = path.join(root, "public", "assets", "payments");
 const paymentFiles = fs.existsSync(paymentDir) ? fs.readdirSync(paymentDir).filter((name) => name.endsWith(".svg")) : [];
 if (paymentFiles.length < 7) globalFailures.push(`payment SVG database too small: ${paymentFiles.length}`);
 
+const iconFiles = ["favicon.svg", "apple-touch-icon.svg", "maskable-icon.svg", "safari-pinned-tab.svg", "site.webmanifest"];
+for (const file of iconFiles) {
+  if (!fs.existsSync(path.join(root, "public", file))) globalFailures.push(`missing generated brand icon asset: ${file}`);
+}
+const brandLetter = (site.brandName || site.mainKey || "Brand").trim().match(/\p{L}|\p{N}/u)?.[0]?.toLocaleUpperCase(site.locale || "en") || "B";
+const faviconPath = path.join(root, "public", "favicon.svg");
+if (fs.existsSync(faviconPath) && !fs.readFileSync(faviconPath, "utf8").includes(`data-brand-letter="${brandLetter}"`)) {
+  globalFailures.push("favicon does not use the configured brand initial");
+}
+const manifestPath = path.join(root, "public", "site.webmanifest");
+if (fs.existsSync(manifestPath)) {
+  const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+  const icons = Array.isArray(manifest.icons) ? manifest.icons : [];
+  if (!icons.some((icon) => icon.src === "/favicon.svg" && icon.purpose === "any")) globalFailures.push("manifest missing regular any-purpose favicon");
+  if (!icons.some((icon) => icon.src === "/maskable-icon.svg" && icon.purpose === "maskable")) globalFailures.push("manifest missing maskable icon");
+  if (manifest.theme_color !== (site.visualStyle?.primaryColor || "#071d38")) globalFailures.push("manifest theme_color does not match visual style");
+}
+
 const slotDir = path.join(root, "public", "assets", "slots");
 const slotFiles = fs.readdirSync(slotDir).filter((name) => name.endsWith(".jpg"));
 if (slotFiles.length !== slots.length) globalFailures.push(`slot file count ${slotFiles.length} != data count ${slots.length}`);
@@ -228,10 +246,15 @@ for (const assetDir of ["payments", "providers", "footer"]) {
 }
 
 const distText = stripTags(fs.readFileSync(path.join(dist, "index.html"), "utf8"));
+const distHomeHtml = fs.readFileSync(path.join(dist, "index.html"), "utf8");
 if (/mostbet/i.test(distText)) globalFailures.push("Mostbet footprint found");
-if (!fs.readFileSync(path.join(dist, "index.html"), "utf8").includes("overflow-x:hidden")) globalFailures.push("layout missing overflow-x guard");
-if (!fs.readFileSync(path.join(dist, "index.html"), "utf8").includes("logo-flag")) globalFailures.push("header missing DE flag signal");
-if (fs.readFileSync(path.join(dist, "index.html"), "utf8").includes("Revolut<br")) globalFailures.push("logo text breaks Revolut Slots onto multiple lines");
+if (!distHomeHtml.includes("overflow-x:hidden")) globalFailures.push("layout missing overflow-x guard");
+if (!distHomeHtml.includes("logo-flag")) globalFailures.push("header missing DE flag signal");
+if (distHomeHtml.includes("Revolut<br")) globalFailures.push("logo text breaks Revolut Slots onto multiple lines");
+if (!distHomeHtml.includes('<link rel="icon" href="/favicon.svg" type="image/svg+xml"')) globalFailures.push("head missing generated favicon link");
+if (!distHomeHtml.includes('<link rel="apple-touch-icon" href="/apple-touch-icon.svg"')) globalFailures.push("head missing apple touch icon link");
+if (!distHomeHtml.includes('<link rel="mask-icon" href="/safari-pinned-tab.svg"')) globalFailures.push("head missing pinned tab mask icon link");
+if (!distHomeHtml.includes('<link rel="manifest" href="/site.webmanifest"')) globalFailures.push("head missing webmanifest link");
 
 fs.mkdirSync(path.join(root, "reports"), { recursive: true });
 fs.writeFileSync(path.join(root, "reports", "brand-audit.json"), JSON.stringify({ generatedAt: new Date().toISOString(), slotCount: slots.length, results, globalFailures }, null, 2));

@@ -9,6 +9,14 @@
   "language": "de",
   "geo": "DE",
   "currency": "EUR",
+  "visualStyle": {
+    "primaryColor": "#071d38",
+    "secondaryColor": "#1467c9",
+    "accentColor": "#ffd425",
+    "surfaceColor": "#ffffff",
+    "iconShape": "squircle",
+    "iconSafeArea": 0.18
+  },
   "affiliateUrl": "https://example.com/affiliate-placeholder",
   "playPath": "/flash.play/",
   "independentDisclosure": "Diese Website ist ein unabhängiger Informationsratgeber und keine offizielle Revolut Website.",

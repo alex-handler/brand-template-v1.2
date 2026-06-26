@@ -12,6 +12,7 @@ const {
 
 const canonical = new URL(path, site.siteUrl).toString();
 const nav = site.navigation;
+const themeColor = site.visualStyle?.primaryColor || "#071d38";
 const graph = [
   {
     "@type": "WebSite",
@@ -84,9 +85,15 @@ const schema = { "@context": "https://schema.org", "@graph": graph };
     <meta name="robots" content="index, follow" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="theme-color" content={themeColor} />
+    <meta name="msapplication-TileColor" content={themeColor} />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang={site.locale} href={canonical} />
     <link rel="alternate" hreflang="x-default" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color={themeColor} />
+    <link rel="manifest" href="/site.webmanifest" />
     <script async src="https://cdn.ampproject.org/v0.js"></script>
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
     <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
