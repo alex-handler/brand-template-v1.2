@@ -249,6 +249,7 @@ for (const page of pages) {
 const llms = fs.readFileSync(path.join(dist, "llms.txt"), "utf8");
 const robots = fs.readFileSync(path.join(dist, "robots.txt"), "utf8");
 const sitemap = fs.readFileSync(path.join(dist, "sitemap.xml"), "utf8");
+const middlewarePath = path.join(root, "functions", "_middleware.js");
 const globalFailures = [];
 
 if (!llms.includes("independent") && !normalize(llms).includes("unabhangig")) globalFailures.push("llms.txt missing independence posture");
@@ -258,6 +259,15 @@ for (const pagePath of site.pages) {
 }
 if (sitemap.includes("/ueber-uns/")) globalFailures.push("sitemap contains removed ueber-uns page");
 if (slots.length < 42) globalFailures.push(`slot database too small: ${slots.length}`);
+if (site.domain !== "revolut-slots-de.de") globalFailures.push("site domain is not set to production apex domain");
+if (site.siteUrl !== "https://revolut-slots-de.de") globalFailures.push("siteUrl is not set to production apex URL");
+if (!fs.existsSync(middlewarePath)) globalFailures.push("missing Cloudflare Pages middleware for host redirects");
+if (fs.existsSync(middlewarePath)) {
+  const middleware = fs.readFileSync(middlewarePath, "utf8");
+  if (!middleware.includes('"www.revolut-slots-de.de"')) globalFailures.push("middleware missing www to apex redirect host");
+  if (!middleware.includes('"brand-template-v1-2.pages.dev"')) globalFailures.push("middleware missing pages.dev to apex redirect host");
+  if (!middleware.includes('url.hostname = PRIMARY_HOST')) globalFailures.push("middleware missing apex host rewrite");
+}
 
 const paymentDir = path.join(root, "public", "assets", "payments");
 const paymentFiles = fs.existsSync(paymentDir) ? fs.readdirSync(paymentDir).filter((name) => name.endsWith(".svg")) : [];
