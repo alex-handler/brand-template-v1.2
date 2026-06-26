@@ -1,0 +1,69 @@
+---
+import slots from "../../data/drueckglueck-slots.json";
+
+const { mode = "full", heading = "Revolut Slots Spielbereiche", intro = "Die Spielbereiche übernehmen die Logik der Reverse-Beispiele: klare Kategoriezeile, Zähler, kompakte Karten und quadratische 200x200 Icons." } = Astro.props;
+
+const bySlug = new Map(slots.map((slot) => [slot.slug, slot]));
+const pick = (slugs) => slugs.map((slug) => bySlug.get(slug)).filter(Boolean);
+
+const sections = [
+  {
+    title: "Spielautomaten",
+    count: 42,
+    note: "Klassische Casino-Karten für den schnellen visuellen Einstieg.",
+    items: pick(["razorshark1", "bookofdead1", "eyeofhorus1", "bigbassbonanza1", "ramsesbookmobile", "sweetbonanza1"])
+  },
+  {
+    title: "Megaways",
+    count: 13,
+    note: "Dynamische Raster-Optik für die zweite Spielebene.",
+    items: pick(["bigbassbonanzamegaways", "buffalokingmegaways", "spinscoremegaways", "fruitshopmegaways", "templetumblemegaways1", "wildwildrichesmegaways"])
+  },
+  {
+    title: "Beliebte Spiele",
+    count: 12,
+    note: "Ein kuratierter Mix für wiederkehrende Brand-Seiten.",
+    items: pick(["legacyofdead1", "luckypharaohwild", "bookoframagic", "fishinfrenzy", "mysteryjoker", "firejoker1"])
+  },
+  {
+    title: "Poker & Karten",
+    count: 100,
+    note: "Der Poker-Intent bleibt textlich sichtbar, auch wenn nur geprüfte Icons genutzt werden.",
+    items: pick(["aztecjaguar", "barbarossadoublemax", "eltorero1", "diamondmine", "crystalballmobile", "wanteddeadorawild"])
+  }
+];
+
+const visible = mode === "compact" ? sections.slice(0, 2) : mode === "triple" ? sections.slice(0, 3) : sections;
+---
+
+<section class="content game-showcase">
+  <div class="slot-head">
+    <div>
+      <h2>{heading}</h2>
+      <p>{intro}</p>
+    </div>
+    <span class="chip">{slots.length} lokale Icons</span>
+  </div>
+  {visible.map((group) => (
+    <article class="game-section">
+      <div class="game-title-row">
+        <span class="hex-badge">◆</span>
+        <div>
+          <h3>{group.title}</h3>
+          <p>{group.note}</p>
+        </div>
+        <a class="count-pill" href="/bonus/">ALLE {group.count}</a>
+      </div>
+      <div class="mini-grid">
+        {group.items.map((slot) => (
+          <a class="slot-card" href="/bonus/">
+            <span class="slot-img">
+              <amp-img src={slot.src} width="200" height="200" layout="responsive" alt={`${slot.title} Icon`} title={slot.title}></amp-img>
+            </span>
+            <b>{slot.title}</b>
+          </a>
+        ))}
+      </div>
+    </article>
+  ))}
+</section>

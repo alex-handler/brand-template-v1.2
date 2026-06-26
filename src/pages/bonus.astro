@@ -1,34 +1,6 @@
 ---
-import BrandLayout from "../layouts/BrandLayout.astro";
-import Hero from "../components/Hero.astro";
-import FactTable from "../components/FactTable.astro";
-import CtaBand from "../components/CtaBand.astro";
-import SlotGrid from "../components/SlotGrid.astro";
-
-const title = "Revolut Slots Bonus Deutschland - Promo Code und Freispiele";
-const description = "Revolut Slots Bonus Ratgeber: Revolut casino Promo Code, Freispiele, No Deposit Bonus, Bedingungen, Wagering und sichere Prüfung für Deutschland.";
+import CommercialReversePage from "../components/CommercialReversePage.astro";
+import { commercialPages } from "../data/reversePages.js";
 ---
 
-<BrandLayout title={title} description={description} path="/bonus/">
-  <Hero slot="hero" eyebrow="Bonus & Promo" title="Revolut Slots Bonus" lead="Bonus-Keywords sind stark kommerziell. Diese Seite erklärt Promo Code, Freispiele und No-Deposit-Anfragen, ohne konkrete Bonuswerte zu erfinden." />
-  <section class="content">
-    <h2>Revolut Slots Bonus richtig prüfen</h2>
-    <p>Wer über die <a href="/">Revolut Slots Hauptseite</a> kommt, sollte Bonusangaben nie isoliert lesen. Revolut casino Bonus, Freispiele und Promo Codes brauchen Anbieterquelle, Gültigkeit, Wagering und Zahlungsbedingungen.</p>
-    <FactTable caption="Bonus-Entity aus der Sheet-Logik" rows={[
-      ["areaServed", "Deutschland nur bei Quelle"],
-      ["incentiveAmount", "Nicht erfinden"],
-      ["incentiveType", "Freispiele, Match Bonus, Cashback oder Promo Code"],
-      ["incentivizedItem", "Slots oder Casino nur bei Bedingung nennen"],
-      ["bonus wagering requirements", "Immer sichtbar erklären"]
-    ]} />
-    <h2>Checkliste vor der Annahme</h2>
-    <ol>
-      <li>Bonuswert und Mindestumsatz lesen.</li>
-      <li>Prüfen, ob Revolut casino Zahlungen qualifizieren.</li>
-      <li>Slot-Ausschlüsse und maximale Auszahlung prüfen.</li>
-      <li>Keine Einzahlung nur wegen eines hohen Werbewerts starten.</li>
-    </ol>
-    <CtaBand text="Bonusbedingungen vergleichen" />
-  </section>
-  <SlotGrid limit={24} heading="Slots für Bonus-Intent" intro="Das Bonus-Menü nutzt echte 200x200 Slot-Icons aus der extrahierten Datenbank." />
-</BrandLayout>
+<CommercialReversePage page={commercialPages.bonus} />

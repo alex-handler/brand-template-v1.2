@@ -8,15 +8,15 @@ const root = process.cwd();
 const dist = path.join(root, "dist");
 
 const pages = [
-  { path: "/", file: "index.html", commercial: true, minWords: 620, minH2: 4, minSlotImgs: 42 },
-  { path: "/app/", file: "app/index.html", commercial: true, minWords: 300, minH2: 2, allowsMobileAppSchema: true, minSlotImgs: 18 },
-  { path: "/bonus/", file: "bonus/index.html", commercial: true, minWords: 330, minH2: 3, minSlotImgs: 24 },
-  { path: "/registrierung/", file: "registrierung/index.html", commercial: true, minWords: 380, minH2: 4, minSlotImgs: 18 },
-  { path: "/zahlungen/", file: "zahlungen/index.html", commercial: true, minWords: 360, minH2: 3, minSlotImgs: 18 },
-  { path: "/sportwetten/", file: "sportwetten/index.html", commercial: true, minWords: 330, minH2: 3, minSlotImgs: 15 },
-  { path: "/verantwortungsvolles-spielen/", file: "verantwortungsvolles-spielen/index.html", commercial: false, minWords: 230, minH2: 3 },
-  { path: "/datenschutz/", file: "datenschutz/index.html", commercial: false, minWords: 190, minH2: 3 },
-  { path: "/cookies/", file: "cookies/index.html", commercial: false, minWords: 180, minH2: 3 }
+  { path: "/", file: "index.html", commercial: true, minWords: 1100, minH2: 8, minH3: 8, minTables: 4, minLists: 2, minReverseBlocks: 5, minGameSections: 4, minSlotImgs: 66 },
+  { path: "/app/", file: "app/index.html", commercial: true, minWords: 850, minH2: 6, minH3: 7, minTables: 3, minLists: 3, minReverseBlocks: 4, minGameSections: 2, minSlotImgs: 12 },
+  { path: "/bonus/", file: "bonus/index.html", commercial: true, minWords: 850, minH2: 6, minH3: 6, minTables: 4, minLists: 3, minReverseBlocks: 4, minGameSections: 3, minSlotImgs: 18 },
+  { path: "/registrierung/", file: "registrierung/index.html", commercial: true, minWords: 850, minH2: 6, minH3: 7, minTables: 3, minLists: 3, minReverseBlocks: 4, minGameSections: 2, minSlotImgs: 12 },
+  { path: "/zahlungen/", file: "zahlungen/index.html", commercial: true, minWords: 850, minH2: 6, minH3: 7, minTables: 4, minLists: 3, minReverseBlocks: 4, minGameSections: 2, minSlotImgs: 12 },
+  { path: "/sportwetten/", file: "sportwetten/index.html", commercial: true, minWords: 820, minH2: 6, minH3: 7, minTables: 3, minLists: 3, minReverseBlocks: 4, minGameSections: 2, minSlotImgs: 12 },
+  { path: "/verantwortungsvolles-spielen/", file: "verantwortungsvolles-spielen/index.html", commercial: false, minWords: 520, minH2: 5, minH3: 4, minTables: 2, minLists: 2, minReverseBlocks: 5, minGameSections: 0 },
+  { path: "/datenschutz/", file: "datenschutz/index.html", commercial: false, minWords: 520, minH2: 5, minH3: 4, minTables: 2, minLists: 2, minReverseBlocks: 5, minGameSections: 0 },
+  { path: "/cookies/", file: "cookies/index.html", commercial: false, minWords: 520, minH2: 5, minH3: 4, minTables: 2, minLists: 2, minReverseBlocks: 5, minGameSections: 0 }
 ];
 
 function stripTags(html) {
@@ -42,6 +42,19 @@ function extractTitle(html) {
 
 function extractDescription(html) {
   return html.match(/<meta\s+name="description"\s+content="([^"]*)"/i)?.[1]?.trim() || "";
+}
+
+function headingLevels(html) {
+  return [...html.matchAll(/<h([1-6])\b/gi)].map((match) => Number(match[1]));
+}
+
+function hasSkippedHeadingLevel(levels) {
+  let previous = 0;
+  for (const level of levels) {
+    if (previous && level > previous + 1) return true;
+    previous = level;
+  }
+  return false;
 }
 
 function schemaTypes(html) {
@@ -99,14 +112,19 @@ for (const page of pages) {
 
   if (count(/<h1\b/gi, html) !== 1) failures.push("expected exactly one H1");
   if (count(/<h2\b/gi, html) < page.minH2) failures.push(`too few H2 headings`);
+  if (count(/<h3\b/gi, html) < page.minH3) failures.push(`too few H3 headings`);
   if (words < page.minWords) failures.push(`words ${words} < ${page.minWords}`);
+  if (count(/<table\b/gi, html) < page.minTables) failures.push(`tables ${count(/<table\b/gi, html)} < ${page.minTables}`);
+  if (count(/<(ul|ol)\b/gi, html) < page.minLists) failures.push(`lists ${count(/<(ul|ol)\b/gi, html)} < ${page.minLists}`);
+  if (count(/class="[^"]*\breverse-block\b/gi, html) < page.minReverseBlocks) failures.push("too few reverse content blocks");
+  if (count(/class="[^"]*\bgame-section\b/gi, html) < page.minGameSections) failures.push("too few game/category sections");
+  if (hasSkippedHeadingLevel(headingLevels(html))) failures.push("heading level skipped");
   if (!html.includes(`<link rel="canonical" href="${new URL(page.path, site.siteUrl).toString()}"`)) failures.push("canonical mismatch");
   if (!normalizedText.includes(normalize(site.independentDisclosure))) failures.push("missing independent disclosure");
   if (!normalizedText.includes("glucksspiel kann riskant sein")) failures.push("missing risk note");
   if (!html.includes('href="/"')) failures.push("missing internal homepage link");
   if (page.commercial && !normalizedTitle.startsWith(normalize(site.mainKey))) failures.push("commercial title does not start with main key");
   if (page.commercial && !normalizedText.includes(normalize(site.secondaryKey))) failures.push("missing secondary key");
-  if (page.commercial && count(/<table\b/gi, html) + count(/<(ul|ol)\b/gi, html) < 2) failures.push("commercial page lacks table/list structure");
   if (page.minSlotImgs && count(/<amp-img[^>]+\/assets\/slots\//gi, html) < page.minSlotImgs) failures.push("too few local slot images");
   if (/garantierte?\s+(gewinn|auszahlung|bonus)/i.test(text)) failures.push("guaranteed win/payout/bonus wording");
   if (/offizielle\s+(revolut|casino|zahlungs|regulator)/i.test(text) && !/keine\s+offizielle/i.test(text)) failures.push("possible official-claim wording");
@@ -123,8 +141,11 @@ for (const page of pages) {
     title,
     h1: count(/<h1\b/gi, html),
     h2: count(/<h2\b/gi, html),
+    h3: count(/<h3\b/gi, html),
     tables: count(/<table\b/gi, html),
     lists: count(/<(ul|ol)\b/gi, html),
+    reverseBlocks: count(/class="[^"]*\breverse-block\b/gi, html),
+    gameSections: count(/class="[^"]*\bgame-section\b/gi, html),
     slotImages: count(/<amp-img[^>]+\/assets\/slots\//gi, html),
     schemaTypes: types,
     failures
@@ -173,9 +194,9 @@ const lines = [
   `Generated: ${new Date().toISOString()}`,
   `Slots: ${slots.length}`,
   "",
-  "| Path | Words | H1 | H2 | Tables | Lists | Slots | Status |",
-  "| --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
-  ...results.map((item) => `| ${item.path} | ${item.words} | ${item.h1} | ${item.h2} | ${item.tables} | ${item.lists} | ${item.slotImages} | ${item.failures.length ? `FAIL: ${item.failures.join("; ")}` : "PASS"} |`),
+  "| Path | Words | H1 | H2 | H3 | Tables | Lists | Blocks | Games | Slots | Status |",
+  "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
+  ...results.map((item) => `| ${item.path} | ${item.words} | ${item.h1} | ${item.h2} | ${item.h3} | ${item.tables} | ${item.lists} | ${item.reverseBlocks} | ${item.gameSections} | ${item.slotImages} | ${item.failures.length ? `FAIL: ${item.failures.join("; ")}` : "PASS"} |`),
   "",
   "## Global",
   "",

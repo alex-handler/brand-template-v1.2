@@ -1,41 +1,6 @@
 ---
-import BrandLayout from "../layouts/BrandLayout.astro";
-import Hero from "../components/Hero.astro";
-import CtaBand from "../components/CtaBand.astro";
-import FactTable from "../components/FactTable.astro";
-import SlotGrid from "../components/SlotGrid.astro";
-
-const title = "Revolut Slots Sportwetten Deutschland - Casino und Betting Check";
-const description = "Revolut Slots Sportwetten Ratgeber: Betting-Intent, Revolut casino Abgrenzung, Quoten, App, Einzahlung und verantwortungsvolle Nutzung in Deutschland.";
+import CommercialReversePage from "../components/CommercialReversePage.astro";
+import { commercialPages } from "../data/reversePages.js";
 ---
 
-<BrandLayout title={title} description={description} path="/sportwetten/">
-  <Hero slot="hero" eyebrow="Sport & Betting" title="Revolut Slots Sportwetten" lead="Diese Unterseite deckt Sportwetten-Intent ab, ohne aus Revolut Slots automatisch ein Sportwettenprodukt zu machen. Betting-Claims bleiben quellenpflichtig." />
-  <section class="content">
-    <h2>Sportwetten im Revolut Slots Kontext</h2>
-    <p>Die <a href="/">Revolut Slots Hauptseite</a> bündelt Casino- und Brand-Intent. Sportwetten sind eine eigene Suchabsicht, weil Nutzer nach Quoten, Livewetten, App-Nutzung und kombinierten Casino-Angeboten suchen.</p>
-    <p>Ohne geprüfte Anbieterquelle darf diese Seite keine Quoten, Märkte, Boni oder Lizenzdetails behaupten. Sie erklärt stattdessen, welche Informationen bei einem echten Revolut casino oder Betting-Ziel geprüft werden müssten.</p>
-
-    <FactTable caption="Sportwetten-Check" rows={[
-      ["Märkte", "Fußball, Tennis oder Livewetten nur bei Quelle nennen"],
-      ["Quoten", "Keine Beispielquoten erfinden"],
-      ["App", "Mobile Betting getrennt von Casino-App prüfen"],
-      ["Bonus", "Wettbonus und Casino-Bonus nicht vermischen"],
-      ["Limits", "Einzahlungs-, Einsatz- und Verlustlimits sichtbar erklären"]
-    ]} />
-
-    <h2>Casino und Betting trennen</h2>
-    <ul>
-      <li>Casino-Boni gelten nicht automatisch für Sportwetten.</li>
-      <li>Sportwetten können andere KYC- und Limitregeln haben.</li>
-      <li>Livewetten erhöhen das Risiko schneller Entscheidungen.</li>
-      <li>Bei Kombi-Angeboten müssen Casino- und Wettbedingungen separat geprüft werden.</li>
-    </ul>
-
-    <h2>Warum die Seite trotzdem im Template bleibt</h2>
-    <p>Viele Brand-Templates brauchen später eine Sport- oder Wettseite. Diese Version hält dafür eine neutrale Struktur bereit: klare Abgrenzung, interne Links, Schema, Risikoabschnitt und Platz für geprüfte Betreiberinformationen.</p>
-
-    <CtaBand text="Sportwetten-Intent prüfen" />
-  </section>
-  <SlotGrid limit={15} heading="Casino-Icons neben Sportwetten" intro="Auch auf der Sportwetten-Seite bleibt ein kompaktes Slot-Menü vorhanden, damit die interne Verlinkung und visuelle Rotation erhalten bleibt." />
-</BrandLayout>
+<CommercialReversePage page={commercialPages.sports} />

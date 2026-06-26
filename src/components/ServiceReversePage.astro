@@ -1,0 +1,65 @@
+---
+import BrandLayout from "../layouts/BrandLayout.astro";
+import FactTable from "./FactTable.astro";
+import site from "../../data/site.json";
+
+const { page } = Astro.props;
+---
+
+<BrandLayout title={page.title} description={page.description} path={page.path} commercial={false}>
+  <section class="hero" slot="hero">
+    <div class="hero-in">
+      <div>
+        <p class="eyebrow">{page.eyebrow}</p>
+        <h1>{page.h1}</h1>
+        <p class="lead">{page.lead}</p>
+        <div class="cta-row">
+          <a class="btn btn-secondary" href="/">Zur Hauptseite</a>
+          <a class="btn btn-primary" href="/verantwortungsvolles-spielen/">18+ Hinweise</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <strong>Service Check</strong>
+        <table class="hero-table">
+          <tbody>
+            <tr><th scope="row">Geo</th><td>DE</td></tr>
+            <tr><th scope="row">Status</th><td>Template</td></tr>
+            <tr><th scope="row">Brand</th><td>Revolut Slots</td></tr>
+            <tr><th scope="row">Offiziell</th><td>Nein</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="terms">Service-Seite · keine offizielle Revolut Website · 18+</div>
+  </section>
+
+  <section class="content reverse-page">
+    <div class="disclosure">{site.independentDisclosure}</div>
+    <p>Die <a href="/">Revolut Slots Hauptseite</a> verlinkt diese Service-Seite als Pflichtbereich. {page.homeContext}</p>
+    <FactTable caption={page.factCaption} rows={page.factRows} />
+
+    {page.sections.map((section) => (
+      <article class="reverse-block">
+        <p class="section-label">{section.label}</p>
+        <h2>{section.heading}</h2>
+        {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        {section.subsections?.map((subsection) => (
+          <div class="subsection">
+            <h3>{subsection.heading}</h3>
+            {subsection.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+            {subsection.list && (
+              <ul class="check-list compact-list">
+                {subsection.list.map((item) => <li>{item}</li>)}
+              </ul>
+            )}
+          </div>
+        ))}
+        {section.list && (
+          <ul class="check-list">
+            {section.list.map((item) => <li>{item}</li>)}
+          </ul>
+        )}
+      </article>
+    ))}
+  </section>
+</BrandLayout>

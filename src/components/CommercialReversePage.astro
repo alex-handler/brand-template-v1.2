@@ -1,0 +1,83 @@
+---
+import BrandLayout from "../layouts/BrandLayout.astro";
+import Hero from "./Hero.astro";
+import FactTable from "./FactTable.astro";
+import CtaBand from "./CtaBand.astro";
+import CategoryShowcase from "./CategoryShowcase.astro";
+import SlotGrid from "./SlotGrid.astro";
+import PaymentTiles from "./PaymentTiles.astro";
+import site from "../../data/site.json";
+
+const { page } = Astro.props;
+const showcaseMode = page.showcaseMode || "triple";
+---
+
+<BrandLayout title={page.title} description={page.description} path={page.path} pageKind={page.pageKind || "Article"}>
+  <Hero slot="hero" eyebrow={page.eyebrow} title={page.h1} lead={page.lead} cta={page.cta || "Jetzt registrieren"} />
+
+  <section class="content reverse-page">
+    <div class="disclosure">{site.independentDisclosure} {page.disclosure}</div>
+    <p class="section-label">{page.intent}</p>
+    <h2>{page.introHeading}</h2>
+    <p>Die <a href="/">Revolut Slots Hauptseite</a> bleibt der zentrale Einstieg für Deutschland. {page.homeContext}</p>
+    {page.introParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+
+    <div class="reverse-grid">
+      {page.cards.map((card) => (
+        <article class="info-card">
+          <b>{card.title}</b>
+          <p>{card.text}</p>
+        </article>
+      ))}
+    </div>
+
+    <FactTable caption={page.factCaption} rows={page.factRows} />
+
+    <div class="split">
+      <div class="note-panel">
+        <h3>{page.primaryList.title}</h3>
+        <ul class="check-list">
+          {page.primaryList.items.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+      <div class="note-panel muted-panel">
+        <h3>{page.secondaryList.title}</h3>
+        <ol class="number-list">
+          {page.secondaryList.items.map((item) => <li>{item}</li>)}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <CategoryShowcase mode={showcaseMode} heading={page.showcaseHeading} intro={page.showcaseIntro} />
+  {page.includePayments && <PaymentTiles />}
+  {page.includeFullSlotGrid && <SlotGrid limit={42} heading="Vollständiges Revolut Slots Menü" intro="Alle lokal gespeicherten 200x200 Icons bleiben als große Datenbank im Template verfügbar." />}
+
+  <section class="content reverse-sections">
+    {page.sections.map((section) => (
+      <article class="reverse-block">
+        <p class="section-label">{section.label}</p>
+        <h2>{section.heading}</h2>
+        {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+        {section.subsections?.map((subsection) => (
+          <div class="subsection">
+            <h3>{subsection.heading}</h3>
+            {subsection.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
+            {subsection.list && (
+              <ul class="check-list compact-list">
+                {subsection.list.map((item) => <li>{item}</li>)}
+              </ul>
+            )}
+          </div>
+        ))}
+        {section.list && (
+          <ul class="check-list">
+            {section.list.map((item) => <li>{item}</li>)}
+          </ul>
+        )}
+        {section.table && <FactTable caption={section.table.caption} rows={section.table.rows} />}
+      </article>
+    ))}
+    <CtaBand text={page.ctaBand} note={page.ctaNote} />
+  </section>
+</BrandLayout>

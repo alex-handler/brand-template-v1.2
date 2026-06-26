@@ -1,34 +1,6 @@
 ---
-import BrandLayout from "../layouts/BrandLayout.astro";
-import Hero from "../components/Hero.astro";
-import FactTable from "../components/FactTable.astro";
-import CtaBand from "../components/CtaBand.astro";
-import SlotGrid from "../components/SlotGrid.astro";
-
-const title = "Revolut Slots App Deutschland - Mobile Casino und APK Check";
-const description = "Revolut Slots App Ratgeber: mobile Revolut casino Nutzung, APK-Sicherheit, Browser-Alternative, Login, Registrierung und Slot-Menü für Deutschland.";
+import CommercialReversePage from "../components/CommercialReversePage.astro";
+import { commercialPages } from "../data/reversePages.js";
 ---
 
-<BrandLayout title={title} description={description} path="/app/" pageKind="MobileApplication">
-  <Hero slot="hero" eyebrow="Mobile App" title="Revolut Slots App" lead="Die App-Seite bündelt mobile Suchintentionen: Revolut casino App, APK, Login, mobile Slots und sichere Registrierung. Ohne Quelle wird keine offizielle App behauptet." />
-  <section class="content">
-    <h2>Revolut Slots App oder mobile Website?</h2>
-    <p>Die <a href="/">Revolut Slots Hauptseite</a> bleibt der Einstieg; diese Unterseite trennt mobile Website, native App und APK. Eine mobile Casino-Seite ist nicht automatisch eine offizielle App.</p>
-    <FactTable caption="Mobile-App-Entity" rows={[
-      ["applicationCategory", "Game / Casino information"],
-      ["operatingSystem", "Android und iOS nur bei Quelle konkret nennen"],
-      ["downloadUrl", "Unresolved bis freigegeben"],
-      ["permissions", "Vor Installation prüfen"],
-      ["countriesSupported", "DE nur mit Anbieterbestätigung"]
-    ]} />
-    <h2>APK-Risiken</h2>
-    <ul>
-      <li>Keine APK aus unbekannten Mirrors laden.</li>
-      <li>App-Berechtigungen vor Installation prüfen.</li>
-      <li>Login- und Zahlungsdaten nicht in unklaren Apps speichern.</li>
-      <li>Bei Revolut casino Claims immer Zielanbieter und Quelle prüfen.</li>
-    </ul>
-    <CtaBand text="mobile Registrierung prüfen" />
-  </section>
-  <SlotGrid limit={18} heading="Mobile Slots im Revolut Slots Menü" intro="Quadratische 200x200 Icons bleiben auch mobil im Raster, ohne horizontales Seiten-Overflow." />
-</BrandLayout>
+<CommercialReversePage page={commercialPages.app} />

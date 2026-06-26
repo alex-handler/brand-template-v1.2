@@ -1,46 +1,6 @@
 ---
-import BrandLayout from "../layouts/BrandLayout.astro";
-import Hero from "../components/Hero.astro";
-import CtaBand from "../components/CtaBand.astro";
-import FactTable from "../components/FactTable.astro";
-import SlotGrid from "../components/SlotGrid.astro";
-import site from "../../data/site.json";
-
-const title = "Revolut Slots Registrierung Deutschland - Konto und Login";
-const description = "Revolut Slots Registrierung: Konto, Login, KYC, Bonus-Opt-in und Sicherheitscheck fur Revolut casino Suchintentionen in Deutschland.";
+import CommercialReversePage from "../components/CommercialReversePage.astro";
+import { commercialPages } from "../data/reversePages.js";
 ---
 
-<BrandLayout title={title} description={description} path="/registrierung/">
-  <Hero slot="hero" eyebrow="Registrierung" title="Revolut Slots Registrierung" lead="Diese Seite behandelt Konto-, Login- und Verifizierungsfragen als Ratgeber. Sie behauptet keine offizielle Revolut casino Registrierung und ersetzt keine Anbieterbedingungen." />
-  <section class="content">
-    <h2>Vor der Revolut Slots Registrierung</h2>
-    <p>Die <a href="/">Revolut Slots Hauptseite</a> bleibt der zentrale Einstieg. Wer direkt nach Registrierung sucht, braucht trotzdem zuerst Klarheit zu Altersgrenze, Domain, Bonus-Opt-in, KYC und Zahlungsweg.</p>
-    <p>Bei Brand-Keywords ist die wichtigste Regel: Nicht vom Namen auf ein offizielles Casino-Angebot schließen. Revolut casino kann eine Suchintention sein, ohne dass dadurch Lizenz, Kontoeröffnung oder Zahlungsfunktion bestätigt sind.</p>
-
-    <FactTable caption="Registrierungs-Check" rows={[
-      ["Mindestalter", "18+ Hinweis sichtbar halten"],
-      ["KYC", "Dokumentenprüfung als möglichen Schritt nennen"],
-      ["Bonus Opt-in", "Bewusst wählen, nicht automatisch aktivieren"],
-      ["Login", "Keine Recovery- oder Support-Claims ohne Quelle"],
-      ["Daten", "Nur auf geprüften Zielseiten eingeben"]
-    ]} />
-
-    <h2>Sicherer Konto-Flow</h2>
-    <ol>
-      <li>Domain, Betreiber und rechtliche Hinweise prüfen.</li>
-      <li>AGB, Bonusbedingungen und Datenschutz lesen.</li>
-      <li>Nur Daten eingeben, wenn die Zielseite eindeutig freigegeben ist.</li>
-      <li>Limits setzen, bevor echtes Geld eingesetzt wird.</li>
-      <li>Login-Daten nicht in unbekannten Apps oder Mirrors speichern.</li>
-    </ol>
-
-    <h2>Login und Kontosicherheit</h2>
-    <p>Eine gute Registrierungsseite führt nicht nur zur CTA. Sie erklärt auch, welche Risiken beim Login entstehen können: schwache Passwörter, falsche Mirrors, ungeprüfte APKs und Bonusdruck. Genau deshalb ist die <a href="/app/">App-Seite</a> separat aufgebaut.</p>
-
-    <h2>Wann konkrete Angaben erlaubt sind</h2>
-    <p>Support, Verifizierung, Ausweisdokumente, Telefonnummern und Konto-Wiederherstellung dürfen erst konkret beschrieben werden, wenn eine Quelle vorhanden ist. Bis dahin arbeitet das Template mit sicheren Prüfhinweisen.</p>
-
-    <CtaBand text="Registrierung mit Quellencheck prüfen" />
-  </section>
-  <SlotGrid limit={18} heading="Slots nach der Registrierung" intro="Die Slot-Karten bleiben quadratisch und lokal gespeichert, damit die Registrierungseite nicht auf externe Bildhosts angewiesen ist." />
-</BrandLayout>
+<CommercialReversePage page={commercialPages.registration} />

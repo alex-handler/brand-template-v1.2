@@ -1,44 +1,6 @@
 ---
-import BrandLayout from "../layouts/BrandLayout.astro";
-import Hero from "../components/Hero.astro";
-import CtaBand from "../components/CtaBand.astro";
-import FactTable from "../components/FactTable.astro";
-import PaymentTiles from "../components/PaymentTiles.astro";
-import SlotGrid from "../components/SlotGrid.astro";
-
-const title = "Revolut Slots Zahlungen Deutschland - Einzahlung und Auszahlung";
-const description = "Revolut Slots Zahlungsratgeber: Einzahlung, Auszahlung, KYC, Karten, Wallets und Revolut casino Payment-Claims fur Deutschland vorsichtig prüfen.";
+import CommercialReversePage from "../components/CommercialReversePage.astro";
+import { commercialPages } from "../data/reversePages.js";
 ---
 
-<BrandLayout title={title} description={description} path="/zahlungen/">
-  <Hero slot="hero" eyebrow="Einzahlungen" title="Revolut Slots Zahlungen" lead="Payment-Seiten sind besonders sensibel. Diese Seite nennt Kategorien und Prüflogik, aber keine garantierte Verfügbarkeit, Gebühr oder Auszahlungsgeschwindigkeit." />
-  <section class="content">
-    <h2>Einzahlung und Auszahlung bei Revolut Slots</h2>
-    <p>Die <a href="/">Revolut Slots Hauptseite</a> verlinkt Zahlungen bewusst als eigene Unterseite. Aus einem Brandnamen darf keine bestätigte Zahlungsmethode abgeleitet werden, auch wenn Nutzer nach Revolut casino Einzahlung suchen.</p>
-    <p>Zahlungsarten hängen vom Betreiber, vom Land, von KYC und von Bonusregeln ab. Deshalb bleiben Karten, Bankmethoden, Wallets und schnelle Auszahlung hier als zu prüfende Kategorien formuliert.</p>
-
-    <FactTable caption="Payment-Entity-Regeln" rows={[
-      ["Karten", "Nur als mögliche Kategorie, nicht als Zusage"],
-      ["Banktransfer", "Geo- und operator-abhängig"],
-      ["E-Wallets", "Nur mit Anbieterquelle nennen"],
-      ["Krypto", "Nicht ohne explizite Betreiberangabe"],
-      ["KYC", "Als üblicher Sicherheits- und Compliance-Schritt erklären"],
-      ["Bonus", "Zahlungsmethoden können von Promotions ausgeschlossen sein"]
-    ]} />
-
-    <h2>Was vor einer Einzahlung klar sein muss</h2>
-    <ul>
-      <li>Ob die Zielseite in Deutschland genutzt werden darf.</li>
-      <li>Welche Dokumente vor Auszahlung verlangt werden können.</li>
-      <li>Ob Bonusbedingungen bestimmte Zahlungsmethoden ausschließen.</li>
-      <li>Welche Limits, Gebühren und Wartezeiten beim Anbieter stehen.</li>
-    </ul>
-
-    <h2>Bonus und Zahlungen verbinden</h2>
-    <p>Die <a href="/bonus/">Bonus-Seite</a> ist mit Zahlungen verknüpft, weil eine Methode für Einzahlungen sichtbar sein kann und trotzdem nicht für eine Promotion zählt. Das Template vermeidet deshalb pauschale Aussagen.</p>
-
-    <CtaBand text="Zahlungsbedingungen prüfen" />
-  </section>
-  <PaymentTiles />
-  <SlotGrid limit={18} heading="Revolut casino Slots und Zahlungen" intro="Die Icons bleiben 200x200 und werden aus dem lokalen Repository ausgeliefert." />
-</BrandLayout>
+<CommercialReversePage page={commercialPages.payments} />
