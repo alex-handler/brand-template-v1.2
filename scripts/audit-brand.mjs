@@ -263,6 +263,13 @@ const paymentDir = path.join(root, "public", "assets", "payments");
 const paymentFiles = fs.existsSync(paymentDir) ? fs.readdirSync(paymentDir).filter((name) => name.endsWith(".svg")) : [];
 if (paymentFiles.length < 7) globalFailures.push(`payment SVG database too small: ${paymentFiles.length}`);
 
+const heroDir = path.join(root, "public", "assets", "hero");
+const heroWebp = path.join(heroDir, "revolut-slots-hero-1600.webp");
+const heroMobileWebp = path.join(heroDir, "revolut-slots-hero-860.webp");
+if (!fs.existsSync(heroWebp)) globalFailures.push("missing optimized hero WebP asset");
+if (!fs.existsSync(heroMobileWebp)) globalFailures.push("missing mobile optimized hero WebP asset");
+if (fs.existsSync(heroWebp) && fs.statSync(heroWebp).size > 320 * 1024) globalFailures.push("optimized hero WebP is too large for LCP");
+
 const iconFiles = ["favicon.svg", "apple-touch-icon.svg", "maskable-icon.svg", "safari-pinned-tab.svg", "site.webmanifest"];
 for (const file of iconFiles) {
   if (!fs.existsSync(path.join(root, "public", file))) globalFailures.push(`missing generated brand icon asset: ${file}`);
@@ -332,6 +339,14 @@ if (!distHomeHtml.includes('<link rel="icon" href="/favicon.svg" type="image/svg
 if (!distHomeHtml.includes('<link rel="apple-touch-icon" href="/apple-touch-icon.svg"')) globalFailures.push("head missing apple touch icon link");
 if (!distHomeHtml.includes('<link rel="mask-icon" href="/safari-pinned-tab.svg"')) globalFailures.push("head missing pinned tab mask icon link");
 if (!distHomeHtml.includes('<link rel="manifest" href="/site.webmanifest"')) globalFailures.push("head missing webmanifest link");
+if (distHomeHtml.includes("url('/assets/hero/revolut-slots-hero.png')") || distHomeHtml.includes('url("/assets/hero/revolut-slots-hero.png")')) globalFailures.push("LCP hero still uses PNG CSS background");
+if (!distHomeHtml.includes('class="hero-bg"')) globalFailures.push("hero LCP image is not discoverable from HTML");
+if (!distHomeHtml.includes('src="/assets/hero/revolut-slots-hero-1600.webp"')) globalFailures.push("hero LCP image does not use optimized WebP");
+if (!distHomeHtml.includes('rel="preload" as="image" href="/assets/hero/revolut-slots-hero-1600.webp"')) globalFailures.push("hero LCP image missing preload");
+if (!distHomeHtml.includes('imagesrcset="/assets/hero/revolut-slots-hero-860.webp 860w, /assets/hero/revolut-slots-hero-1600.webp 1600w"')) globalFailures.push("hero LCP preload missing responsive imagesrcset");
+if (!distHomeHtml.includes('fetchpriority="high"')) globalFailures.push("hero LCP image missing high-priority preload");
+if (!distHomeHtml.includes("data-hero")) globalFailures.push("AMP hero image missing data-hero marker");
+if (/class="hero-bg"[^>]*loading="lazy"/i.test(distHomeHtml)) globalFailures.push("hero LCP image uses lazy loading");
 
 fs.mkdirSync(path.join(root, "reports"), { recursive: true });
 fs.writeFileSync(path.join(root, "reports", "brand-audit.json"), JSON.stringify({ generatedAt: new Date().toISOString(), slotCount: slots.length, results, globalFailures }, null, 2));

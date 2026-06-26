@@ -1,5 +1,6 @@
 ---
 import BrandLayout from "../layouts/BrandLayout.astro";
+import HeroBackground from "../components/HeroBackground.astro";
 import site from "../../data/site.json";
 
 const title = `${site.mainKey} Weiterleitung`;
@@ -8,6 +9,7 @@ const description = `${site.mainKey} Weiterleitungsseite fuer den konfigurierten
 
 <BrandLayout title={title} description={description} path="/go/" commercial={false}>
   <section class="hero" slot="hero">
+    <HeroBackground />
     <div class="hero-inner">
       <div>
         <p class="eyebrow">Weiterleitung</p>

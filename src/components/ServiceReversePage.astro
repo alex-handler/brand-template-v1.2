@@ -2,6 +2,7 @@
 import BrandLayout from "../layouts/BrandLayout.astro";
 import FactTable from "./FactTable.astro";
 import DepthExpansion from "./DepthExpansion.astro";
+import HeroBackground from "./HeroBackground.astro";
 import site from "../../data/site.json";
 
 const { page } = Astro.props;
@@ -19,6 +20,7 @@ const keyedSubheading = (heading, sectionIndex, subsectionIndex) => {
 
 <BrandLayout title={page.title} description={page.description} path={page.path} commercial={false}>
   <section class="hero" slot="hero">
+    <HeroBackground />
     <div class="hero-in">
       <div>
         <p class="eyebrow">{page.eyebrow}</p>

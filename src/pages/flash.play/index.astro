@@ -1,5 +1,6 @@
 ---
 import BrandLayout from "../../layouts/BrandLayout.astro";
+import HeroBackground from "../../components/HeroBackground.astro";
 import site from "../../../data/site.json";
 
 const title = `${site.mainKey} Bonus abholen`;
@@ -8,6 +9,7 @@ const description = `${site.mainKey} Weiterleitung fuer den freigegebenen Affili
 
 <BrandLayout title={title} description={description} path="/flash.play/" commercial={false}>
   <section class="hero" slot="hero">
+    <HeroBackground />
     <div class="hero-in">
       <div>
         <p class="eyebrow">Bonus Weiterleitung</p>

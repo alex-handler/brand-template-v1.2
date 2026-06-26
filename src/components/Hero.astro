@@ -1,5 +1,6 @@
 ---
 import site from "../../data/site.json";
+import HeroBackground from "./HeroBackground.astro";
 
 const {
   eyebrow = "Casino & Slots Deutschland",
@@ -18,6 +19,7 @@ const expandedLead = `${lead} Direkt im ersten View werden Slot-Suche, ${site.se
 ---
 
 <section class="hero">
+  <HeroBackground />
   <div class="hero-in">
     <div>
       <p class="eyebrow">{eyebrow}</p>

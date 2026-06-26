@@ -37,6 +37,10 @@ notes on forbidden claims
 
 Production copy must distinguish verified facts, user-provided assumptions, and unresolved items.
 
+## Image Performance
+
+`npm run build`, `npm run dev`, `npm run preview` and `npm run audit:brand` run `scripts/optimize-images.mjs` before Astro starts. Hero PNG/JPEG files in `public/assets/hero/` are source assets only; the page must load generated WebP/AVIF variants for LCP. The first-viewport hero image must be present as HTML, not as a CSS background, and must use a high-priority loading signal.
+
 ## Auto Brand Icon
 
 `npm run build`, `npm run dev`, `npm run preview` and `npm run audit:brand` run `scripts/generate-brand-icon.mjs` first. The script derives the site icon from `data/site.json`:

@@ -34,6 +34,7 @@ Every commercial page must pass before preview approval.
 - Avoid identical alt/title text for multiple images.
 - Keep visual palette and section rhythm configurable per brand.
 - Generate the site icon from the first brand letter, target GEO flag signal, and the current visual palette, with separate normal and maskable assets so browser tabs and search snippets do not receive an accidental clipped mask. Same-brand launches for different GEOs must have visibly different icons.
+- The first-viewport hero/LCP image must be an optimized WebP or AVIF discovered from HTML immediately, not a PNG CSS background. It must not lazy-load; on AMP pages use `data-hero` on `amp-img` plus a high-priority preload in the document head.
 - Highlight the numeric bonus or free-spin count in the sticky CTA.
 - Remove technical source labels from visible blocks; users should see categories, games and actions, not extraction/database wording.
 

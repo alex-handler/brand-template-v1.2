@@ -4,19 +4,21 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "images:optimize": "node scripts/optimize-images.mjs",
     "icon:brand": "node scripts/generate-brand-icon.mjs",
-    "predev": "node scripts/generate-brand-icon.mjs",
+    "predev": "npm run images:optimize && node scripts/generate-brand-icon.mjs",
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
-    "prebuild": "node scripts/generate-brand-icon.mjs",
+    "prebuild": "npm run images:optimize && node scripts/generate-brand-icon.mjs",
     "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
-    "preaudit:brand": "node scripts/generate-brand-icon.mjs",
+    "preaudit:brand": "npm run images:optimize && node scripts/generate-brand-icon.mjs",
     "audit:brand": "node scripts/audit-brand.mjs",
-    "prepreview": "node scripts/generate-brand-icon.mjs",
+    "prepreview": "npm run images:optimize && node scripts/generate-brand-icon.mjs",
     "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
     "astro": "ASTRO_TELEMETRY_DISABLED=1 astro"
   },
   "dependencies": {
     "astro": "^7.0.3",
+    "sharp": "^0.34.5",
     "typescript": "^5.8.3"
   }
 }
