@@ -12,11 +12,13 @@ import site from "../../data/site.json";
 const { page } = Astro.props;
 const showcaseMode = page.showcaseMode || "triple";
 const keyedHeading = (heading, index) => {
+  if (index % 2 !== 0) return heading;
   const key = index % 2 === 0 ? site.mainKey : site.secondaryKey;
   return heading.includes(site.mainKey) || heading.includes(site.secondaryKey) ? heading : `${key}: ${heading}`;
 };
-const keyedSubheading = (heading, index) => {
-  const key = index % 2 === 0 ? site.secondaryKey : site.mainKey;
+const keyedSubheading = (heading, sectionIndex, subsectionIndex) => {
+  if ((sectionIndex + subsectionIndex) % 3 !== 1) return heading;
+  const key = sectionIndex % 2 === 0 ? site.secondaryKey : site.mainKey;
   return heading.includes(site.mainKey) || heading.includes(site.secondaryKey) ? heading : `${key} ${heading}`;
 };
 ---
@@ -59,16 +61,19 @@ const keyedSubheading = (heading, index) => {
 
   <CategoryShowcase mode={showcaseMode} heading={page.showcaseHeading} intro={page.showcaseIntro} />
   {page.includePayments && <PaymentTiles />}
-  {page.includeFullSlotGrid && <SlotGrid limit={42} heading="Vollständiges Revolut Slots Menü" intro="Alle lokal gespeicherten 200x200 Icons bleiben als große Datenbank im Template verfügbar." />}
+  {page.includeFullSlotGrid && <SlotGrid limit={42} heading="Vollständiges Spielemenü" intro="Die vollständige Spielauswahl bleibt als große Bilddatenbank im Template verfügbar." />}
 
   <section class="content reverse-sections">
     {page.sections.map((section) => (
       <article class="reverse-block">
-        <h2>{keyedHeading(section.heading, page.sections.indexOf(section))}</h2>
+        {(() => {
+          const sectionIndex = page.sections.indexOf(section);
+          return <h2>{keyedHeading(section.heading, sectionIndex)}</h2>;
+        })()}
         {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
         {section.subsections?.map((subsection) => (
           <div class="subsection">
-            <h3>{keyedSubheading(subsection.heading, section.subsections.indexOf(subsection))}</h3>
+            <h3>{keyedSubheading(subsection.heading, page.sections.indexOf(section), section.subsections.indexOf(subsection))}</h3>
             {subsection.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
             {subsection.list && (
               <ul class="check-list compact-list">

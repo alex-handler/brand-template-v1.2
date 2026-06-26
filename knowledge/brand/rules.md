@@ -30,6 +30,10 @@ Use these rules when `siteType` is `brand`.
 - Avoid fake testing, fake experts, fake author profiles, and invented screenshots.
 - Add responsible gambling context on every commercial page.
 - Keep the generated favicon, apple touch icon, pinned tab icon and webmanifest maskable icon in sync with `brandName` and `visualStyle`.
+- Do not prefix every H2/H3 with the brand or main key. Alternate brand-key headings with intent headings such as bonus, app, registration, payments, sports, safety, and geo-specific checks.
+- The mobile sticky CTA must visually highlight the bonus amount or count, for example `250 Freispiele`, `$250`, `250 EUR` or the configured equivalent.
+- Every page must include visible internal links to all commercial and service subsections.
+- Do not show technical asset labels such as `lokale Icons`, `Icons extrahiert`, `Asset database`, or similar build/source wording in the frontend.
 
 ## Source Handling
 

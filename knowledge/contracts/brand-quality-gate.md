@@ -24,6 +24,7 @@ Every commercial page must pass before preview approval.
 - Meta descriptions are unique.
 - Main keyword appears in title, H1/first viewport, intro, and one later section.
 - Keyword clusters are covered naturally, not dumped.
+- Brand-key headings must be present but not mechanical: avoid long consecutive runs and keep intent headings mixed in.
 - JSON-LD is valid and does not include unsupported claims.
 
 ## Anti-Footprint
@@ -33,3 +34,10 @@ Every commercial page must pass before preview approval.
 - Avoid identical alt/title text for multiple images.
 - Keep visual palette and section rhythm configurable per brand.
 - Generate the site icon from the first brand letter and the current visual palette, with separate normal and maskable assets so browser tabs and search snippets do not receive an accidental clipped mask.
+- Highlight the numeric bonus or free-spin count in the sticky CTA.
+- Remove technical source labels from visible blocks; users should see categories, games and actions, not extraction/database wording.
+
+## Internal Linking
+
+- Every page links to homepage, app, bonus, registration, payments, sports, responsible gambling, privacy and cookies.
+- The internal-link block must be visible and styled as navigation, not hidden metadata.

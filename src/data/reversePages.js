@@ -2,10 +2,10 @@ export const commercialPages = {
   home: {
     path: "/",
     title: "Revolut Slots Deutschland - Casino, App, Bonus und Sportwetten",
-    description: "Revolut Slots Ratgeber für Deutschland: Revolut casino, App, Bonus, Registrierung, Einzahlungen, Sportwetten und lokale Slot-Icons im strukturierten Check.",
+    description: "Revolut Slots Ratgeber für Deutschland: Revolut casino, App, Bonus, Registrierung, Einzahlungen, Sportwetten und strukturierte Spielauswahl im Check.",
     eyebrow: "Casino & Slots Deutschland",
     h1: "Revolut Slots",
-    lead: "Revolut Slots ist als deutscher Brand-Ratgeber aufgebaut: kompakter Hero, klare CTA, Spielbereiche, Zahlungsblock, Reverse-Struktur und geprüfte 200x200 Slot-Icons.",
+    lead: "Revolut Slots ist als deutscher Brand-Ratgeber aufgebaut: kompakter Hero, klare CTA, Spielbereiche, Zahlungsblock, Reverse-Struktur und geprüfte 200x200 Spielbilder.",
     intent: "Markenüberblick",
     introHeading: "Revolut Slots als deutscher Brand-Hub",
     homeContext: "Von hier verzweigen App, Bonus, Registrierung, Zahlungen und Sportwetten in eigene Unterseiten, damit die Suchintention nicht in einem flachen Textblock untergeht.",
@@ -25,7 +25,7 @@ export const commercialPages = {
       ["Lobby", "Spielautomaten, Megaways, beliebte Spiele, Poker-Intent"],
       ["Trust", "18+, unabhängige Einordnung, keine offiziellen Revolut-Claims"],
       ["Entity", "Brand, App, Bonus, Payment, Sportwetten, Responsible Gambling"],
-      ["Assets", "42 lokale 200x200 Slot-Icons plus generierter Hero-Hintergrund"]
+      ["Assets", "Quadratische Spielbilder plus generierter Hero-Hintergrund"]
     ],
     primaryList: {
       title: "Was sofort sichtbar sein muss",
@@ -37,7 +37,7 @@ export const commercialPages = {
     },
     showcaseMode: "full",
     showcaseHeading: "Revolut Slots Spielbereiche",
-    showcaseIntro: "Die Lobby ist in mehrere Bereiche gegliedert, wie in den Reverse-Beispielen: Zähler, Kategorie, klare Karten und kein horizontaler Seiten-Overflow.",
+    showcaseIntro: "Die Lobby ist in mehrere Bereiche gegliedert, wie in den Reverse-Beispielen: Kategorie, klare Karten und kein horizontaler Seiten-Overflow.",
     includePayments: true,
     includeFullSlotGrid: true,
     ctaBand: "kompakte Registrierung testen",
@@ -89,15 +89,15 @@ export const commercialPages = {
       },
       {
         label: "Visual Rotation",
-        heading: "Wie die Slot-Icons Footprints reduzieren",
+        heading: "Wie die Spielauswahl Footprints reduziert",
         paragraphs: [
-          "Die 42 Icons bilden eine kleine lokale Bilddatenbank. Neue Brand-Seiten können daraus andere Reihenfolgen, andere Kategorie-Schwerpunkte und andere Startkarten wählen. Dadurch entsteht mehr visuelle Variation als bei einem fixen Block aus fünf wiederholten Slots.",
+          "Die Bilddatenbank bildet eine flexible Spielauswahl. Neue Brand-Seiten können daraus andere Reihenfolgen, andere Kategorie-Schwerpunkte und andere Startkarten wählen. Dadurch entsteht mehr visuelle Variation als bei einem fixen Block aus fünf wiederholten Slots.",
           "Die Karten bleiben quadratisch, weil die Originale 200x200 sind. Das verhindert verzerrte Vorschaubilder und sorgt dafür, dass mobile Raster sauber umbrechen."
         ],
         subsections: [
           {
             heading: "Keine generierten Icons",
-            paragraphs: ["Es werden keine Fantasie-Icons genutzt. Wenn ein Icon fehlt, bleibt der Platz textlich oder als freigegebener Asset-Slot dokumentiert."]
+            paragraphs: ["Es werden keine Fantasie-Assets genutzt. Wenn ein Spielbild fehlt, bleibt der Platz textlich oder als freigegebener Asset-Slot dokumentiert."]
           },
           {
             heading: "Keine horizontale Seite",

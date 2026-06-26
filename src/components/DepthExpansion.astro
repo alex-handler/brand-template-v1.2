@@ -6,54 +6,63 @@ const { page, kind = "commercial" } = Astro.props;
 const profiles = {
   "/": {
     angle: "Startseite, Lobby und Brand-Hub",
+    intents: ["Revolut Slots", "Bonus und App", "Revolut casino", "Zahlungen und Registrierung", "Deutschland-Check"],
     user: "ein Nutzer zuerst prüfen will, ob die Seite wie eine echte Casino-Lobby funktioniert",
     proof: "Spielbereiche, Zahlungsstrecke, Bonuskontext, App-Hinweis und Responsible-Gambling-Link",
     caution: "die Startseite nicht wie ein kopierter Review wirkt, sondern mehrere Suchintentionen sauber verteilt"
   },
   "/app/": {
     angle: "mobile Nutzung, APK und Login",
+    intents: ["Revolut Slots App", "APK und Login", "Revolut casino", "mobile Website", "iOS und Android"],
     user: "ein Nutzer vom Smartphone aus entscheidet, ob Browser, App oder APK überhaupt sinnvoll sind",
     proof: "Geräteführung, Login-Sicherheit, App-Quelle, mobile CTA und klare Abgrenzung von Drittquellen",
     caution: "Download-Sprache nicht aggressiv wird und keine nicht belegte offizielle App behauptet"
   },
   "/bonus/": {
     angle: "Bonus, Promo Code und Freispiele",
+    intents: ["Revolut Slots Bonus", "Promo Code", "Revolut casino", "Freispiele", "Wagering"],
     user: "ein Nutzer einen Bonus erst nach Umsatz, Spielbindung und Zahlungsart bewertet",
     proof: "Wagering, Auszahlungsgrenzen, Code-Regeln, Zahlungsqualifikation und 250 Freispiele als CTA-Kontext",
     caution: "der Bonusblock nicht wie ein übertriebener Claim aussieht"
   },
   "/registrierung/": {
     angle: "Konto, Anmeldung und KYC",
+    intents: ["Revolut Slots Registrierung", "Konto und Login", "Revolut casino", "KYC", "Bonus-Opt-in"],
     user: "ein Nutzer persönliche Daten erst nach Domain-, Betreiber- und Sicherheitsprüfung eingibt",
     proof: "Registrierungsablauf, Login-Sicherheit, Altersprüfung, Bonus-Opt-in und spätere Zahlungsmethode",
     caution: "die Seite nicht als offizielles Login-Portal verstanden wird"
   },
   "/zahlungen/": {
     angle: "Einzahlung, Auszahlung und Payment-Icons",
+    intents: ["Revolut Slots Zahlungen", "Einzahlung", "Revolut casino", "Auszahlung", "KYC und Limits"],
     user: "ein Nutzer vor der Einzahlung wissen will, welche Methode nur möglich und welche wirklich belegt ist",
     proof: "echte SVG-Icons aus dem Drive, weiße Kacheln, KYC, Limits und Bonusabgleich",
     caution: "keine Methode als bestätigt erscheint, wenn die Zielseite sie nicht belegt"
   },
   "/sportwetten/": {
     angle: "Sportwetten, Livewetten und Casino-Abgrenzung",
+    intents: ["Revolut Slots Sportwetten", "Livewetten", "Revolut casino", "Wettbonus", "Quoten und Märkte"],
     user: "ein Nutzer Casino- und Betting-Regeln nicht vermischt",
     proof: "Märkte, Quoten, Live-Risiko, Wettbonus, Limits und klare Trennung von Slot-Bonus",
     caution: "Sportwetten nicht als beiläufiger Zusatz unter einem Casino-Keyword stehen"
   },
   "/verantwortungsvolles-spielen/": {
     angle: "Risiko, Limits und Schutz",
+    intents: ["Revolut Slots", "Limits und Pausen", "Revolut casino", "Warnzeichen", "Selbstschutz"],
     user: "ein Nutzer die kommerziellen Seiten mit sichtbaren Grenzen und Pausenregeln einordnet",
     proof: "Budget, Zeit, Verlustlimit, Warnzeichen, Selbstschutz und lokale Hilfsstellen als spätere Ergänzung",
     caution: "Responsible Gambling nicht als dünner Footer-Link endet"
   },
   "/datenschutz/": {
     angle: "Datenschutz, Hosting und externe Ziele",
+    intents: ["Revolut Slots", "Hosting und Logs", "Revolut casino", "Datenminimierung", "externe Links"],
     user: "ein Nutzer versteht, wo keine Konto-, Banking- oder Casino-Daten eingegeben werden",
     proof: "Cloudflare-Auslieferung, technische Logs, externe Links, Tracking-Status und Datenminimierung",
     caution: "Privacy Policy nicht wie ein leerer Standardtext wirkt"
   },
   "/cookies/": {
     angle: "Cookies, Consent und Affiliate-Weiterleitung",
+    intents: ["Revolut Slots", "Consent", "Revolut casino", "Affiliate-Link", "Tracking-Prüfung"],
     user: "ein Nutzer erkennt, welche Tracking-Funktionen noch nicht aktiv sind und später freigegeben werden müssen",
     proof: "technische Cookies, Analytics-Gate, Affiliate-Pfad, externe Cookie-Regeln und Update-Pflicht",
     caution: "Cookie-Texte nicht ungeprüft von Brand zu Brand kopiert werden"
@@ -64,8 +73,14 @@ const profile = profiles[page.path] || profiles["/"];
 const commercialIntro = kind === "commercial"
   ? "Die kommerzielle Seite muss schnell zur Aktion führen, aber sie darf den Prüfcharakter nicht verlieren."
   : "Die Service-Seite stützt die kommerziellen Bereiche und bleibt bewusst ohne aggressive Conversion-Sprache.";
-const h2 = (text, index) => `${index % 2 === 0 ? site.mainKey : site.secondaryKey}: ${text}`;
-const h3 = (text, index) => `${index % 2 === 0 ? site.secondaryKey : site.mainKey} ${text}`;
+const h2 = (text, index) => {
+  const intent = profile.intents[(index === 0 ? 1 : index) % profile.intents.length];
+  return `${intent}: ${text}`;
+};
+const h3 = (text, index) => {
+  const intent = profile.intents[(index + 1) % profile.intents.length];
+  return index % 2 === 0 ? `${text} für ${intent}` : text;
+};
 
 const blocks = [
   {
@@ -93,7 +108,7 @@ const blocks = [
     focus: "Visual",
     paragraphs: [
       `Visuelle Qualität entsteht nicht durch viele weiße Standardkarten. Für ${page.h1} werden die funktionalen Elemente daher klarer getrennt: Slot-Karten bleiben quadratisch, Payment-Logos stehen auf weißen Flächen, Service-Links werden im Footer als dezente Textnavigation geführt und die mobilen CTAs werden nicht mit weiteren Menüs überladen.`,
-      `Die Slot-Icons stammen aus der extrahierten 200x200-Datenbank. Beim Hover erscheint eine Play-Ebene, und der Link führt auf ${site.playPath}, damit alle Spielkarten denselben kontrollierten Weiterleitungsweg nutzen. Das macht die Seite für künftige Brands leichter rotierbar: Reihenfolge, Kategorie und Auswahl können wechseln, ohne dass das Layout bricht.`,
+      `Die Slotbilder stammen aus der extrahierten 200x200-Datenbank. Beim Hover erscheint eine Play-Ebene, und der Link führt auf ${site.playPath}, damit alle Spielkarten denselben kontrollierten Weiterleitungsweg nutzen. Das macht die Seite für künftige Brands leichter rotierbar: Reihenfolge, Kategorie und Auswahl können wechseln, ohne dass das Layout bricht.`,
       `Auch der Header folgt diesem Prinzip. Das runde Deutschland-Signal ersetzt das generische Buchstaben-Icon, ${site.mainKey} bleibt in einer Zeile, der Burger sitzt nur oben rechts und die mobile untere Leiste bleibt eine einzige CTA-Zone. Dadurch verschwindet der Eindruck eines zusammengeklebten Templates.`
     ],
     checks: ["Rundes DE-Signal", "Sticky Header", "Nur eine mobile CTA unten", "Slot-Hover mit Play", "Payment-SVG statt Textnamen"]

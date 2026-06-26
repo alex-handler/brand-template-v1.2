@@ -2,7 +2,7 @@
 import slots from "../../data/drueckglueck-slots.json";
 import site from "../../data/site.json";
 
-const { limit = 24, heading = "Revolut Slots Spieleauswahl", intro = "Quadratische 200x200 Slot-Icons aus der extrahierten DrückGlück-Quelle." } = Astro.props;
+const { limit = 24, heading = "Revolut Slots Spieleauswahl", intro = "Quadratische Spielbilder aus der extrahierten DrückGlück-Quelle." } = Astro.props;
 const visible = slots.slice(0, limit);
 ---
 
@@ -12,7 +12,6 @@ const visible = slots.slice(0, limit);
       <h2>{heading}</h2>
       <p>{intro}</p>
     </div>
-    <span class="chip">{slots.length} Icons extrahiert</span>
   </div>
   <div class="category-row">
     <span class="chip">Video Slots</span>

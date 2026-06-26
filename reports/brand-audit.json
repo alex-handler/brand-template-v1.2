@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-06-26T14:23:52.168Z",
+  "generatedAt": "2026-06-26T14:39:01.614Z",
   "slotCount": 42,
   "results": [
     {
       "path": "/",
-      "chars": 16070,
-      "words": 2103,
+      "chars": 16117,
+      "words": 2094,
       "title": "Revolut Slots Deutschland - Casino, App, Bonus und Sportwetten",
       "h1": 1,
       "h2": 14,
@@ -16,7 +16,7 @@
       "gameSections": 4,
       "slotImages": 66,
       "paymentImages": 7,
-      "keyedHeadings": 23,
+      "keyedHeadings": 10,
       "totalH2H3": 29,
       "schemaTypes": [
         "WebSite",
@@ -30,8 +30,8 @@
     },
     {
       "path": "/app/",
-      "chars": 13246,
-      "words": 1756,
+      "chars": 13299,
+      "words": 1762,
       "title": "Revolut Slots App Deutschland - Mobile Casino und APK Check",
       "h1": 1,
       "h2": 11,
@@ -42,7 +42,7 @@
       "gameSections": 2,
       "slotImages": 12,
       "paymentImages": 0,
-      "keyedHeadings": 19,
+      "keyedHeadings": 7,
       "totalH2H3": 24,
       "schemaTypes": [
         "WebSite",
@@ -56,8 +56,8 @@
     },
     {
       "path": "/bonus/",
-      "chars": 13368,
-      "words": 1748,
+      "chars": 13404,
+      "words": 1746,
       "title": "Revolut Slots Bonus Deutschland - Promo Code und Freispiele",
       "h1": 1,
       "h2": 12,
@@ -68,7 +68,7 @@
       "gameSections": 3,
       "slotImages": 18,
       "paymentImages": 7,
-      "keyedHeadings": 20,
+      "keyedHeadings": 8,
       "totalH2H3": 26,
       "schemaTypes": [
         "WebSite",
@@ -82,8 +82,8 @@
     },
     {
       "path": "/registrierung/",
-      "chars": 13441,
-      "words": 1745,
+      "chars": 13485,
+      "words": 1747,
       "title": "Revolut Slots Registrierung Deutschland - Konto und Login",
       "h1": 1,
       "h2": 11,
@@ -94,7 +94,7 @@
       "gameSections": 2,
       "slotImages": 12,
       "paymentImages": 0,
-      "keyedHeadings": 19,
+      "keyedHeadings": 7,
       "totalH2H3": 24,
       "schemaTypes": [
         "WebSite",
@@ -108,8 +108,8 @@
     },
     {
       "path": "/zahlungen/",
-      "chars": 13424,
-      "words": 1734,
+      "chars": 13465,
+      "words": 1732,
       "title": "Revolut Slots Zahlungen Deutschland - Einzahlung und Auszahlung",
       "h1": 1,
       "h2": 12,
@@ -120,7 +120,7 @@
       "gameSections": 2,
       "slotImages": 12,
       "paymentImages": 7,
-      "keyedHeadings": 21,
+      "keyedHeadings": 9,
       "totalH2H3": 25,
       "schemaTypes": [
         "WebSite",
@@ -134,8 +134,8 @@
     },
     {
       "path": "/sportwetten/",
-      "chars": 13256,
-      "words": 1716,
+      "chars": 13300,
+      "words": 1714,
       "title": "Revolut Slots Sportwetten Deutschland - Casino und Betting Check",
       "h1": 1,
       "h2": 11,
@@ -146,7 +146,7 @@
       "gameSections": 2,
       "slotImages": 12,
       "paymentImages": 0,
-      "keyedHeadings": 19,
+      "keyedHeadings": 7,
       "totalH2H3": 24,
       "schemaTypes": [
         "WebSite",
@@ -160,8 +160,8 @@
     },
     {
       "path": "/verantwortungsvolles-spielen/",
-      "chars": 10659,
-      "words": 1382,
+      "chars": 10716,
+      "words": 1388,
       "title": "Revolut Slots verantwortungsvolles Spielen - Risiken und Schutz",
       "h1": 1,
       "h2": 10,
@@ -172,7 +172,7 @@
       "gameSections": 0,
       "slotImages": 0,
       "paymentImages": 0,
-      "keyedHeadings": 19,
+      "keyedHeadings": 7,
       "totalH2H3": 19,
       "schemaTypes": [
         "WebSite",
@@ -185,8 +185,8 @@
     },
     {
       "path": "/datenschutz/",
-      "chars": 10742,
-      "words": 1380,
+      "chars": 10794,
+      "words": 1385,
       "title": "Revolut Slots Privacy Policy - Datenschutz",
       "h1": 1,
       "h2": 10,
@@ -197,7 +197,7 @@
       "gameSections": 0,
       "slotImages": 0,
       "paymentImages": 0,
-      "keyedHeadings": 19,
+      "keyedHeadings": 6,
       "totalH2H3": 19,
       "schemaTypes": [
         "WebSite",
@@ -210,7 +210,7 @@
     },
     {
       "path": "/cookies/",
-      "chars": 10853,
+      "chars": 10890,
       "words": 1381,
       "title": "Revolut Slots Cookie Policy - Cookie-Hinweise",
       "h1": 1,
@@ -222,7 +222,7 @@
       "gameSections": 0,
       "slotImages": 0,
       "paymentImages": 0,
-      "keyedHeadings": 19,
+      "keyedHeadings": 7,
       "totalH2H3": 19,
       "schemaTypes": [
         "WebSite",

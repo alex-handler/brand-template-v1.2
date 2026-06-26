@@ -32,7 +32,10 @@ const forbiddenVisibleTerms = [
   "Redirect placeholder",
   "Platzhalter",
   "Textkachel",
-  "section-label"
+  "section-label",
+  "lokale Icons",
+  "lokale Slot-Icons",
+  "Icons extrahiert"
 ];
 
 function stripTags(html) {
@@ -67,6 +70,20 @@ function headingLevels(html) {
 function headingTexts(html, selector = "h[23]") {
   return [...html.matchAll(new RegExp(`<${selector}\\b[^>]*>([\\s\\S]*?)<\\/${selector}>`, "gi"))]
     .map((match) => stripTags(match[1]));
+}
+
+function longestKeyedHeadingRun(headings) {
+  let longest = 0;
+  let current = 0;
+  for (const heading of headings) {
+    if (/Revolut Slots|Revolut casino/i.test(heading)) {
+      current += 1;
+      longest = Math.max(longest, current);
+    } else {
+      current = 0;
+    }
+  }
+  return longest;
 }
 
 function hasSkippedHeadingLevel(levels) {
@@ -131,6 +148,8 @@ for (const page of pages) {
   const normalizedTitle = normalize(title);
   const headingText = headingTexts(html);
   const keyedHeadings = headingText.filter((item) => /Revolut Slots|Revolut casino/i.test(item)).length;
+  const minKeyedHeadings = Math.max(3, Math.floor(headingText.length * 0.28));
+  const maxKeyedHeadings = Math.ceil(headingText.length * 0.7);
   const types = schemaTypes(html);
   const failures = [];
 
@@ -154,12 +173,18 @@ for (const page of pages) {
   if (page.minSlotImgs && count(/class="[^"]*\bslot-card\b" href="\/flash\.play\/"/gi, html) < page.minSlotImgs) failures.push("slot cards do not route through /flash.play/");
   if (/class="[^"]*\bslot-card\b" href="\/(bonus|go)\//i.test(html)) failures.push("slot card uses old CTA path");
   if (page.minPaymentImgs && count(/class="[^"]*\bpay-logo\b/gi, html) < page.minPaymentImgs) failures.push("too few local payment SVG images");
-  if (keyedHeadings < Math.ceil(headingText.length / 2)) failures.push(`keyed headings ${keyedHeadings} < half of ${headingText.length}`);
+  if (keyedHeadings < minKeyedHeadings) failures.push(`keyed headings ${keyedHeadings} < ${minKeyedHeadings}`);
+  if (keyedHeadings > maxKeyedHeadings) failures.push(`keyed headings ${keyedHeadings} > ${maxKeyedHeadings}`);
+  if (longestKeyedHeadingRun(headingText) > 2) failures.push("too many consecutive brand-key headings");
   if (page.commercial) {
     if (!html.includes('class="sticky-cta"')) failures.push("missing mobile sticky CTA");
     if (html.includes("sticky-menu")) failures.push("sticky CTA still contains menu control");
     if (!html.includes("250 Freispiele")) failures.push("sticky/hero bonus copy missing 250 Freispiele");
+    if (!html.includes('class="bonus-highlight"')) failures.push("sticky bonus amount is not highlighted");
     if (!html.includes("Bonus abholen")) failures.push("commercial CTA missing Bonus abholen");
+  }
+  for (const pagePath of site.pages) {
+    if (!html.includes(`href="${pagePath}"`)) failures.push(`missing internal link to ${pagePath}`);
   }
   for (const term of forbiddenVisibleTerms) {
     if (normalize(text).includes(normalize(term)) || normalize(title).includes(normalize(term)) || normalize(description).includes(normalize(term))) failures.push(`visible forbidden term: ${term}`);
