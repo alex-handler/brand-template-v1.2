@@ -1,7 +1,8 @@
 ---
 import site from "../../data/site.json";
 
-const { eyebrow = "Casino & Slots Deutschland", title = site.mainKey, lead, cta = "Jetzt registrieren" } = Astro.props;
+const { eyebrow = "Casino & Slots Deutschland", title = site.mainKey, lead, cta = "Bonus abholen" } = Astro.props;
+const expandedLead = `${lead} Der Check bleibt auf ${site.secondaryKey}, Slots, Deutschland und DE ausgerichtet, damit der erste Textblock nicht nur Brand nennt, sondern die lokale Casino-Suchintention direkt erklärt.`;
 ---
 
 <section class="hero">
@@ -9,7 +10,7 @@ const { eyebrow = "Casino & Slots Deutschland", title = site.mainKey, lead, cta 
     <div>
       <p class="eyebrow">{eyebrow}</p>
       <h1>{title}</h1>
-      <p class="lead">{lead}</p>
+      <p class="lead">{expandedLead}</p>
       <div class="cta-row">
         <a class="btn btn-primary" href={site.playPath} rel="nofollow">{cta}</a>
         <a class="btn btn-secondary" href="/">Zur Hauptseite</a>
@@ -22,7 +23,8 @@ const { eyebrow = "Casino & Slots Deutschland", title = site.mainKey, lead, cta 
           <tr><th scope="row">Geo</th><td>DE</td></tr>
           <tr><th scope="row">Main Key</th><td>Revolut Slots</td></tr>
           <tr><th scope="row">2. Key</th><td>Revolut casino</td></tr>
-          <tr><th scope="row">Status</th><td>Info-Seite</td></tr>
+          <tr><th scope="row">Bonus</th><td>250 Freispiele prüfen</td></tr>
+          <tr><th scope="row">Status</th><td>Info-Seite DE</td></tr>
         </tbody>
       </table>
     </div>

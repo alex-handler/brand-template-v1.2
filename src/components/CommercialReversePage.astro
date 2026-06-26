@@ -6,19 +6,27 @@ import CtaBand from "./CtaBand.astro";
 import CategoryShowcase from "./CategoryShowcase.astro";
 import SlotGrid from "./SlotGrid.astro";
 import PaymentTiles from "./PaymentTiles.astro";
+import DepthExpansion from "./DepthExpansion.astro";
 import site from "../../data/site.json";
 
 const { page } = Astro.props;
 const showcaseMode = page.showcaseMode || "triple";
+const keyedHeading = (heading, index) => {
+  const key = index % 2 === 0 ? site.mainKey : site.secondaryKey;
+  return heading.includes(site.mainKey) || heading.includes(site.secondaryKey) ? heading : `${key}: ${heading}`;
+};
+const keyedSubheading = (heading, index) => {
+  const key = index % 2 === 0 ? site.secondaryKey : site.mainKey;
+  return heading.includes(site.mainKey) || heading.includes(site.secondaryKey) ? heading : `${key} ${heading}`;
+};
 ---
 
 <BrandLayout title={page.title} description={page.description} path={page.path} pageKind={page.pageKind || "Article"}>
-  <Hero slot="hero" eyebrow={page.eyebrow} title={page.h1} lead={page.lead} cta={page.cta || "Jetzt registrieren"} />
+  <Hero slot="hero" eyebrow={page.eyebrow} title={page.h1} lead={page.lead} cta={page.cta || "Bonus abholen"} />
 
   <section class="content reverse-page">
     <div class="disclosure">{site.independentDisclosure} {page.disclosure}</div>
-    <p class="section-label">{page.intent}</p>
-    <h2>{page.introHeading}</h2>
+    <h2>{keyedHeading(page.introHeading, 0)}</h2>
     <p>Die <a href="/">Revolut Slots Hauptseite</a> bleibt der zentrale Einstieg für Deutschland. {page.homeContext}</p>
     {page.introParagraphs.map((paragraph) => <p>{paragraph}</p>)}
 
@@ -56,12 +64,11 @@ const showcaseMode = page.showcaseMode || "triple";
   <section class="content reverse-sections">
     {page.sections.map((section) => (
       <article class="reverse-block">
-        <p class="section-label">{section.label}</p>
-        <h2>{section.heading}</h2>
+        <h2>{keyedHeading(section.heading, page.sections.indexOf(section))}</h2>
         {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
         {section.subsections?.map((subsection) => (
           <div class="subsection">
-            <h3>{subsection.heading}</h3>
+            <h3>{keyedSubheading(subsection.heading, section.subsections.indexOf(subsection))}</h3>
             {subsection.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
             {subsection.list && (
               <ul class="check-list compact-list">
@@ -78,6 +85,7 @@ const showcaseMode = page.showcaseMode || "triple";
         {section.table && <FactTable caption={section.table.caption} rows={section.table.rows} />}
       </article>
     ))}
+    <DepthExpansion page={page} kind="commercial" />
     <CtaBand text={page.ctaBand} note={page.ctaNote} />
   </section>
 </BrandLayout>

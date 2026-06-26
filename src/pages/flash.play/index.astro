@@ -1,0 +1,36 @@
+---
+import BrandLayout from "../../layouts/BrandLayout.astro";
+import site from "../../../data/site.json";
+
+const title = `${site.mainKey} Bonus abholen`;
+const description = `${site.mainKey} Weiterleitung fuer den freigegebenen Affiliate-Link.`;
+---
+
+<BrandLayout title={title} description={description} path="/flash.play/" commercial={false}>
+  <section class="hero" slot="hero">
+    <div class="hero-in">
+      <div>
+        <p class="eyebrow">Bonus Weiterleitung</p>
+        <h1>{site.mainKey} Bonus abholen</h1>
+        <p class="lead">Dieser Pfad ist der einheitliche CTA-Endpunkt fuer Slots, Hero und mobile Leiste. In Production kann Cloudflare den Pfad auf den freigegebenen Affiliate-Link weiterleiten.</p>
+      </div>
+      <div class="hero-card">
+        <strong>250 Freispiele</strong>
+        <table class="hero-table">
+          <tbody>
+            <tr><th scope="row">Brand</th><td>{site.mainKey}</td></tr>
+            <tr><th scope="row">Geo</th><td>DE</td></tr>
+            <tr><th scope="row">Ziel</th><td>Affiliate-Link</td></tr>
+            <tr><th scope="row">Status</th><td>vor Freigabe inaktiv</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="terms">Keine offizielle Revolut Website · 18+</div>
+  </section>
+  <section class="content">
+    <h2>{site.secondaryKey}: CTA-Route im Template</h2>
+    <p>Alle Slot-Karten, Bonusbuttons und mobilen CTAs nutzen diesen kontrollierten Pfad. Vor dem Livegang muss hier der echte, freigegebene Affiliate-Link hinterlegt oder per Cloudflare Redirect verbunden werden.</p>
+    <p><a href="/">Zur Revolut Slots Hauptseite</a></p>
+  </section>
+</BrandLayout>

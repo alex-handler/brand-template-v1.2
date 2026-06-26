@@ -6,7 +6,7 @@ export const commercialPages = {
     eyebrow: "Casino & Slots Deutschland",
     h1: "Revolut Slots",
     lead: "Revolut Slots ist als deutscher Brand-Ratgeber aufgebaut: kompakter Hero, klare CTA, Spielbereiche, Zahlungsblock, Reverse-Struktur und geprüfte 200x200 Slot-Icons.",
-    intent: "Brand Hub",
+    intent: "Markenüberblick",
     introHeading: "Revolut Slots als deutscher Brand-Hub",
     homeContext: "Von hier verzweigen App, Bonus, Registrierung, Zahlungen und Sportwetten in eigene Unterseiten, damit die Suchintention nicht in einem flachen Textblock untergeht.",
     disclosure: "Revolut casino, Bonus, App, Lizenz, Zahlungen und Sportwetten bleiben quellenpflichtige Themen.",
@@ -33,7 +33,7 @@ export const commercialPages = {
     },
     secondaryList: {
       title: "Was bewusst nicht behauptet wird",
-      items: ["Keine offizielle Revolut Website", "Kein garantierter Bonus", "Keine Lizenzbehauptung ohne Quelle", "Keine fake Zahlungsfreigabe", "Keine erfundenen Provider-Logos"]
+      items: ["Keine offizielle Revolut Website", "Kein garantierter Bonus", "Keine Lizenzbehauptung ohne Quelle", "Keine erfundene Zahlungsfreigabe", "Keine erfundenen Provider-Logos"]
     },
     showcaseMode: "full",
     showcaseHeading: "Revolut Slots Spielbereiche",
@@ -132,7 +132,7 @@ export const commercialPages = {
     h1: "Revolut Slots App",
     lead: "Die App-Seite bündelt mobile Suchintentionen: Revolut casino App, APK, Login, mobile Slots und sichere Registrierung. Ohne Quelle wird keine offizielle App behauptet.",
     pageKind: "MobileApplication",
-    intent: "Mobile Intent",
+    intent: "Mobile Nutzung",
     introHeading: "Revolut Slots App oder mobile Website?",
     homeContext: "Die App-Seite erklärt mobile Nutzung getrennt von Bonus, Zahlungen und Registrierung, weil APK- und Login-Suchen ein anderes Risiko haben als reine Slot-Suchen.",
     disclosure: "Eine mobile Casino-Seite ist nicht automatisch eine offizielle App.",
@@ -226,11 +226,11 @@ export const commercialPages = {
   bonus: {
     path: "/bonus/",
     title: "Revolut Slots Bonus Deutschland - Promo Code und Freispiele",
-    description: "Revolut Slots Bonus Ratgeber für Deutschland: Promo Code, Freispiele, No Deposit Bonus, Wagering, Zahlungsbedingungen und sichere Revolut casino Prüfung.",
+    description: "Revolut Slots Bonus Ratgeber für Deutschland: Promo Code, Freispiele, Wagering, Zahlungsbedingungen und sichere Revolut casino Prüfung.",
     eyebrow: "Bonus & Promo",
     h1: "Revolut Slots Bonus",
-    lead: "Bonus-Keywords sind stark kommerziell. Diese Seite erklärt Promo Code, Freispiele und No-Deposit-Anfragen, ohne konkrete Bonuswerte zu erfinden.",
-    intent: "Bonus Intent",
+    lead: "Bonus-Keywords sind stark kommerziell. Diese Seite erklärt Promo Code, Freispiele und Bonus ohne Einzahlung, ohne konkrete Bonuswerte zu erfinden.",
+    intent: "Bonusprüfung",
     introHeading: "Revolut Slots Bonus richtig prüfen",
     homeContext: "Die Bonus-Seite trennt Promotion-Intent vom allgemeinen Casino-Hub und verknüpft Bonusregeln mit Zahlungen, Registrierung und Spielauswahl.",
     disclosure: "Bonuswerte, Freispiele, Promo Codes und Wagering müssen aus einer Quelle kommen.",
@@ -241,7 +241,7 @@ export const commercialPages = {
     cards: [
       { title: "Promo Code", text: "Nur nennen, wenn Code, Laufzeit und Bedingungen belegt sind." },
       { title: "Freispiele", text: "Spielbindung und maximale Auszahlung gehören direkt dazu." },
-      { title: "No Deposit", text: "Besonders riskanter Intent, deshalb keine erfundenen Angebote." }
+      { title: "Bonus ohne Einzahlung", text: "Besonders riskante Suche, deshalb keine erfundenen Angebote." }
     ],
     factCaption: "Bonus-Entity aus der Sheet-Logik",
     factRows: [
@@ -280,7 +280,7 @@ export const commercialPages = {
         ]
       },
       {
-        label: "Payment Link",
+        label: "Zahlungsabgleich",
         heading: "Bonus und Zahlungsmethoden gehören zusammen",
         paragraphs: [
           "Viele Bonusbedingungen schließen bestimmte Zahlungsarten aus. Deshalb verlinkt der Bonusbereich natürlich zur Zahlungsseite und erklärt, dass Einzahlung und Promotion zusammen gelesen werden müssen.",
@@ -297,16 +297,16 @@ export const commercialPages = {
         }
       },
       {
-        label: "No Deposit",
-        heading: "No-Deposit-Intent ohne falsche Versprechen",
+        label: "Bonus ohne Einzahlung",
+        heading: "Bonus ohne Einzahlung ohne falsche Versprechen",
         paragraphs: [
-          "No Deposit ist ein starker Traffic-Intent, aber auch ein klassischer Footprint für schlechte Seiten. Diese Seite nimmt den Begriff auf, erklärt aber die Risiken und vermeidet erfundene Codes.",
+          "Bonus ohne Einzahlung ist eine starke Suche, aber auch ein klassischer Footprint für schwache Seiten. Diese Seite nimmt die Erwartung auf, erklärt aber die Risiken und vermeidet erfundene Codes.",
           "So bleibt der Content kommerziell relevant und wirkt trotzdem weniger wie automatisierter Bonus-Spam.",
           "Besonders wichtig ist die Erwartungssteuerung: Ein Bonus ohne Einzahlung kann trotzdem KYC, Umsatzbedingungen, Auszahlungsgrenzen und Länderbeschränkungen haben. Genau diese Punkte müssen sichtbar werden, bevor ein CTA sinnvoll ist."
         ],
         list: ["Code prüfen", "Auszahlungsgrenze prüfen", "KYC vor Auszahlung erwarten", "Bonus nicht als Gewinn behandeln"],
         table: {
-          caption: "No-Deposit-Risiken",
+          caption: "Risiken beim Bonus ohne Einzahlung",
           rows: [
             ["Code", "Nicht aus alten Snippets übernehmen"],
             ["KYC", "Kann vor Auszahlung greifen"],
@@ -337,7 +337,7 @@ export const commercialPages = {
     eyebrow: "Registrierung",
     h1: "Revolut Slots Registrierung",
     lead: "Diese Seite behandelt Konto-, Login- und Verifizierungsfragen als Ratgeber. Sie behauptet keine offizielle Revolut casino Registrierung und ersetzt keine Anbieterbedingungen.",
-    intent: "Account Intent",
+    intent: "Konto und Anmeldung",
     introHeading: "Vor der Revolut Slots Registrierung",
     homeContext: "Registrierung ist eine eigene Funnel-Stufe, deshalb behandelt diese Seite Konto, Login, KYC und Bonus-Opt-in getrennt vom allgemeinen Casino-Überblick.",
     disclosure: "Eine erfolgreiche Kontoeröffnung wird nicht versprochen.",
@@ -438,7 +438,7 @@ export const commercialPages = {
     eyebrow: "Einzahlungen",
     h1: "Revolut Slots Zahlungen",
     lead: "Payment-Seiten sind besonders sensibel. Diese Seite nennt Kategorien und Prüflogik, aber keine garantierte Verfügbarkeit, Gebühr oder Auszahlungsgeschwindigkeit.",
-    intent: "Payment Intent",
+    intent: "Einzahlung und Auszahlung",
     introHeading: "Einzahlung und Auszahlung bei Revolut Slots",
     homeContext: "Die Zahlungsseite trennt Einzahlung, Auszahlung, KYC und Bonusqualifikation vom allgemeinen Brand-Hub.",
     disclosure: "Zahlungsarten, Gebühren, Limits und Auszahlungszeiten sind operator-abhängig.",
@@ -519,8 +519,8 @@ export const commercialPages = {
         label: "Asset Rule",
         heading: "Warum keine Payment-Logos nachgebaut werden",
         paragraphs: [
-          "Die Vorgabe war klar: Icons nur aus dem freigegebenen Archiv. Weil der direkte Download der Drive-Zahlungsicons eine Login-Seite zurückgab, nutzt das Template neutrale weiße Textkacheln statt erfundener Logos.",
-          "Sobald echte Dateien verfügbar sind, können sie in derselben weißen Kachelstruktur ausgetauscht werden, ohne Layout und Audit neu zu bauen.",
+          "Die Vorgabe ist klar: Icons nur aus dem freigegebenen Archiv. Die Zahlungsseite nutzt deshalb echte lokale SVG-Dateien aus dem Drive und keine nachgebauten Logos.",
+          "Sobald weitere freigegebene Dateien verfügbar sind, können sie in derselben weißen Kachelstruktur ergänzt werden, ohne Layout und Audit neu zu bauen.",
           "Das macht die Payment-Seite später schnell aktualisierbar, ohne dass man wieder an Textstruktur, AMP-Validierung oder mobile Breite muss. Gleichzeitig bleibt jede Zahlungsbehauptung nachvollziehbar und kann pro Brand sauber ersetzt werden, sobald echte Quellen vorliegen und geprüft wurden. Keine Methode wird blind übernommen."
         ],
         table: {
@@ -528,13 +528,13 @@ export const commercialPages = {
           rows: [
             ["Quelle", "Nur Drive- oder freigegebene Dateien"],
             ["Hintergrund", "Weiße Kachel für transparente Logos"],
-            ["Fallback", "Textkachel statt Fake-Logo"],
+            ["Freigabe", "Nur echte lokale SVG-Dateien"],
             ["Audit", "HTML-Login-Dateien werden blockiert"]
           ]
         },
         subsections: [
           { heading: "Weißer Hintergrund", paragraphs: ["Transparente Icons bekommen weißen Hintergrund, wie in der Vorgabe."] },
-          { heading: "Keine Fake Assets", paragraphs: ["Fehlende Logos werden nicht generiert und nicht durch ähnliche Symbole ersetzt."] }
+          { heading: "Keine nachgebauten Assets", paragraphs: ["Fehlende Logos werden nicht generiert und nicht durch ähnliche Symbole ersetzt."] }
         ]
       }
     ]
@@ -546,7 +546,7 @@ export const commercialPages = {
     eyebrow: "Sport & Betting",
     h1: "Revolut Slots Sportwetten",
     lead: "Diese Unterseite deckt Sportwetten-Intent ab, ohne aus Revolut Slots automatisch ein Sportwettenprodukt zu machen. Betting-Claims bleiben quellenpflichtig.",
-    intent: "Betting Intent",
+    intent: "Sportwettenprüfung",
     introHeading: "Sportwetten im Revolut Slots Kontext",
     homeContext: "Sportwetten bekommen eine eigene Seite, weil Quoten, Livewetten, Wettbonus und Casino-Bonus unterschiedliche Regeln haben.",
     disclosure: "Sportwetten-Märkte, Quoten und Wettboni werden nicht ohne Quelle behauptet.",
@@ -770,7 +770,7 @@ export const servicePages = {
         heading: "Was vor Production ergänzt werden muss",
         paragraphs: [
           "Vor einem echten Launch müssen Verantwortlicher, Kontaktweg, Rechtsgrundlagen, Speicherfristen, eingesetzte Dienste und lokale Datenschutzanforderungen ergänzt werden.",
-          "Diese Seite ist deshalb keine fertige Rechtsberatung, sondern ein sauberer Platzhalter mit klarer Update-Pflicht.",
+          "Diese Seite ist deshalb keine fertige Rechtsberatung, sondern eine strukturierte Grundlage mit klarer Update-Pflicht.",
           "Für neue Marken lässt sich dieser Block gezielt variieren: anderes Hosting, andere Trackingdienste, andere Kontaktadresse und andere lokale Anforderungen. Die Grundstruktur bleibt aber überprüfbar."
         ],
         list: ["Verantwortlicher", "Kontaktadresse", "Dienste-Liste", "Speicherfristen", "Rechte der Nutzer"]
@@ -789,7 +789,7 @@ export const servicePages = {
   cookies: {
     path: "/cookies/",
     title: "Revolut Slots Cookie Policy - Cookie-Hinweise",
-    description: "Revolut Slots Cookie Policy für technische Cookies, Consent, Analytics-Platzhalter, Affiliate-Tracking und externe Zielseiten.",
+    description: "Revolut Slots Cookie Policy für technische Cookies, Consent, Analytics-Prüfung, Affiliate-Tracking und externe Zielseiten.",
     eyebrow: "Cookie Policy",
     h1: "Cookie Policy",
     lead: "Diese statische Vorlage setzt keine projektbezogenen Tracking-Cookies, bis ein Consent- oder Analytics-Setup bewusst konfiguriert wird.",
@@ -798,7 +798,7 @@ export const servicePages = {
     factRows: [
       ["Technisch", "Nur falls für Betrieb notwendig"],
       ["Analytics", "Nicht aktiv im Template"],
-      ["Affiliate", "Platzhalter bis echter Link freigegeben ist"],
+      ["Affiliate", "inaktiv bis echter Link freigegeben ist"],
       ["Consent", "Vor Tracking erforderlich"],
       ["Externe Seiten", "Eigene Cookie-Regeln"]
     ],
@@ -809,7 +809,7 @@ export const servicePages = {
         paragraphs: [
           "Technische Cookies können erforderlich sein, wenn später Consent, Spracheinstellungen, Security-Funktionen oder Session-Logik eingebaut werden. In der aktuellen statischen Version sind solche Funktionen nicht projektspezifisch aktiviert.",
           "Wenn der Build später erweitert wird, muss diese Seite genau nennen, welche Cookies gesetzt werden und wofür sie dienen.",
-          "Die Cookie Policy bleibt deshalb ausführlicher als ein Standardplatzhalter. Sie erklärt, welche Bereiche später aktiv werden könnten, ohne schon heute Tracking zu behaupten."
+          "Die Cookie Policy bleibt deshalb ausführlicher als ein kurzer Standardhinweis. Sie erklärt, welche Bereiche später aktiv werden könnten, ohne schon heute Tracking zu behaupten."
         ],
         list: ["Consent speichern", "Sicherheit unterstützen", "Sprache merken", "Session verwalten"]
       },
@@ -829,7 +829,7 @@ export const servicePages = {
         label: "Affiliate",
         heading: "Affiliate- und Weiterleitungslinks",
         paragraphs: [
-          "Der Pfad /go/ ist im Template ein Platzhalter. Wenn dort später ein Affiliate-Ziel hinterlegt wird, können Tracking-Parameter oder Cookies auf der Zielseite entstehen.",
+          "Der Pfad /flash.play/ ist im Template der kontrollierte CTA-Endpunkt. Wenn dort später ein Affiliate-Ziel hinterlegt wird, können Tracking-Parameter oder Cookies auf der Zielseite entstehen.",
           "Diese Cookie Policy muss dann entsprechend aktualisiert werden."
         ],
         list: ["Ziel-URL prüfen", "Parameter dokumentieren", "Cookie-Hinweis ergänzen", "Privacy Policy abgleichen"]

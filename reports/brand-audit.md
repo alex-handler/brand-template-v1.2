@@ -1,19 +1,19 @@
 # Brand Audit
 
-Generated: 2026-06-26T03:36:25.821Z
+Generated: 2026-06-26T14:15:48.592Z
 Slots: 42
 
-| Path | Words | H1 | H2 | H3 | Tables | Lists | Blocks | Games | Slots | Status |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
-| / | 1233 | 1 | 9 | 10 | 4 | 3 | 5 | 4 | 66 | PASS |
-| /app/ | 852 | 1 | 6 | 8 | 3 | 3 | 4 | 2 | 12 | PASS |
-| /bonus/ | 859 | 1 | 7 | 9 | 4 | 3 | 4 | 3 | 18 | PASS |
-| /registrierung/ | 851 | 1 | 6 | 8 | 3 | 3 | 4 | 2 | 12 | PASS |
-| /zahlungen/ | 852 | 1 | 7 | 8 | 4 | 3 | 4 | 2 | 12 | PASS |
-| /sportwetten/ | 823 | 1 | 6 | 8 | 3 | 3 | 4 | 2 | 12 | PASS |
-| /verantwortungsvolles-spielen/ | 524 | 1 | 5 | 4 | 2 | 2 | 5 | 0 | 0 | PASS |
-| /datenschutz/ | 523 | 1 | 5 | 4 | 2 | 2 | 5 | 0 | 0 | PASS |
-| /cookies/ | 520 | 1 | 5 | 4 | 2 | 2 | 5 | 0 | 0 | PASS |
+| Path | Chars | Words | H1 | H2 | H3 | Key H2/H3 | Tables | Lists | Blocks | Games | Slots | Payments | Status |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
+| / | 16070 | 2103 | 1 | 14 | 15 | 23/29 | 4 | 8 | 5 | 4 | 66 | 7 | PASS |
+| /app/ | 13246 | 1756 | 1 | 11 | 13 | 19/24 | 3 | 8 | 4 | 2 | 12 | 0 | PASS |
+| /bonus/ | 13368 | 1748 | 1 | 12 | 14 | 20/26 | 4 | 8 | 4 | 3 | 18 | 7 | PASS |
+| /registrierung/ | 13441 | 1745 | 1 | 11 | 13 | 19/24 | 3 | 8 | 4 | 2 | 12 | 0 | PASS |
+| /zahlungen/ | 13424 | 1734 | 1 | 12 | 13 | 21/25 | 4 | 8 | 4 | 2 | 12 | 7 | PASS |
+| /sportwetten/ | 13256 | 1716 | 1 | 11 | 13 | 19/24 | 3 | 8 | 4 | 2 | 12 | 0 | PASS |
+| /verantwortungsvolles-spielen/ | 10659 | 1382 | 1 | 10 | 9 | 19/19 | 2 | 7 | 5 | 0 | 0 | 0 | PASS |
+| /datenschutz/ | 10742 | 1380 | 1 | 10 | 9 | 19/19 | 2 | 7 | 5 | 0 | 0 | 0 | PASS |
+| /cookies/ | 10853 | 1381 | 1 | 10 | 9 | 19/19 | 2 | 7 | 5 | 0 | 0 | 0 | PASS |
 
 ## Global
 

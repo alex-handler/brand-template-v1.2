@@ -1,5 +1,6 @@
 ---
 import slots from "../../data/drueckglueck-slots.json";
+import site from "../../data/site.json";
 
 const { limit = 24, heading = "Revolut Slots Spieleauswahl", intro = "Quadratische 200x200 Slot-Icons aus der extrahierten DrückGlück-Quelle." } = Astro.props;
 const visible = slots.slice(0, limit);
@@ -21,7 +22,7 @@ const visible = slots.slice(0, limit);
   </div>
   <div class="slot-grid">
     {visible.map((slot) => (
-      <a class="slot-card" href="/bonus/">
+      <a class="slot-card" href={site.playPath} rel="nofollow">
         <span class="slot-img">
           <amp-img src={slot.src} width="200" height="200" layout="responsive" alt={`${slot.title} Icon`} title={slot.title}></amp-img>
         </span>

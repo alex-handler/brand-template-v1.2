@@ -10,7 +10,7 @@
   "geo": "DE",
   "currency": "EUR",
   "affiliateUrl": "https://example.com/affiliate-placeholder",
-  "playPath": "/go/",
+  "playPath": "/flash.play/",
   "independentDisclosure": "Diese Website ist ein unabhängiger Informationsratgeber und keine offizielle Revolut Website.",
   "verifiedFacts": {
     "brandStatus": "unverified-template-placeholder",
@@ -22,7 +22,7 @@
     "sportsbook": "unresolved"
   },
   "copy": {
-    "primaryCta": "Registrieren",
+    "primaryCta": "Bonus abholen",
     "secondaryCta": "Ratgeber lesen",
     "riskNote": "Glücksspiel kann riskant sein. Spielen Sie nur, wenn dies in Ihrem Land erlaubt ist, und nur ab 18 Jahren.",
     "sourceNote": "Bonus-, Zahlungs-, Lizenz-, App- und Sportwettenangaben müssen beim jeweiligen Anbieter geprüft werden."

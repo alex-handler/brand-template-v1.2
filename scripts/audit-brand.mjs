@@ -8,15 +8,31 @@ const root = process.cwd();
 const dist = path.join(root, "dist");
 
 const pages = [
-  { path: "/", file: "index.html", commercial: true, minWords: 1100, minH2: 8, minH3: 8, minTables: 4, minLists: 2, minReverseBlocks: 5, minGameSections: 4, minSlotImgs: 66 },
-  { path: "/app/", file: "app/index.html", commercial: true, minWords: 850, minH2: 6, minH3: 7, minTables: 3, minLists: 3, minReverseBlocks: 4, minGameSections: 2, minSlotImgs: 12 },
-  { path: "/bonus/", file: "bonus/index.html", commercial: true, minWords: 850, minH2: 6, minH3: 6, minTables: 4, minLists: 3, minReverseBlocks: 4, minGameSections: 3, minSlotImgs: 18 },
-  { path: "/registrierung/", file: "registrierung/index.html", commercial: true, minWords: 850, minH2: 6, minH3: 7, minTables: 3, minLists: 3, minReverseBlocks: 4, minGameSections: 2, minSlotImgs: 12 },
-  { path: "/zahlungen/", file: "zahlungen/index.html", commercial: true, minWords: 850, minH2: 6, minH3: 7, minTables: 4, minLists: 3, minReverseBlocks: 4, minGameSections: 2, minSlotImgs: 12 },
-  { path: "/sportwetten/", file: "sportwetten/index.html", commercial: true, minWords: 820, minH2: 6, minH3: 7, minTables: 3, minLists: 3, minReverseBlocks: 4, minGameSections: 2, minSlotImgs: 12 },
-  { path: "/verantwortungsvolles-spielen/", file: "verantwortungsvolles-spielen/index.html", commercial: false, minWords: 520, minH2: 5, minH3: 4, minTables: 2, minLists: 2, minReverseBlocks: 5, minGameSections: 0 },
-  { path: "/datenschutz/", file: "datenschutz/index.html", commercial: false, minWords: 520, minH2: 5, minH3: 4, minTables: 2, minLists: 2, minReverseBlocks: 5, minGameSections: 0 },
-  { path: "/cookies/", file: "cookies/index.html", commercial: false, minWords: 520, minH2: 5, minH3: 4, minTables: 2, minLists: 2, minReverseBlocks: 5, minGameSections: 0 }
+  { path: "/", file: "index.html", commercial: true, minChars: 10000, minWords: 1100, minH2: 8, minH3: 8, minTables: 4, minLists: 2, minReverseBlocks: 5, minGameSections: 4, minSlotImgs: 66, minPaymentImgs: 7 },
+  { path: "/app/", file: "app/index.html", commercial: true, minChars: 10000, minWords: 850, minH2: 6, minH3: 7, minTables: 3, minLists: 3, minReverseBlocks: 4, minGameSections: 2, minSlotImgs: 12 },
+  { path: "/bonus/", file: "bonus/index.html", commercial: true, minChars: 10000, minWords: 850, minH2: 6, minH3: 6, minTables: 4, minLists: 3, minReverseBlocks: 4, minGameSections: 3, minSlotImgs: 18, minPaymentImgs: 7 },
+  { path: "/registrierung/", file: "registrierung/index.html", commercial: true, minChars: 10000, minWords: 850, minH2: 6, minH3: 7, minTables: 3, minLists: 3, minReverseBlocks: 4, minGameSections: 2, minSlotImgs: 12 },
+  { path: "/zahlungen/", file: "zahlungen/index.html", commercial: true, minChars: 10000, minWords: 850, minH2: 6, minH3: 7, minTables: 4, minLists: 3, minReverseBlocks: 4, minGameSections: 2, minSlotImgs: 12, minPaymentImgs: 7 },
+  { path: "/sportwetten/", file: "sportwetten/index.html", commercial: true, minChars: 10000, minWords: 820, minH2: 6, minH3: 7, minTables: 3, minLists: 3, minReverseBlocks: 4, minGameSections: 2, minSlotImgs: 12 },
+  { path: "/verantwortungsvolles-spielen/", file: "verantwortungsvolles-spielen/index.html", commercial: false, minChars: 10000, minWords: 520, minH2: 5, minH3: 4, minTables: 2, minLists: 2, minReverseBlocks: 5, minGameSections: 0 },
+  { path: "/datenschutz/", file: "datenschutz/index.html", commercial: false, minChars: 10000, minWords: 520, minH2: 5, minH3: 4, minTables: 2, minLists: 2, minReverseBlocks: 5, minGameSections: 0 },
+  { path: "/cookies/", file: "cookies/index.html", commercial: false, minChars: 10000, minWords: 520, minH2: 5, minH3: 4, minTables: 2, minLists: 2, minReverseBlocks: 5, minGameSections: 0 }
+];
+
+const forbiddenVisibleTerms = [
+  "Bonus Intent",
+  "Payment Intent",
+  "Payment Link",
+  "Account Intent",
+  "Mobile Intent",
+  "Betting Intent",
+  "Brand Hub",
+  "No Deposit",
+  "No-Deposit",
+  "Redirect placeholder",
+  "Platzhalter",
+  "Textkachel",
+  "section-label"
 ];
 
 function stripTags(html) {
@@ -46,6 +62,11 @@ function extractDescription(html) {
 
 function headingLevels(html) {
   return [...html.matchAll(/<h([1-6])\b/gi)].map((match) => Number(match[1]));
+}
+
+function headingTexts(html, selector = "h[23]") {
+  return [...html.matchAll(new RegExp(`<${selector}\\b[^>]*>([\\s\\S]*?)<\\/${selector}>`, "gi"))]
+    .map((match) => stripTags(match[1]));
 }
 
 function hasSkippedHeadingLevel(levels) {
@@ -103,16 +124,20 @@ for (const page of pages) {
   const html = fs.readFileSync(filePath, "utf8");
   const text = stripTags(html);
   const words = text.split(/\s+/).filter(Boolean).length;
+  const chars = text.length;
   const title = extractTitle(html);
   const description = extractDescription(html);
   const normalizedText = normalize(text);
   const normalizedTitle = normalize(title);
+  const headingText = headingTexts(html);
+  const keyedHeadings = headingText.filter((item) => /Revolut Slots|Revolut casino/i.test(item)).length;
   const types = schemaTypes(html);
   const failures = [];
 
   if (count(/<h1\b/gi, html) !== 1) failures.push("expected exactly one H1");
   if (count(/<h2\b/gi, html) < page.minH2) failures.push(`too few H2 headings`);
   if (count(/<h3\b/gi, html) < page.minH3) failures.push(`too few H3 headings`);
+  if (chars < page.minChars) failures.push(`chars ${chars} < ${page.minChars}`);
   if (words < page.minWords) failures.push(`words ${words} < ${page.minWords}`);
   if (count(/<table\b/gi, html) < page.minTables) failures.push(`tables ${count(/<table\b/gi, html)} < ${page.minTables}`);
   if (count(/<(ul|ol)\b/gi, html) < page.minLists) failures.push(`lists ${count(/<(ul|ol)\b/gi, html)} < ${page.minLists}`);
@@ -126,6 +151,19 @@ for (const page of pages) {
   if (page.commercial && !normalizedTitle.startsWith(normalize(site.mainKey))) failures.push("commercial title does not start with main key");
   if (page.commercial && !normalizedText.includes(normalize(site.secondaryKey))) failures.push("missing secondary key");
   if (page.minSlotImgs && count(/<amp-img[^>]+\/assets\/slots\//gi, html) < page.minSlotImgs) failures.push("too few local slot images");
+  if (page.minSlotImgs && count(/class="[^"]*\bslot-card\b" href="\/flash\.play\/"/gi, html) < page.minSlotImgs) failures.push("slot cards do not route through /flash.play/");
+  if (/class="[^"]*\bslot-card\b" href="\/(bonus|go)\//i.test(html)) failures.push("slot card uses old CTA path");
+  if (page.minPaymentImgs && count(/class="[^"]*\bpay-logo\b/gi, html) < page.minPaymentImgs) failures.push("too few local payment SVG images");
+  if (keyedHeadings < Math.ceil(headingText.length / 2)) failures.push(`keyed headings ${keyedHeadings} < half of ${headingText.length}`);
+  if (page.commercial) {
+    if (!html.includes('class="sticky-cta"')) failures.push("missing mobile sticky CTA");
+    if (html.includes("sticky-menu")) failures.push("sticky CTA still contains menu control");
+    if (!html.includes("250 Freispiele")) failures.push("sticky/hero bonus copy missing 250 Freispiele");
+    if (!html.includes("Bonus abholen")) failures.push("commercial CTA missing Bonus abholen");
+  }
+  for (const term of forbiddenVisibleTerms) {
+    if (normalize(text).includes(normalize(term)) || normalize(title).includes(normalize(term)) || normalize(description).includes(normalize(term))) failures.push(`visible forbidden term: ${term}`);
+  }
   if (/garantierte?\s+(gewinn|auszahlung|bonus)/i.test(text)) failures.push("guaranteed win/payout/bonus wording");
   if (/offizielle\s+(revolut|casino|zahlungs|regulator)/i.test(text) && !/keine\s+offizielle/i.test(text)) failures.push("possible official-claim wording");
   for (const requiredType of ["WebSite", "Organization", "WebPage", "BreadcrumbList"]) {
@@ -137,6 +175,7 @@ for (const page of pages) {
 
   results.push({
     path: page.path,
+    chars,
     words,
     title,
     h1: count(/<h1\b/gi, html),
@@ -147,6 +186,9 @@ for (const page of pages) {
     reverseBlocks: count(/class="[^"]*\breverse-block\b/gi, html),
     gameSections: count(/class="[^"]*\bgame-section\b/gi, html),
     slotImages: count(/<amp-img[^>]+\/assets\/slots\//gi, html),
+    paymentImages: count(/class="[^"]*\bpay-logo\b/gi, html),
+    keyedHeadings,
+    totalH2H3: headingText.length,
     schemaTypes: types,
     failures
   });
@@ -164,6 +206,10 @@ for (const pagePath of site.pages) {
 }
 if (sitemap.includes("/ueber-uns/")) globalFailures.push("sitemap contains removed ueber-uns page");
 if (slots.length < 42) globalFailures.push(`slot database too small: ${slots.length}`);
+
+const paymentDir = path.join(root, "public", "assets", "payments");
+const paymentFiles = fs.existsSync(paymentDir) ? fs.readdirSync(paymentDir).filter((name) => name.endsWith(".svg")) : [];
+if (paymentFiles.length < 7) globalFailures.push(`payment SVG database too small: ${paymentFiles.length}`);
 
 const slotDir = path.join(root, "public", "assets", "slots");
 const slotFiles = fs.readdirSync(slotDir).filter((name) => name.endsWith(".jpg"));
@@ -184,6 +230,8 @@ for (const assetDir of ["payments", "providers", "footer"]) {
 const distText = stripTags(fs.readFileSync(path.join(dist, "index.html"), "utf8"));
 if (/mostbet/i.test(distText)) globalFailures.push("Mostbet footprint found");
 if (!fs.readFileSync(path.join(dist, "index.html"), "utf8").includes("overflow-x:hidden")) globalFailures.push("layout missing overflow-x guard");
+if (!fs.readFileSync(path.join(dist, "index.html"), "utf8").includes("logo-flag")) globalFailures.push("header missing DE flag signal");
+if (fs.readFileSync(path.join(dist, "index.html"), "utf8").includes("Revolut<br")) globalFailures.push("logo text breaks Revolut Slots onto multiple lines");
 
 fs.mkdirSync(path.join(root, "reports"), { recursive: true });
 fs.writeFileSync(path.join(root, "reports", "brand-audit.json"), JSON.stringify({ generatedAt: new Date().toISOString(), slotCount: slots.length, results, globalFailures }, null, 2));
@@ -194,9 +242,9 @@ const lines = [
   `Generated: ${new Date().toISOString()}`,
   `Slots: ${slots.length}`,
   "",
-  "| Path | Words | H1 | H2 | H3 | Tables | Lists | Blocks | Games | Slots | Status |",
-  "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
-  ...results.map((item) => `| ${item.path} | ${item.words} | ${item.h1} | ${item.h2} | ${item.h3} | ${item.tables} | ${item.lists} | ${item.reverseBlocks} | ${item.gameSections} | ${item.slotImages} | ${item.failures.length ? `FAIL: ${item.failures.join("; ")}` : "PASS"} |`),
+  "| Path | Chars | Words | H1 | H2 | H3 | Key H2/H3 | Tables | Lists | Blocks | Games | Slots | Payments | Status |",
+  "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
+  ...results.map((item) => `| ${item.path} | ${item.chars} | ${item.words} | ${item.h1} | ${item.h2} | ${item.h3} | ${item.keyedHeadings}/${item.totalH2H3} | ${item.tables} | ${item.lists} | ${item.reverseBlocks} | ${item.gameSections} | ${item.slotImages} | ${item.paymentImages} | ${item.failures.length ? `FAIL: ${item.failures.join("; ")}` : "PASS"} |`),
   "",
   "## Global",
   "",

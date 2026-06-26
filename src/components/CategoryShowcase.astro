@@ -1,5 +1,6 @@
 ---
 import slots from "../../data/drueckglueck-slots.json";
+import site from "../../data/site.json";
 
 const { mode = "full", heading = "Revolut Slots Spielbereiche", intro = "Die Spielbereiche übernehmen die Logik der Reverse-Beispiele: klare Kategoriezeile, Zähler, kompakte Karten und quadratische 200x200 Icons." } = Astro.props;
 
@@ -52,11 +53,11 @@ const visible = mode === "compact" ? sections.slice(0, 2) : mode === "triple" ? 
           <h3>{group.title}</h3>
           <p>{group.note}</p>
         </div>
-        <a class="count-pill" href="/bonus/">ALLE {group.count}</a>
+        <a class="count-pill" href={site.playPath} rel="nofollow">ALLE {group.count}</a>
       </div>
       <div class="mini-grid">
         {group.items.map((slot) => (
-          <a class="slot-card" href="/bonus/">
+          <a class="slot-card" href={site.playPath} rel="nofollow">
             <span class="slot-img">
               <amp-img src={slot.src} width="200" height="200" layout="responsive" alt={`${slot.title} Icon`} title={slot.title}></amp-img>
             </span>

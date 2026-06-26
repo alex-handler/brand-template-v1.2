@@ -1,11 +1,23 @@
 ---
-const methods = ["PayPal", "Visa", "Mastercard", "Online Überweisen", "Trustly", "Paysafecard", "Skrill", "Neteller"];
+const methods = [
+  { label: "PayPal", cls: "paypal" },
+  { label: "Visa", cls: "visa" },
+  { label: "Mastercard", cls: "mastercard" },
+  { label: "Online Überweisen", cls: "online" },
+  { label: "Trustly", cls: "trustly" },
+  { label: "Neteller", cls: "neteller" },
+  { label: "Payz", cls: "payz" }
+];
 ---
 
 <section class="content band">
   <h2>Zahlungsmethoden im Revolut casino Check</h2>
-  <p>Die Drive-Zahlungsicons sind als externe Asset-Quelle dokumentiert. Da die Dateien beim direkten Download eine Login-Seite zurückgaben, werden hier keine nachgebauten Logos verwendet. Die weißen Kacheln halten den vorgesehenen Platz für echte, freigegebene transparente Icons.</p>
+  <p>Die Zahlungslogos stammen aus dem freigegebenen Drive-Archiv und stehen auf weißem Hintergrund, damit transparente SVG-Dateien sauber wirken. Verfügbarkeit, Limits und Bonusqualifikation bleiben trotzdem quellenpflichtig.</p>
   <div class="pay-row">
-    {methods.map((method) => <div class="pay-tile">{method}</div>)}
+    {methods.map((method) => (
+      <div class="pay-tile" aria-label={`${method.label} Zahlungslogo`}>
+        <span class={`pay-logo ${method.cls}`} role="img" aria-label={`${method.label} Logo`}></span>
+      </div>
+    ))}
   </div>
 </section>
