@@ -35,7 +35,24 @@ const forbiddenVisibleTerms = [
   "section-label",
   "lokale Icons",
   "lokale Slot-Icons",
-  "Icons extrahiert"
+  "Icons extrahiert",
+  "Info-Seite DE",
+  "Bonus-Keywords",
+  "Main Key",
+  "2. Key",
+  "areaServed",
+  "incentiveAmount",
+  "incentiveType",
+  "incentivizedItem",
+  "applicationCategory",
+  "operatingSystem",
+  "downloadUrl",
+  "countriesSupported",
+  "Mobile-App-Entity",
+  "Schema-Nutzung",
+  "Payment-Asset-Gate",
+  "Ratgeber-Entity",
+  "BreadcrumbList"
 ];
 
 function stripTags(html) {
@@ -169,6 +186,9 @@ for (const page of pages) {
   if (!html.includes('href="/"')) failures.push("missing internal homepage link");
   if (page.commercial && !normalizedTitle.startsWith(normalize(site.mainKey))) failures.push("commercial title does not start with main key");
   if (page.commercial && !normalizedText.includes(normalize(site.secondaryKey))) failures.push("missing secondary key");
+  if (page.commercial && !html.includes("Suchfokus")) failures.push("hero table missing user-facing search focus");
+  if (page.commercial && !html.includes("Slot-Intent")) failures.push("hero table missing slot intent");
+  if (page.commercial && !html.includes("Zahlungs-Intent")) failures.push("hero table missing payment intent");
   if (page.minSlotImgs && count(/<amp-img[^>]+\/assets\/slots\//gi, html) < page.minSlotImgs) failures.push("too few local slot images");
   if (page.minSlotImgs && count(/class="[^"]*\bslot-card\b" href="\/flash\.play\/"/gi, html) < page.minSlotImgs) failures.push("slot cards do not route through /flash.play/");
   if (/class="[^"]*\bslot-card\b" href="\/(bonus|go)\//i.test(html)) failures.push("slot card uses old CTA path");

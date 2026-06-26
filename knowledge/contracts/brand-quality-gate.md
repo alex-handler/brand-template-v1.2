@@ -41,3 +41,8 @@ Every commercial page must pass before preview approval.
 
 - Every page links to homepage, app, bonus, registration, payments, sports, responsible gambling, privacy and cookies.
 - The internal-link block must be visible and styled as navigation, not hidden metadata.
+
+## Hero Intent Table
+
+- The hero table must answer what the user is searching for: main slot key, secondary casino key, slot intent, payment/bank intent, and GEO.
+- Do not expose planning labels, schema fields, extraction notes, or internal status labels in the first viewport.

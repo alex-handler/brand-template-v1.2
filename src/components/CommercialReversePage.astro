@@ -24,7 +24,7 @@ const keyedSubheading = (heading, sectionIndex, subsectionIndex) => {
 ---
 
 <BrandLayout title={page.title} description={page.description} path={page.path} pageKind={page.pageKind || "Article"}>
-  <Hero slot="hero" eyebrow={page.eyebrow} title={page.h1} lead={page.lead} cta={page.cta || "Bonus abholen"} />
+  <Hero slot="hero" eyebrow={page.eyebrow} title={page.h1} lead={page.lead} cta={page.cta || "Bonus abholen"} heroRows={page.heroRows} />
 
   <section class="content reverse-page">
     <div class="disclosure">{site.independentDisclosure} {page.disclosure}</div>

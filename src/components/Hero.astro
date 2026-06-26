@@ -1,8 +1,20 @@
 ---
 import site from "../../data/site.json";
 
-const { eyebrow = "Casino & Slots Deutschland", title = site.mainKey, lead, cta = "Bonus abholen" } = Astro.props;
-const expandedLead = `${lead} Der Check bleibt auf ${site.secondaryKey}, Slots, Deutschland und DE ausgerichtet, damit der erste Textblock nicht nur Brand nennt, sondern die lokale Casino-Suchintention direkt erklärt.`;
+const {
+  eyebrow = "Casino & Slots Deutschland",
+  title = site.mainKey,
+  lead,
+  cta = "Bonus abholen",
+  heroRows = [
+    ["Suchfokus", site.mainKey],
+    ["Casino-Intent", site.secondaryKey],
+    ["Slot-Intent", "Spielauswahl und Online-Slots"],
+    ["Zahlungs-Intent", "Revolut als Bank-Zahlungsmittel prüfen"],
+    ["Deutschland", "DE, 18+ und Quellenprüfung"]
+  ]
+} = Astro.props;
+const expandedLead = `${lead} Direkt im ersten View werden Slot-Suche, ${site.secondaryKey}, Revolut als möglicher Bank-Zahlungsweg und Deutschland getrennt erklärt, damit der Nutzer sofort erkennt, welche Intention die Seite beantwortet.`;
 ---
 
 <section class="hero">
@@ -17,14 +29,10 @@ const expandedLead = `${lead} Der Check bleibt auf ${site.secondaryKey}, Slots, 
       </div>
     </div>
     <div class="hero-card">
-      <strong>Revolut Slots Check</strong>
+      <strong>Suchintention im Überblick</strong>
       <table class="hero-table">
         <tbody>
-          <tr><th scope="row">Geo</th><td>DE</td></tr>
-          <tr><th scope="row">Main Key</th><td>Revolut Slots</td></tr>
-          <tr><th scope="row">2. Key</th><td>Revolut casino</td></tr>
-          <tr><th scope="row">Bonus</th><td>250 Freispiele prüfen</td></tr>
-          <tr><th scope="row">Status</th><td>Info-Seite DE</td></tr>
+          {heroRows.map((row) => <tr><th scope="row">{row[0]}</th><td>{row[1]}</td></tr>)}
         </tbody>
       </table>
     </div>

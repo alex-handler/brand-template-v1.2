@@ -34,6 +34,8 @@ Use these rules when `siteType` is `brand`.
 - The mobile sticky CTA must visually highlight the bonus amount or count, for example `250 Freispiele`, `$250`, `250 EUR` or the configured equivalent.
 - Every page must include visible internal links to all commercial and service subsections.
 - Do not show technical asset labels such as `lokale Icons`, `Icons extrahiert`, `Asset database`, or similar build/source wording in the frontend.
+- Hero tables must be user-facing intent maps, not internal metadata. They should cover the main slot key, the secondary casino key, slot intent, Revolut/payment or bank-payment intent, and GEO/DE adaptation.
+- Never show labels such as `Main Key`, `2. Key`, `Info-Seite`, schema field names, or keyword-planning notes in visible hero chunks or tables.
 
 ## Source Handling
 

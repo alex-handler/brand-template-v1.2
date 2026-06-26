@@ -5,7 +5,14 @@ export const commercialPages = {
     description: "Revolut Slots Ratgeber für Deutschland: Revolut casino, App, Bonus, Registrierung, Einzahlungen, Sportwetten und strukturierte Spielauswahl im Check.",
     eyebrow: "Casino & Slots Deutschland",
     h1: "Revolut Slots",
-    lead: "Revolut Slots ist als deutscher Brand-Ratgeber aufgebaut: kompakter Hero, klare CTA, Spielbereiche, Zahlungsblock, Reverse-Struktur und geprüfte 200x200 Spielbilder.",
+    lead: "Revolut Slots beantwortet zuerst die Slot-Suche: Spielauswahl, Casino-Kontext und die Frage, ob ein Casino Revolut als Bank-Zahlungsmittel akzeptieren kann.",
+    heroRows: [
+      ["Suchfokus", "Revolut Slots"],
+      ["Casino-Intent", "Revolut casino"],
+      ["Slot-Intent", "Slots, Spielauswahl und Spielbilder"],
+      ["Zahlungs-Intent", "Casino mit Revolut als Bankzahlung prüfen"],
+      ["Deutschland", "DE, 18+ und Quellenprüfung"]
+    ],
     intent: "Markenüberblick",
     introHeading: "Revolut Slots als deutscher Brand-Hub",
     homeContext: "Von hier verzweigen App, Bonus, Registrierung, Zahlungen und Sportwetten in eigene Unterseiten, damit die Suchintention nicht in einem flachen Textblock untergeht.",
@@ -19,17 +26,17 @@ export const commercialPages = {
       { title: "Spielbereiche sichtbar", text: "Mehrere Game-Sektionen erzeugen den Casino-Lobby-Eindruck aus den Beispielen." },
       { title: "Content tiefer unten", text: "Lange Erklärungen folgen nach Karten, Tabellen und Listen, damit die Seite natürlicher wirkt." }
     ],
-    factCaption: "Reverse-Zielstruktur der Startseite",
+    factCaption: "Suchintentionen der Startseite",
     factRows: [
-      ["Hero", "H1, Lead, CTA, Info-Tabelle, Terms-Bar"],
-      ["Lobby", "Spielautomaten, Megaways, beliebte Spiele, Poker-Intent"],
-      ["Trust", "18+, unabhängige Einordnung, keine offiziellen Revolut-Claims"],
-      ["Entity", "Brand, App, Bonus, Payment, Sportwetten, Responsible Gambling"],
-      ["Assets", "Quadratische Spielbilder plus generierter Hero-Hintergrund"]
+      ["Revolut Slots", "Hauptkey fuer Slot-Lobby, Spielauswahl und Casino-Ratgeber"],
+      ["Revolut casino", "zweiter Key fuer Casino-Kontext ohne offiziellen Betreiber-Claim"],
+      ["Slot-Intent", "Spielautomaten, Megaways, beliebte Spiele und Poker/Karten-Bereich"],
+      ["Zahlungs-Intent", "Revolut als Bank-Zahlungsmittel nur pruefen, nicht als akzeptiert behaupten"],
+      ["Deutschland", "DE, 18+, Quellenpflicht und verantwortungsvolle Nutzung"]
     ],
     primaryList: {
       title: "Was sofort sichtbar sein muss",
-      items: ["Registrierung und Login-Ziel", "Spielmenü mit echten Icons", "Bonus- und Zahlungsbereiche", "DE- und 18+ Kontext", "Link zur Responsible-Gambling-Seite"]
+      items: ["Registrierung und Login-Ziel", "Spielmenü mit echten Bildern", "Bonus- und Zahlungsbereiche", "DE- und 18+ Kontext", "Link zur Responsible-Gambling-Seite"]
     },
     secondaryList: {
       title: "Was bewusst nicht behauptet wird",
@@ -47,7 +54,7 @@ export const commercialPages = {
         label: "Content Depth",
         heading: "Warum die Startseite mehr als eine Keyword-Seite ist",
         paragraphs: [
-          "Eine Brand-Startseite muss mehrere Aufgaben gleichzeitig lösen: Sie soll das Main Keyword Revolut Slots tragen, Revolut casino als sekundären Intent aufnehmen und trotzdem nicht wie ein umgeschriebener Doorway-Text wirken. Deshalb nutzt die Seite oben visuelle Casino-Struktur und unten eine sachliche Prüfung.",
+          "Eine Brand-Startseite muss mehrere Aufgaben gleichzeitig lösen: Sie soll den Hauptsuchbegriff Revolut Slots tragen, Revolut casino als sekundären Intent aufnehmen und trotzdem nicht wie ein umgeschriebener Doorway-Text wirken. Deshalb nutzt die Seite oben visuelle Casino-Struktur und unten eine sachliche Prüfung.",
           "Die Texte bleiben in kurzen Abschnitten, damit Nutzer nicht in einem endlosen Absatz landen. Tabellen und Listen übernehmen die schnelle Orientierung, während H2- und H3-Ebenen den Inhalt ähnlich wie echte Casino-Lobbys in Themenblöcke unterteilen."
         ],
         subsections: [
@@ -83,7 +90,7 @@ export const commercialPages = {
         heading: "Interne Verlinkung nach Suchintention",
         paragraphs: [
           "Die Startseite verteilt Nutzer nicht zufällig. App-Intent führt zur mobilen Unterseite, Bonus-Intent zur Promotion-Prüfung, Payment-Intent zu Einzahlung und Auszahlung, Sportwetten zu Betting-Abgrenzung. Dadurch entsteht eine echte Seitenarchitektur.",
-          "Jede Unterseite verlinkt zurück zur Hauptseite und greift den Main Key erneut auf. Das ist wichtig, weil künftige Markenvarianten so nicht nur aus einzelnen Landingpages bestehen, sondern aus einem zusammenhängenden Cluster."
+          "Jede Unterseite verlinkt zurück zur Hauptseite und greift den Hauptsuchbegriff erneut auf. Das ist wichtig, weil künftige Markenvarianten so nicht nur aus einzelnen Landingpages bestehen, sondern aus einem zusammenhängenden Cluster."
         ],
         list: ["App für mobile Nutzung", "Bonus für Promo Code und Freispiele", "Registrierung für Konto und Login", "Zahlungen für Einzahlung und Auszahlung", "Sportwetten für Betting-Intent"]
       },
@@ -106,19 +113,19 @@ export const commercialPages = {
         ]
       },
       {
-        label: "Schema",
-        heading: "Strukturierte Daten ohne Übertreibung",
+        label: "Struktur",
+        heading: "Struktur ohne Übertreibung",
         paragraphs: [
-          "Die Seite verwendet WebSite, Organization, WebPage, Article, BreadcrumbList und ItemList. Das passt zur Spreadsheet-Logik, ohne Dinge wie Lizenz, Bonuswert oder App-Download zu erfinden.",
-          "Für spätere Brand-Rollouts kann dieses Schema ergänzt werden, sobald die echten Felder freigegeben sind. Bis dahin bleibt die Markup-Ebene vorsichtig und konsistent."
+          "Die Seite trennt Ratgeber, Spielauswahl, Navigation und Casino-Kontext sauber, ohne Dinge wie Lizenz, Bonuswert oder App-Download zu erfinden.",
+          "Für spätere Brand-Rollouts kann die technische Struktur ergänzt werden, sobald echte Felder freigegeben sind. Bis dahin bleibt die sichtbare Ebene vorsichtig und konsistent."
         ],
         table: {
-          caption: "Schema-Nutzung",
+          caption: "Sichtbare Seitenstruktur",
           rows: [
-            ["Organization", "Ratgeber-Entity, nicht offizieller Betreiber"],
-            ["ItemList", "Lokale Slot-Auswahl"],
-            ["BreadcrumbList", "Hauptseite und Unterseite"],
-            ["Article", "Kommerzielle Ratgeberseite"]
+            ["Ratgeber", "unabhängige Einordnung, nicht offizieller Betreiber"],
+            ["Spielauswahl", "Slot-Intent mit sichtbaren Karten"],
+            ["Navigation", "Hauptseite und Unterseiten klar verbunden"],
+            ["Artikelbereich", "kommerzieller Kontext mit Quellenpflicht"]
           ]
         }
       }
@@ -131,6 +138,13 @@ export const commercialPages = {
     eyebrow: "Mobile App",
     h1: "Revolut Slots App",
     lead: "Die App-Seite bündelt mobile Suchintentionen: Revolut casino App, APK, Login, mobile Slots und sichere Registrierung. Ohne Quelle wird keine offizielle App behauptet.",
+    heroRows: [
+      ["Suchfokus", "Revolut Slots App"],
+      ["Casino-Intent", "Revolut casino mobil"],
+      ["Slot-Intent", "mobile Slots im Browser prüfen"],
+      ["Zahlungs-Intent", "Revolut Zahlung erst auf Zielseite belegen"],
+      ["Deutschland", "DE, Smartphone, 18+ und Sicherheit"]
+    ],
     pageKind: "MobileApplication",
     intent: "Mobile Nutzung",
     introHeading: "Revolut Slots App oder mobile Website?",
@@ -146,13 +160,13 @@ export const commercialPages = {
       { title: "Mobile UX", text: "Sticky CTA, Burger-Menü und Slot-Raster bleiben mobil nutzbar." },
       { title: "Login-Sicherheit", text: "Konto- und Zahlungsdaten gehören nicht in ungeprüfte Apps." }
     ],
-    factCaption: "Mobile-App-Entity",
+    factCaption: "Mobile Nutzung und Slot-Intent",
     factRows: [
-      ["applicationCategory", "Game / Casino information"],
-      ["operatingSystem", "Android und iOS nur bei Quelle konkret nennen"],
-      ["downloadUrl", "Unresolved bis freigegeben"],
-      ["permissions", "Vor Installation prüfen"],
-      ["countriesSupported", "DE nur mit Anbieterbestätigung"]
+      ["Mobile Nutzung", "Browser, App und APK getrennt prüfen"],
+      ["Android und iOS", "nur bei Quelle konkret nennen"],
+      ["Download", "keine Empfehlung ohne freigegebene Zielseite"],
+      ["Berechtigungen", "vor Installation prüfen"],
+      ["Deutschland", "DE nur mit Anbieterbestätigung"]
     ],
     primaryList: {
       title: "APK-Risiken",
@@ -229,7 +243,14 @@ export const commercialPages = {
     description: "Revolut Slots Bonus Ratgeber für Deutschland: Promo Code, Freispiele, Wagering, Zahlungsbedingungen und sichere Revolut casino Prüfung.",
     eyebrow: "Bonus & Promo",
     h1: "Revolut Slots Bonus",
-    lead: "Bonus-Keywords sind stark kommerziell. Diese Seite erklärt Promo Code, Freispiele und Bonus ohne Einzahlung, ohne konkrete Bonuswerte zu erfinden.",
+    lead: "Revolut Slots Bonus verbindet Freispiele, Promo Code und Slot-Gewichtung mit der Frage, ob Revolut casino Zahlungen fuer Bonusbedingungen relevant sein koennen.",
+    heroRows: [
+      ["Suchfokus", "Revolut Slots Bonus"],
+      ["Casino-Intent", "Revolut casino Bonus prüfen"],
+      ["Slot-Intent", "Freispiele, Slots und Spielgewichtung"],
+      ["Zahlungs-Intent", "Revolut Einzahlung fuer Bonusbedingungen prüfen"],
+      ["Deutschland", "DE, Wagering und 18+ Hinweise"]
+    ],
     intent: "Bonusprüfung",
     introHeading: "Revolut Slots Bonus richtig prüfen",
     homeContext: "Die Bonus-Seite trennt Promotion-Intent vom allgemeinen Casino-Hub und verknüpft Bonusregeln mit Zahlungen, Registrierung und Spielauswahl.",
@@ -243,21 +264,21 @@ export const commercialPages = {
       { title: "Freispiele", text: "Spielbindung und maximale Auszahlung gehören direkt dazu." },
       { title: "Bonus ohne Einzahlung", text: "Besonders riskante Suche, deshalb keine erfundenen Angebote." }
     ],
-    factCaption: "Bonus-Entity aus der Sheet-Logik",
+    factCaption: "Bonus-Intent nach Slot und Zahlung",
     factRows: [
-      ["areaServed", "Deutschland nur bei Quelle"],
-      ["incentiveAmount", "Nicht erfinden"],
-      ["incentiveType", "Freispiele, Match Bonus, Cashback oder Promo Code"],
-      ["incentivizedItem", "Slots oder Casino nur bei Bedingung nennen"],
-      ["wagering requirements", "Immer sichtbar erklären"]
+      ["Revolut Slots Bonus", "Hauptkey fuer Freispiele, Promo Code und Slot-Bedingungen"],
+      ["Revolut casino", "Casino-Kontext ohne erfundenen Bonuswert"],
+      ["Slot-Intent", "Spielgewichtung, ausgeschlossene Spiele und Freispiele sichtbar machen"],
+      ["Zahlungs-Intent", "Revolut als Bankzahlung nur als Prüfpunkt fuer Bonusbedingungen nennen"],
+      ["Deutschland", "DE, 18+, Wagering und Auszahlungsgrenzen erklaeren"]
     ],
     primaryList: {
       title: "Bonus-Checkliste",
       items: ["Bonuswert und Mindestumsatz lesen", "Zahlungsmethode prüfen", "Spielausschlüsse beachten", "Ablaufdatum kontrollieren", "Maximale Auszahlung suchen"]
     },
     secondaryList: {
-      title: "Reverse-Blöcke",
-      items: ["Hero-Bonus", "Konditionstabelle", "Slot-Auswahl", "Zahlungsabgleich", "FAQ-ähnliche Prüfung"]
+      title: "Seitenaufbau",
+      items: ["Bonus-Hero", "Konditionstabelle", "Slot-Auswahl", "Zahlungsabgleich", "FAQ-ähnliche Prüfung"]
     },
     showcaseMode: "triple",
     showcaseHeading: "Slots für Bonus-Intent",
@@ -292,7 +313,7 @@ export const commercialPages = {
             ["Karte", "Kann qualifizieren, nur bei Quelle"],
             ["Wallet", "Häufig eingeschränkt, prüfen"],
             ["Bank", "Limits und Dauer beachten"],
-            ["Revolut", "Nicht automatisch als Casino-Zahlung behaupten"]
+            ["Revolut als Bank", "Nur als Zahlungs-Intent prüfen, nicht als akzeptiert behaupten"]
           ]
         }
       },
@@ -337,6 +358,13 @@ export const commercialPages = {
     eyebrow: "Registrierung",
     h1: "Revolut Slots Registrierung",
     lead: "Diese Seite behandelt Konto-, Login- und Verifizierungsfragen als Ratgeber. Sie behauptet keine offizielle Revolut casino Registrierung und ersetzt keine Anbieterbedingungen.",
+    heroRows: [
+      ["Suchfokus", "Revolut Slots Registrierung"],
+      ["Casino-Intent", "Revolut casino Anmeldung"],
+      ["Slot-Intent", "Konto vor Slot-Nutzung prüfen"],
+      ["Zahlungs-Intent", "Revolut Zahlungsweg nach KYC prüfen"],
+      ["Deutschland", "DE, Alter, KYC und Datenschutz"]
+    ],
     intent: "Konto und Anmeldung",
     introHeading: "Vor der Revolut Slots Registrierung",
     homeContext: "Registrierung ist eine eigene Funnel-Stufe, deshalb behandelt diese Seite Konto, Login, KYC und Bonus-Opt-in getrennt vom allgemeinen Casino-Überblick.",
@@ -437,36 +465,43 @@ export const commercialPages = {
     description: "Revolut Slots Zahlungsratgeber für Deutschland: Einzahlung, Auszahlung, KYC, Karten, Wallets, Bankmethoden und Revolut casino Payment-Claims.",
     eyebrow: "Einzahlungen",
     h1: "Revolut Slots Zahlungen",
-    lead: "Payment-Seiten sind besonders sensibel. Diese Seite nennt Kategorien und Prüflogik, aber keine garantierte Verfügbarkeit, Gebühr oder Auszahlungsgeschwindigkeit.",
+    lead: "Diese Seite beantwortet den Zahlungs-Intent: Nutzer prüfen, ob ein Casino Revolut als Bank-Zahlungsmittel, Einzahlung oder Auszahlung im Umfeld von Revolut casino nennen darf.",
+    heroRows: [
+      ["Suchfokus", "Revolut Slots Zahlungen"],
+      ["Casino-Intent", "Revolut casino Einzahlung"],
+      ["Slot-Intent", "Slots nach Einzahlung und Limits"],
+      ["Zahlungs-Intent", "Revolut als Bank-Zahlungsmittel prüfen"],
+      ["Deutschland", "DE, KYC, Limits und Quellen"]
+    ],
     intent: "Einzahlung und Auszahlung",
     introHeading: "Einzahlung und Auszahlung bei Revolut Slots",
     homeContext: "Die Zahlungsseite trennt Einzahlung, Auszahlung, KYC und Bonusqualifikation vom allgemeinen Brand-Hub.",
     disclosure: "Zahlungsarten, Gebühren, Limits und Auszahlungszeiten sind operator-abhängig.",
     introParagraphs: [
-      "Die Reverse-Beispiele zeigen Payment-Logos oft direkt unter dem Hero. Dieses Template hält den weißen Payment-Bereich bei, nutzt aber nur neutrale Kacheln, solange die echten Drive-Assets nicht frei herunterladbar sind.",
-      "Das schützt die Seite vor nachgebauten Logos und falschen Erwartungen. Nutzer bekommen trotzdem eine klare Struktur, welche Zahlungsfragen vor einer Einzahlung beantwortet werden müssen.",
+      "Die Reverse-Beispiele zeigen Zahlungslogos oft direkt unter dem Hero. Dieses Template hält den weißen Zahlungsbereich bei und nutzt nur freigegebene SVG-Dateien aus dem Asset-Archiv.",
+      "Das schützt die Seite vor nachgebauten Logos und falschen Erwartungen. Nutzer bekommen trotzdem eine klare Struktur, welche Fragen zu Revolut, Bankzahlung und Casino-Einzahlung vor einem Klick beantwortet werden müssen.",
       "Die Seite unterscheidet außerdem zwischen Einzahlung und Auszahlung. Viele schwache Landingpages nennen nur Methoden, aber nicht KYC, Gebühren, Limits oder Bonusqualifikation. Genau diese Lücken werden hier als eigene Prüfpunkte sichtbar."
     ],
     cards: [
       { title: "Einzahlung", text: "Methode, Limit und Bonusqualifikation immer zusammen prüfen." },
       { title: "Auszahlung", text: "Bearbeitung, KYC und Gebühren nicht ohne Quelle nennen." },
-      { title: "Revolut", text: "Nicht automatisch als akzeptierte Casino-Zahlungsart darstellen." }
+      { title: "Revolut als Bank", text: "Als Zahlungs-Intent prüfen, nicht automatisch als akzeptiert darstellen." }
     ],
-    factCaption: "Payment-Entity-Regeln",
+    factCaption: "Zahlungsintention nach Bank und Casino",
     factRows: [
-      ["Karten", "Nur als mögliche Kategorie, nicht als Zusage"],
-      ["Banktransfer", "Geo- und operator-abhängig"],
-      ["E-Wallets", "Nur mit Anbieterquelle nennen"],
-      ["Krypto", "Nicht ohne explizite Betreiberangabe"],
-      ["KYC", "Als üblicher Sicherheits- und Compliance-Schritt erklären"]
+      ["Revolut als Bank", "Payment-Intent fuer Casino-Einzahlung nur mit Zielseitenquelle bestätigen"],
+      ["Revolut casino", "Casino-Kontext prüfen, aber keine akzeptierte Methode erfinden"],
+      ["Einzahlung", "Limit, Dauer, Bonusqualifikation und Verfügbarkeit zusammen lesen"],
+      ["Auszahlung", "KYC, Bearbeitung und Rückweg getrennt prüfen"],
+      ["Deutschland", "DE, 18+, Gebührenhinweis und Quellenpflicht"]
     ],
     primaryList: {
       title: "Vor der Einzahlung",
       items: ["Zielseite und Betreiber prüfen", "Limits lesen", "Bonusbedingungen abgleichen", "KYC einplanen", "Gebühren und Dauer suchen"]
     },
     secondaryList: {
-      title: "Payment-Reihenfolge",
-      items: ["Hero", "Payment-Kacheln", "Methodentabelle", "Bonusabgleich", "Auszahlungsrisiken"]
+      title: "Zahlungsaufbau",
+      items: ["Hero", "Zahlungskacheln", "Methodentabelle", "Bonusabgleich", "Auszahlungsrisiken"]
     },
     showcaseMode: "compact",
     showcaseHeading: "Revolut casino Slots und Zahlungen",
@@ -501,7 +536,7 @@ export const commercialPages = {
             ["Karte", "Bonusfähig nur bei Quelle"],
             ["Wallet", "Ausschlüsse möglich"],
             ["Bank", "Dauer und Limit prüfen"],
-            ["Revolut", "Suchintent, kein bestätigtes Payment"]
+            ["Revolut als Bank", "Suchintent fuer Zahlungsweg, kein bestätigtes Payment"]
           ]
         }
       },
@@ -524,12 +559,12 @@ export const commercialPages = {
           "Das macht die Payment-Seite später schnell aktualisierbar, ohne dass man wieder an Textstruktur, AMP-Validierung oder mobile Breite muss. Gleichzeitig bleibt jede Zahlungsbehauptung nachvollziehbar und kann pro Brand sauber ersetzt werden, sobald echte Quellen vorliegen und geprüft wurden. Keine Methode wird blind übernommen."
         ],
         table: {
-          caption: "Payment-Asset-Gate",
+          caption: "Zahlungslogo-Freigabe",
           rows: [
             ["Quelle", "Nur Drive- oder freigegebene Dateien"],
             ["Hintergrund", "Weiße Kachel für transparente Logos"],
             ["Freigabe", "Nur echte lokale SVG-Dateien"],
-            ["Audit", "HTML-Login-Dateien werden blockiert"]
+            ["Prüfung", "HTML-Login-Dateien werden blockiert"]
           ]
         },
         subsections: [
@@ -546,6 +581,13 @@ export const commercialPages = {
     eyebrow: "Sport & Betting",
     h1: "Revolut Slots Sportwetten",
     lead: "Diese Unterseite deckt Sportwetten-Intent ab, ohne aus Revolut Slots automatisch ein Sportwettenprodukt zu machen. Betting-Claims bleiben quellenpflichtig.",
+    heroRows: [
+      ["Suchfokus", "Revolut Slots Sportwetten"],
+      ["Casino-Intent", "Revolut casino abgrenzen"],
+      ["Slot-Intent", "Casino-Slots getrennt von Wetten"],
+      ["Zahlungs-Intent", "Revolut Zahlung fuer Casino/Sport prüfen"],
+      ["Deutschland", "DE, Quoten, Limits und 18+"]
+    ],
     intent: "Sportwettenprüfung",
     introHeading: "Sportwetten im Revolut Slots Kontext",
     homeContext: "Sportwetten bekommen eine eigene Seite, weil Quoten, Livewetten, Wettbonus und Casino-Bonus unterschiedliche Regeln haben.",
