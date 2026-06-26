@@ -1,6 +1,6 @@
 # Brand Audit
 
-Generated: 2026-06-26T15:01:45.067Z
+Generated: 2026-06-26T15:11:03.437Z
 Slots: 42
 
 | Path | Chars | Words | H1 | H2 | H3 | Key H2/H3 | Tables | Lists | Blocks | Games | Slots | Payments | Status |

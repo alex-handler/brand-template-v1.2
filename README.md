@@ -42,7 +42,8 @@ Production copy must distinguish verified facts, user-provided assumptions, and 
 `npm run build`, `npm run dev`, `npm run preview` and `npm run audit:brand` run `scripts/generate-brand-icon.mjs` first. The script derives the site icon from `data/site.json`:
 
 - first visible letter or number from `brandName`
+- normalized `geo` / `locale` country code as a flag backdrop and badge
 - `visualStyle.primaryColor`, `secondaryColor`, `accentColor`, `surfaceColor`
 - `visualStyle.iconSafeArea` for the maskable app icon
 
-Generated files live in `public/`: `favicon.svg`, `apple-touch-icon.svg`, `maskable-icon.svg`, `safari-pinned-tab.svg` and `site.webmanifest`. Do not copy favicons from prior brands or protected official brand assets unless explicitly approved.
+Generated files live in `public/`: `favicon.svg`, `apple-touch-icon.svg`, `maskable-icon.svg`, `safari-pinned-tab.svg` and `site.webmanifest`. Do not copy favicons from prior brands or protected official brand assets unless explicitly approved. The same brand launched for different GEOs must produce visibly different icons through the configured country flag signal.

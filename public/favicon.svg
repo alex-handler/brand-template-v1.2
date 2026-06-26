@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc" data-brand-letter="R">
-  <title id="title">Revolut site icon</title>
-  <desc id="desc">Automatically generated favicon from the first brand letter and the configured visual palette.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc" data-brand-letter="R" data-geo="DE">
+  <title id="title">Revolut DE site icon</title>
+  <desc id="desc">Automatically generated favicon from the first brand letter, target geo flag and configured visual palette.</desc>
   <defs>
+    <clipPath id="geoBadgeClip"><circle cx="398" cy="126" r="54"/></clipPath>
     <linearGradient id="bg" x1="70" y1="36" x2="436" y2="478" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#1467c9"/>
       <stop offset="0.62" stop-color="#071d38"/>
@@ -14,10 +15,12 @@
       <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
     </linearGradient>
   </defs>
+  <g data-geo-flag="DE" opacity="0.55"><rect x="0" y="0" width="512" height="170.66666666666666" fill="#000000"/><rect x="0" y="170.66666666666666" width="512" height="170.66666666666666" fill="#dd0000"/><rect x="0" y="341.3333333333333" width="512" height="170.66666666666669" fill="#ffce00"/></g>
   <rect width="512" height="512" rx="126" fill="url(#bg)"/>
+  <path d="M0 388h512v124H0z" fill="#071d38" opacity=".58"/>
+  <g opacity=".86"><rect x="0" y="388" width="512" height="41.333333333333336" fill="#000000"/><rect x="0" y="429.3333333333333" width="512" height="41.333333333333336" fill="#dd0000"/><rect x="0" y="470.6666666666667" width="512" height="41.33333333333333" fill="#ffce00"/></g>
   <path d="M73 397 391 79c18 13 35 29 49 47L123 443a221 221 0 0 1-50-46Z" fill="url(#shine)"/>
-  <circle cx="398" cy="126" r="54" fill="#ffd425" opacity=".95"/>
-  <circle cx="398" cy="126" r="29" fill="#071d38" opacity=".15"/>
+  <circle cx="398" cy="126" r="62" fill="#ffffff" opacity=".96"/><g clip-path="url(#geoBadgeClip)"><rect x="344" y="72" width="108" height="36" fill="#000000"/><rect x="344" y="108" width="108" height="36" fill="#dd0000"/><rect x="344" y="144" width="108" height="36" fill="#ffce00"/></g><circle cx="398" cy="126" r="54" fill="none" stroke="#ffffff" stroke-width="8"/><circle cx="398" cy="126" r="54" fill="none" stroke="#071d38" stroke-opacity=".22" stroke-width="3"/>
   <text x="256" y="321" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-size="250" font-weight="900" letter-spacing="0" fill="#ffffff">R</text>
   <path d="M136 381h240" stroke="#ffd425" stroke-width="24" stroke-linecap="round"/>
 </svg>

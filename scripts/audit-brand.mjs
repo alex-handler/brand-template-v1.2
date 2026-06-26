@@ -127,6 +127,13 @@ function schemaTypes(html) {
   return [...types];
 }
 
+function normalizeGeo(value) {
+  const raw = String(value || "").trim().toUpperCase();
+  if (!raw) return "GLOBAL";
+  if (raw.includes("-")) return raw.split("-").pop();
+  return raw === "UK" ? "GB" : raw;
+}
+
 function jpegSize(filePath) {
   const buffer = fs.readFileSync(filePath);
   if (buffer[0] !== 0xff || buffer[1] !== 0xd8) return null;
@@ -261,9 +268,33 @@ for (const file of iconFiles) {
   if (!fs.existsSync(path.join(root, "public", file))) globalFailures.push(`missing generated brand icon asset: ${file}`);
 }
 const brandLetter = (site.brandName || site.mainKey || "Brand").trim().match(/\p{L}|\p{N}/u)?.[0]?.toLocaleUpperCase(site.locale || "en") || "B";
+const configuredGeo = normalizeGeo(site.geo || site.locale || "GLOBAL");
 const faviconPath = path.join(root, "public", "favicon.svg");
-if (fs.existsSync(faviconPath) && !fs.readFileSync(faviconPath, "utf8").includes(`data-brand-letter="${brandLetter}"`)) {
-  globalFailures.push("favicon does not use the configured brand initial");
+if (fs.existsSync(faviconPath)) {
+  const favicon = fs.readFileSync(faviconPath, "utf8");
+  if (!favicon.includes(`data-brand-letter="${brandLetter}"`)) globalFailures.push("favicon does not use the configured brand initial");
+  if (!favicon.includes(`data-geo="${configuredGeo}"`)) globalFailures.push("favicon does not use the configured geo");
+  if (!favicon.includes(`data-geo-flag="${configuredGeo}"`)) globalFailures.push("favicon does not include the configured geo flag");
+}
+const appleTouchPath = path.join(root, "public", "apple-touch-icon.svg");
+if (fs.existsSync(appleTouchPath)) {
+  const appleTouch = fs.readFileSync(appleTouchPath, "utf8");
+  if (!appleTouch.includes(`data-brand-letter="${brandLetter}"`)) globalFailures.push("apple touch icon does not use the configured brand initial");
+  if (!appleTouch.includes(`data-geo="${configuredGeo}"`)) globalFailures.push("apple touch icon does not use the configured geo");
+  if (!appleTouch.includes(`data-geo-flag="${configuredGeo}"`)) globalFailures.push("apple touch icon does not include the configured geo flag");
+}
+const maskablePath = path.join(root, "public", "maskable-icon.svg");
+if (fs.existsSync(maskablePath)) {
+  const maskable = fs.readFileSync(maskablePath, "utf8");
+  if (!maskable.includes(`data-brand-letter="${brandLetter}"`)) globalFailures.push("maskable icon does not use the configured brand initial");
+  if (!maskable.includes(`data-geo="${configuredGeo}"`)) globalFailures.push("maskable icon does not use the configured geo");
+  if (!maskable.includes(`data-geo-flag="${configuredGeo}"`)) globalFailures.push("maskable icon does not include the configured geo flag");
+}
+const pinnedTabPath = path.join(root, "public", "safari-pinned-tab.svg");
+if (fs.existsSync(pinnedTabPath)) {
+  const pinnedTab = fs.readFileSync(pinnedTabPath, "utf8");
+  if (!pinnedTab.includes(`data-brand-letter="${brandLetter}"`)) globalFailures.push("pinned tab icon does not use the configured brand initial");
+  if (!pinnedTab.includes(`data-geo="${configuredGeo}"`)) globalFailures.push("pinned tab icon does not use the configured geo");
 }
 const manifestPath = path.join(root, "public", "site.webmanifest");
 if (fs.existsSync(manifestPath)) {
@@ -272,6 +303,7 @@ if (fs.existsSync(manifestPath)) {
   if (!icons.some((icon) => icon.src === "/favicon.svg" && icon.purpose === "any")) globalFailures.push("manifest missing regular any-purpose favicon");
   if (!icons.some((icon) => icon.src === "/maskable-icon.svg" && icon.purpose === "maskable")) globalFailures.push("manifest missing maskable icon");
   if (manifest.theme_color !== (site.visualStyle?.primaryColor || "#071d38")) globalFailures.push("manifest theme_color does not match visual style");
+  if (!String(manifest.description || "").includes(configuredGeo)) globalFailures.push("manifest description does not include configured geo");
 }
 
 const slotDir = path.join(root, "public", "assets", "slots");

@@ -33,7 +33,7 @@ Every commercial page must pass before preview approval.
 - Avoid duplicated title/meta patterns between page types.
 - Avoid identical alt/title text for multiple images.
 - Keep visual palette and section rhythm configurable per brand.
-- Generate the site icon from the first brand letter and the current visual palette, with separate normal and maskable assets so browser tabs and search snippets do not receive an accidental clipped mask.
+- Generate the site icon from the first brand letter, target GEO flag signal, and the current visual palette, with separate normal and maskable assets so browser tabs and search snippets do not receive an accidental clipped mask. Same-brand launches for different GEOs must have visibly different icons.
 - Highlight the numeric bonus or free-spin count in the sticky CTA.
 - Remove technical source labels from visible blocks; users should see categories, games and actions, not extraction/database wording.
 

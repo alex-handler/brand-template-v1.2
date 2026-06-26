@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc" data-brand-letter="R" data-mask-safe-zone="0.18">
-  <title id="title">Revolut site icon maskable</title>
-  <desc id="desc">Mask-safe app icon with the brand mark kept inside the central safe area.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc" data-brand-letter="R" data-geo="DE" data-mask-safe-zone="0.18">
+  <title id="title">Revolut DE site icon maskable</title>
+  <desc id="desc">Mask-safe app icon with the brand mark and geo flag signal kept inside the central safe area.</desc>
   <defs>
+    <clipPath id="geoBadgeClip"><circle cx="382" cy="142" r="35"/></clipPath>
     <linearGradient id="bg" x1="92" y1="92" x2="420" y2="420" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#1467c9"/>
       <stop offset=".72" stop-color="#071d38"/>
       <stop offset="1" stop-color="#071d38"/>
     </linearGradient>
   </defs>
+  <g data-geo-flag="DE" opacity="0.82"><rect x="0" y="0" width="512" height="170.66666666666666" fill="#000000"/><rect x="0" y="170.66666666666666" width="512" height="170.66666666666666" fill="#dd0000"/><rect x="0" y="341.3333333333333" width="512" height="170.66666666666669" fill="#ffce00"/></g>
   <rect width="512" height="512" fill="#071d38"/>
+  <g opacity=".72"><rect x="0" y="0" width="512" height="170.66666666666666" fill="#000000"/><rect x="0" y="170.66666666666666" width="512" height="170.66666666666666" fill="#dd0000"/><rect x="0" y="341.3333333333333" width="512" height="170.66666666666669" fill="#ffce00"/></g>
   <rect x="92" y="92" width="328" height="328" rx="92" fill="url(#bg)"/>
-  <circle cx="382" cy="142" r="35" fill="#ffd425"/>
+  <circle cx="382" cy="142" r="43" fill="#ffffff" opacity=".96"/><g clip-path="url(#geoBadgeClip)"><rect x="347" y="107" width="70" height="23.333333333333332" fill="#000000"/><rect x="347" y="130.33333333333334" width="70" height="23.333333333333332" fill="#dd0000"/><rect x="347" y="153.66666666666666" width="70" height="23.333333333333336" fill="#ffce00"/></g><circle cx="382" cy="142" r="35" fill="none" stroke="#ffffff" stroke-width="8"/><circle cx="382" cy="142" r="35" fill="none" stroke="#071d38" stroke-opacity=".22" stroke-width="3"/>
   <text x="256" y="311" text-anchor="middle" font-family="Arial Black,Arial,Helvetica,sans-serif" font-size="214" font-weight="900" letter-spacing="0" fill="#ffffff">R</text>
   <path d="M159 365h194" stroke="#ffd425" stroke-width="20" stroke-linecap="round"/>
 </svg>
